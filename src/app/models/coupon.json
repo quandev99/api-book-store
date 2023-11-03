@@ -1,0 +1,144 @@
+{
+  "success": true,
+  "isLogin": false,
+  "items": [
+    {
+      "product_id": 312951,
+      "quantity": 2,
+      "is_checked": false,
+      "soon_release": "",
+      "original_price": 135000,
+      "sku": "8935250704472",
+      "type_id": "simple",
+      "weight": 300,
+      "name": "OVERLORD - Tập 2: Chiến Binh Bóng Tối",
+      "image": "https://cdn0.fahasa.com/media/catalog/product//o/v/overlord-2---bia1_1.jpg",
+      "product_url": "https://www.fahasa.com/overlord-tap-2-chien-binh-bong-toi.html",
+      "category_main": "Sách tiếng Việt",
+      "category_mid": "Văn học",
+      "category_3": "Light Novel",
+      "category_4": null,
+      "category_main_id": 4,
+      "category_mid_id": 9,
+      "category_3_id": 5981,
+      "category_4_id": 1,
+      "supplier": "CT01768",
+      "publisher": "NXB Hồng Đức",
+      "evoucher": null,
+      "price": 114750,
+      "options": {},
+      "discount_amount": 20250,
+      "discount_percent": 15,
+      "row_total": 229500,
+      "out_of_stock": false,
+      "message": "",
+      "is_unchecked": false,
+      "has_error": false
+    }
+  ],
+  "totals": [
+    { "code": "subtotal", "title": "Thành tiền", "price": 0 },
+    { "code": "grand_total", "title": "Tổng Số Tiền (gồm VAT)", "price": 0 }
+  ],
+  "can_payment": false,
+
+  "coupon": {
+    "action_id": 1357,
+    "action_type": "salesrule",
+    "title": "MÃ GIẢM 30K - ĐƠN HÀNG TỪ 270K",
+    "is_auto": true,
+    "coupon_code": "FHS1TUW3T10",
+    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 30K\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng từ 270K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Từ Thứ 2 đến Thứ 4 Hằng tuần\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+    "options": [
+      {
+        "option_id": 1387,
+        "option_value": "4157",
+        "option_name": "Rule 4157",
+        "option_qty": null,
+        "active": false,
+        "almost_run_out": true
+      }
+    ],
+    "matched_items": null,
+    "reach_percent": 0,
+    "matched": false,
+    "sub_total": "0 đ",
+    "min_total": "0 đ",
+    "max_total": "270.000 đ",
+    "need_total": "270.000 đ",
+    "error": [],
+    "payment_method": null,
+    "event_type": 1,
+    "almost_run_out": true,
+    "order_index": -13,
+    "event_id": 1324,
+    "applied": false,
+    "page_detail": "sale-thu-3?fhs_campaign=GIO_HANG_GAN_DAT",
+    "title_2": "ÁP DỤNG TỪ THỨ 2 ĐẾN THỨ 4 HẰNG TUẦN"
+  },
+  "payload": {
+    "amount": 0,
+    "product_id": "312951",
+    "name": "OVERLORD - Tập 2: Chiến Binh Bóng Tối",
+    "brand": "CT01768",
+    "quantity": "2",
+    "price": "135000",
+    "final_price": "114750",
+    "currency": "VNĐ",
+    "category_main": "Sách tiếng Việt",
+    "category_mid": "Văn học",
+    "category_3": "Light Novel",
+    "category_4": "null",
+    "image": "https://cdn0.fahasa.com/media/catalog/product//o/v/overlord-2---bia1_1.jpg",
+    "moe_logged_in_status": true,
+    "moe_first_visit": false,
+    "URL": "https://www.fahasa.com/checkout/cart/"
+  },
+  
+  "items": [
+    {
+      "product_id": 312951,
+      "quantity": 2,
+      "is_checked": true,
+      "soon_release": "",
+      "original_price": 135000,
+      "sku": "8935250704472",
+      "type_id": "simple",
+      "weight": 300,
+      "name": "OVERLORD - Tập 2: Chiến Binh Bóng Tối",
+      "image": "https://cdn0.fahasa.com/media/catalog/product//o/v/overlord-2---bia1_1.jpg",
+      "product_url": "https://www.fahasa.com/overlord-tap-2-chien-binh-bong-toi.html",
+      "category_main": "Sách tiếng Việt",
+      "category_mid": "Văn học",
+      "category_3": "Light Novel",
+      "category_4": null,
+      "category_main_id": 4,
+      "category_mid_id": 9,
+      "category_3_id": 5981,
+      "category_4_id": 1,
+      "supplier": "CT01768",
+      "publisher": "NXB Hồng Đức",
+      "evoucher": null,
+      "price": 114750,
+      "options": {},
+      "discount_amount": 20250,
+      "discount_percent": 15,
+      "row_total": 229500,
+      "out_of_stock": false,
+      "message": "",
+      "is_unchecked": false,
+      "has_error": false
+    }
+  ],
+  "totals": [
+    { "code": "subtotal", "title": "Thành tiền", "price": 229500 },
+    {
+      "code": "grand_total",
+      "title": "Tổng Số Tiền (gồm VAT)",
+      "price": 229500
+    }
+  ],
+  "can_payment": true
+}
+
+

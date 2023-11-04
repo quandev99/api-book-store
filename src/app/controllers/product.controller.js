@@ -119,10 +119,10 @@ export const getAllProducts = async (req, res) => {
       ],
     });
     if (!products.docs || products.docs.length === 0) {
-      return res.status(400).json({
+      return res.status(204).json({
         success: false,
         message: "Không tìm thấy cuốn sách nào!",
-        data: products.docs,
+        products: products.docs,
         pagination: {
           currentPage: products.page,
           totalPages: products.totalPages,
@@ -133,7 +133,7 @@ export const getAllProducts = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Lấy danh sách cuốn sách thành công ",
-      data: products.docs,
+      products: products.docs,
       pagination: {
         currentPage: products.page,
         totalPages: products.totalPages,

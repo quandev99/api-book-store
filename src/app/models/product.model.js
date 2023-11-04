@@ -54,6 +54,7 @@ const bookSchema = mongoose.Schema(
       type: String,
       slug: "name",
     },
+    active: { type: Boolean, default: true },
   },
   { timestamps: true, versionKey: false }
 );

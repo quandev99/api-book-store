@@ -74,9 +74,9 @@ export const getAllCategories = async (req, res) => {
     );
 
     if (!mainCategories || mainCategories.length === 0) {
-      return res.status(400).json({
+      return res.status(204).json({
         message: "Không tìm thấy danh mục nào!",
-        data: mainCategories,
+        categories: mainCategories,
         pagination: {
           currentPage: categories.page,
           totalPages: categories.totalPages,
@@ -87,7 +87,7 @@ export const getAllCategories = async (req, res) => {
 
     return res.status(200).json({
       message: "Lấy danh mục thành công",
-      data: mainCategories,
+      categories: mainCategories,
       pagination: {
         currentPage: categories.page,
         totalPages: categories.totalPages,
@@ -321,7 +321,7 @@ export const getAllDeletedCategories = async (req, res) => {
      if (!categories || categories.length === 0) {
        return res.status(203).json({
          message: "Không tìm thấy danh mục nào!",
-         data: categories,
+         categories,
          pagination: {
            currentPage: +_page,
            totalPages: totalPages,
@@ -331,9 +331,9 @@ export const getAllDeletedCategories = async (req, res) => {
      }
     // Tính toán thông tin phân trang
     
-    return  res.status(200).json({
+    return res.status(200).json({
       message: "Lấy danh mục thành công ",
-      data:categories,
+      categories,
       pagination: {
         currentPage: +_page,
         totalPages: totalPages,

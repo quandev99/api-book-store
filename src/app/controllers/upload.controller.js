@@ -48,7 +48,12 @@ export const deleteImage = async (req, res) => {
   const publicId = req.params.publicId;
   try {
     const result = await cloudinary.uploader.destroy(publicId);
-    return res.status(200).json({ message: "Xóa ảnh thành công", result });
+    // Check if the image was successfully deleted
+    if (result.result === "ok") {
+      return res.status(200).json({ message: "Xóa ảnh thành công", result });
+    } else {
+      return res.status(500).json({ error: "Error deleting image" });
+    }
   } catch (error) {
     res.status(500).json({ error: error.message || "Error deleting image" });
   }

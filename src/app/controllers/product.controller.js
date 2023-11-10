@@ -234,48 +234,48 @@ export const getProductById = async (req, res) => {
   }
 };
 
-// export const deletePublisher = async (req, res) => {
-//   const { id } = req.params;
-//   try {
-//     const publisher = await ProductModel.findById(id);
-//     if (!publisher)
-//       return res.status(400).json({
-//         success: false,
-//         message: "Nhà xuất bản đã không tồn tại!",
-//       });
-//     await publisher.delete();
-//     return res
-//       .status(200)
-//       .json({ publisher, message: "Xóa mềm nhà xuất bản thành công!" });
-//   } catch (error) {
-//     return res.status(500).json({
-//       success: false,
-//       message: "Publisher error server: " + error.message,
-//     });
-//   }
-// };
+export const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const product = await ProductModel.findById(id);
+    if (!product)
+      return res.status(400).json({
+        success: false,
+        message: "Cuốn sách không tồn tại!",
+      });
+    await product.delete();
+    return res
+      .status(200)
+      .json({ product, message: "Xóa mềm cuốn sách thành công!" });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Books error server: " + error.message,
+    });
+  }
+};
 
-// export const restorePublisher = async (req, res) => {
+// export const restoreProduct = async (req, res) => {
 //   try {
 //     const _id = req.params.id;
-//     const publisher = await ProductModel.findOneDeleted({ _id });
+//     const product = await ProductModel.findOneDeleted({ _id });
 
-//     if (!publisher) {
+//     if (!product) {
 //       return res.status(404).json({
 //         success: false,
 //         message: "Không tìm thấy nhà xuất bản!",
 //       });
 //     }
 
-//     await publisher.restore();
+//     await product.restore();
 //     return res.status(200).json({
-//       publisher,
+//       product,
 //       message: "Khôi phục nhà xuất bản thành công!",
 //     });
 //   } catch (error) {
 //     return res.status(500).json({
 //       success: false,
-//       message: "Publisher error server: " + error.message,
+//       message: "Product error server: " + error.message,
 //     });
 //   }
 // };

@@ -19,7 +19,8 @@ const supplierSchema = mongoose.Schema(
   },
   { timestamps: true, versionKey: false }
 );
-supplierSchema.plugin(mongoosePaginate);supplierSchema.plugin(mongooseDelete, {
+supplierSchema.plugin(mongoosePaginate);
+supplierSchema.plugin(mongooseDelete, {
   deleteAt: true,
   overrideMethods: "all",
 });

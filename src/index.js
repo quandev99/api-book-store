@@ -2,6 +2,7 @@ import express from 'express';
 import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import helmet from "helmet";
 import bodyParser from "body-parser";
 import compression from "compression";
 import connectMongoose from "./config/db";
@@ -12,6 +13,8 @@ const app = express();
 
 // middleware
 // Sử dụng middleware body-parser để xử lý dữ liệu POST
+// Use Helmet!
+app.use(helmet());
 app.use(bodyParser.json()); // Xử lý dữ liệu JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());

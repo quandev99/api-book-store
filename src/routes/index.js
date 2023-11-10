@@ -7,7 +7,7 @@ import supplier from "./supplier.route";
 import publisher from "./publisher.route";
 import category from "./category.route";
 import product from "./product.route";
-import auth from "./author.route";
+import auth from "./auth.route";
 import user from "./user.route";
 import cart from "./cart.route";
 
@@ -21,6 +21,7 @@ const appRouters = [
   genre,
   category,
   product,
+  auth,
 ];
 appRouters.forEach((route) => router.use(route));
 

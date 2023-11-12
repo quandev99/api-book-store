@@ -12,8 +12,8 @@ import mongooseDelete from "mongoose-delete";
 const keysTokenSchema = mongoose.Schema(
   {
     user: {
-      type:mongoose.Types.ObjectId,
-      ref:"User"
+      type: mongoose.Types.ObjectId,
+      ref: "User",
     },
     publicKey: {
       type: String,
@@ -23,9 +23,13 @@ const keysTokenSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    refreshToken: {
+    refreshTokensUsed: {
       type: Array,
-      default: []
+      default: [],// token đã sử dụng
+    },
+    refreshToken: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true, versionKey: false }

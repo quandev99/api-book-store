@@ -25,6 +25,7 @@ const appRouters = [
   genre,
   category,
   product,
+  cart,
   auth,
 ];
 appRouters.forEach((route) => router.use(route));

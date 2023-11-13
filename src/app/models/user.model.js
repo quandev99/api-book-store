@@ -36,6 +36,11 @@ const userSchema = mongoose.Schema(
       enum: [0, 1],
       default: 1,
     },
+    cart_id: {
+      type: mongoose.Types.ObjectId,
+      ref: "Cart",
+      default:null
+    },
   },
   { timestamps: true, versionKey: false }
 );

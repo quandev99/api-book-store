@@ -7,7 +7,10 @@ import dotenv from "dotenv";
 import { getInfoData } from "../../until/getInfo";
 import { KeyTokenService } from "../../services/keyToken.service";
 import { CREATED, OK, SuccessResponse } from "../../core/success.reponse";
-import { AuthFailureError, BAD_REQUEST, ConflictResponse } from "../../core/errors.response";
+import { AuthFailureError, BAD_REQUEST, ConflictResponse, ForBiddenError } from "../../core/errors.response";
+import { verifyJWT } from "../auth/authUtils";
+import { findByAuth } from "../../services/author.service";
+import keyTokenModel from "../models/keyToken.model";
 dotenv.config();
 
 
@@ -120,4 +123,66 @@ export const logout = async (req, res) => {
         message: error.message,
       });
   }
+}
+
+export const handlerRefreshToken = async (req, res) => {
+    try {
+      const refreshToken = req.body.refreshToken;
+      
+      const foundToken = await KeyTokenService.findByRefreshTokensUsed(
+        refreshToken
+      );
+      if (foundToken) {
+        const { userId, email } = await verifyJWT(refreshToken, foundToken.privateKey);
+        console.log("foundToken --1:", { userId, email });
+        const resultDel = await KeyTokenService.deleteKeyById(userId);
+        if (resultDel.deletedCount === 0) throw new Error(`Error deleting key`);
+        throw new ForBiddenError(
+            "Something went wrong with the refresh token !!  Please try logging in again later"
+        );
+      }
+      const holderToken = await KeyTokenService.findByRefreshToken(
+        refreshToken
+      );
+
+      if (!holderToken) throw new AuthFailureError("User not registered 1!");
+      
+      const { userId, email } = await verifyJWT(refreshToken, holderToken?.privateKey);
+      console.log("foundToken --2:", { userId, email });
+ 
+      const foundAuth = await findByAuth({email});
+
+      if (!foundAuth) throw new AuthFailureError("User not registered 2!");
+
+      // Tạo Token 1 cặp token mới
+      const tokens = await createTokenPair(
+        {
+          userId: foundAuth?._id,
+          email,
+        },
+        holderToken.publicKey,
+        holderToken.privateKey
+      );
+    const keyUpdate =  await KeyTokenService.findOneAndUpdate(
+      { refreshToken: refreshToken },
+      {
+        $set: {
+          refreshToken: tokens?.refreshToken,
+        },
+        $addToSet: {
+          refreshTokensUsed: refreshToken,
+        },
+      },
+      { new: true } 
+    );
+
+      return new SuccessResponse({
+        message: "RefreshToken thành công",
+        metaData: keyUpdate,
+      }).send(res);
+    } catch (error) {
+      return res.status(+error.status).json({
+        message: error.message,
+      });
+    }
 }

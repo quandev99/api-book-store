@@ -29,3 +29,8 @@ export const authentication = asyncHandler( async (req, res, next) => {
     });
   }
 });
+
+
+export const verifyJWT = async (token,keySecret) => {
+  return  await jwt.verify(token,keySecret)
+}

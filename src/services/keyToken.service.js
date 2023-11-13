@@ -13,7 +13,7 @@ export class KeyTokenService {
           user: userId,
         },
         update = {
-          user:userId,
+          user: userId,
           publicKey,
           privateKey,
           refreshTokensUsed: [],
@@ -32,12 +32,37 @@ export class KeyTokenService {
     } catch (error) {
       return error.message;
     }
-  }
-  static  findByUserId = async ({userId})=>{
-    return await keyTokenModel.findOne({ user:new Types.ObjectId(userId) }).lean();
-  }
-  static  removeKeyById = async (_id)=>{
+  };
+  static findByUserId = async ({ userId }) => {
+    return await keyTokenModel
+      .findOne({ user: new Types.ObjectId(userId) })
+      .lean();
+  };
+  static removeKeyById = async (_id) => {
     return await keyTokenModel.deleteOne(new Types.ObjectId(_id));
+  };
+  static findByRefreshTokensUsed = async (refreshToken) => {
+    return await keyTokenModel
+      .findOne({ refreshTokensUsed: refreshToken })
+      .lean();
+  };
+  static findByRefreshToken = async (refreshToken) => {
+    return await keyTokenModel.findOne({ refreshToken });
+  };
+  static deleteKeyById = async (userId) => {
+     return await keyTokenModel.deleteOne({ user: new Types.ObjectId(userId) });
+  };
+  static async findOneAndUpdate(query, update, options) {
+    try {
+      const result = await keyTokenModel.findOneAndUpdate(
+        query,
+        update,
+        options
+      );
+      return result;
+    } catch (error) {
+      throw new Error(`Error updating key token: ${error.message}`);
+    }
   }
 }
 

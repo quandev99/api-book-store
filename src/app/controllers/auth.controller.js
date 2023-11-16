@@ -1,6 +1,5 @@
 import UserModel from "../models/user.model";
 import bcrypt from "bcryptjs";
-import jwt, { sign } from "jsonwebtoken";
 import crypto from "crypto"; 
 import { createTokenPair } from "../../until/jwtService";
 import dotenv from "dotenv";
@@ -10,7 +9,6 @@ import { CREATED, OK, SuccessResponse } from "../../core/success.reponse";
 import { AuthFailureError, BAD_REQUEST, ConflictResponse, ForBiddenError } from "../../core/errors.response";
 import { verifyJWT } from "../auth/authUtils";
 import { findByAuth } from "../../services/author.service";
-import keyTokenModel from "../models/keyToken.model";
 dotenv.config();
 
 
@@ -44,6 +42,7 @@ export const register = async (req, res) => {
         {
           userId: user?._id,
           email,
+          role: 1,
         },
         publicKey,
         privateKey
@@ -82,6 +81,7 @@ export const login = async (req,res)=>{
       {
         userId,
         email,
+        role: userExist.role,
       },
       publicKey,
       privateKey

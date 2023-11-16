@@ -3,7 +3,6 @@ import cloudinary from "../../config/cloudinary/cloudinary";
 // Xử lý việc tải lên tệp
 export const uploadImage = async (req, res) => {
   try {
-    // Kiểm tra xem đã tải lên tệp chưa
     if (!req.file) {
       return res.status(400).json({ message: "No file uploaded" });
     }
@@ -12,7 +11,7 @@ export const uploadImage = async (req, res) => {
     const result = await cloudinary.uploader.upload(req.file.path);
     const { public_id, secure_url } = result;
     // Trả về cả public_id và secure_url
-   return  res.json({ publicId: public_id, url: secure_url });
+    return res.status(201).json({ publicId: public_id, url: secure_url });
   } catch (error) {
    return res
      .status(500)
@@ -38,7 +37,7 @@ export const uploadImages = async (req, res) => {
       url: result.secure_url,
       publicId: result.public_id,
     }));
-    return res.json({ urls: uploadedFiles });
+    return res.status(201).json({ urls: uploadedFiles });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

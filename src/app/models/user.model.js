@@ -26,6 +26,13 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    image: {
+      type: Object,
+      default: {
+        publicId: "ldvnzziuxspcy7rky8jp",
+        url: "https://res.cloudinary.com/dboibmxrw/image/upload/v1697893125/ldvnzziuxspcy7rky8jp.jpg",
+      },
+    },
     active: { type: Boolean, default: true },
     verify: {
       type: Boolean,
@@ -39,7 +46,7 @@ const userSchema = mongoose.Schema(
     cart_id: {
       type: mongoose.Types.ObjectId,
       ref: "Cart",
-      default:null
+      default: null,
     },
   },
   { timestamps: true, versionKey: false }

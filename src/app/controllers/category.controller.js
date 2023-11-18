@@ -69,9 +69,7 @@ export const getAllCategories = async (req, res) => {
     });
 
     // Filter out subcategories from the result
-    const mainCategories = categories.docs.filter(
-      (category) => !category.parent
-    );
+    const mainCategories = categories.docs
 
     if (!mainCategories || mainCategories.length === 0) {
       return res.status(204).json({

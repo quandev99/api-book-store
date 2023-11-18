@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
     // const token = token.split(" ")[1];
     jwt.verify(
       token,
-      "3543440fd88a6c479f6d950403ee4c0c03567c2a89f1b3aa8f85dbe902b99f9532d89ddf1ad7759afcf73b64a2ee1dcf0c0995dd7b01257e53004cde1255cd01",
+      "2e55c7e40f5ebf68843fa3704d843ea3964160ee4c4e53471d5dc82cd502939bec178862d7df4362b70a88f938aeef4fa6942e1c06950f7e4d31c9d3a62f648a",
       (err, decoded) => {
         if (err) {
           return res.status(403).json("Token is not valid");

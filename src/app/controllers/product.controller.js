@@ -71,12 +71,14 @@ export const getAllProducts = async (req, res) => {
     _limit = 10,
     _sort = "createdAt",
     _order = "asc",
-    _expand,
-    category_id,
-    supplier_id,
-    publisher_id,
-    author_id,
-    genre_id,
+    _search,
+    _category_id,
+    _supplier_id,
+    _publisher_id,
+    _author_id,
+    _genre_id,
+    _minPrice,
+    _maxPrice,
   } = req.query;
   const option = {
     page: _page,
@@ -86,26 +88,37 @@ export const getAllProducts = async (req, res) => {
     },
   };
   let query = {};
-  if (_expand) {
-    query.name = _expand || "";
+  if (_search) {
+    query.$and = [];
+        query.$and.push({
+          name: { $regex: _search, $options: "i" },
+        });
   }
- if (category_id) {
-   query.category_id = category_id;
+ if (_category_id) {
+   query.category_id = _category_id;
  }
 
- if (supplier_id) {
-   query.supplier_id = supplier_id;
+ if (_supplier_id) {
+   query.supplier_id = _supplier_id;
+ }
+ 
+   if (_publisher_id) {
+     query.publisher_id = _publisher_id;
+   }
+
+ if (_author_id) {
+   query.author_id = _author_id;
+ }
+ if (_genre_id) {
+   query.genre_id = _genre_id;
  }
 
- if (publisher_id) {
-   query.publisher_id = publisher_id;
- }
-
- if (author_id) {
-   query.author_id = author_id;
- }
- if (genre_id) {
-   query.genre_id = genre_id;
+ if (_minPrice && _maxPrice) {
+   query.price = { $gte: _minPrice, $lte: _maxPrice };
+ } else if (_minPrice) {
+   query.price = { $gte: _minPrice };
+ } else if (_maxPrice) {
+   query.price = { $lte: _maxPrice };
  }
   try {
     const products = await ProductModel.paginate(query, {
@@ -119,7 +132,7 @@ export const getAllProducts = async (req, res) => {
       ],
     });
     if (!products.docs || products.docs.length === 0) {
-      return res.status(204).json({
+      return res.status(300).json({
         success: false,
         message: "Không tìm thấy cuốn sách nào!",
         products: products.docs,
@@ -129,17 +142,18 @@ export const getAllProducts = async (req, res) => {
           totalItems: products.totalDocs,
         },
       });
+    }else{
+      return res.status(200).json({
+         success: true,
+         message: "Lấy danh sách cuốn sách thành công ",
+         products: products.docs,
+         pagination: {
+           currentPage: products.page,
+           totalPages: products.totalPages,
+           totalItems: products.totalDocs,
+         },
+       });
     }
-    res.status(200).json({
-      success: true,
-      message: "Lấy danh sách cuốn sách thành công ",
-      products: products.docs,
-      pagination: {
-        currentPage: products.page,
-        totalPages: products.totalPages,
-        totalItems: products.totalDocs,
-      },
-    });
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -225,6 +239,32 @@ export const getProductById = async (req, res) => {
       success: true,
       message: "Lấy cuốn sách thành công!",
       product,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Product error server: " + error.message,
+    });
+  }
+};
+export const getProductByCategory = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const products = await ProductModel.find({ category_id: id })
+      .populate("author_id", "name")
+      .populate("category_id", "name")
+      .populate("supplier_id", "name")
+      .populate("publisher_id", "name")
+      .populate("genre_id", "name");
+    if (!products)
+      return res.status(400).json({
+        success: false,
+        message: "Cuốn sách đã không tồn tại!",
+      });
+    return res.status(200).json({
+      success: true,
+      message: "Lấy tất cả cuốn sách thành công!",
+      products,
     });
   } catch (error) {
     return res.status(500).json({

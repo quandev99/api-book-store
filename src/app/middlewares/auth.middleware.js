@@ -1,27 +1,27 @@
 import jwt from "jsonwebtoken";
+import { KeyTokenService } from "../../services/keyToken.service";
 const HEADER = {
   API_KEY: "x-api-key",
+  CLIENT_ID: "x-client-id",
   AUTHORIZATION_KEY: "authorization",
 };
 
-const verifyToken = (req, res, next) => {
+const verifyToken =async (req, res, next) => {
   const token = req.headers[HEADER.AUTHORIZATION_KEY];
   if (!token)
   throw new AuthFailureError("Invalid authorization request 2");
+    const keyStore = await KeyTokenService.findByUserId({ userId });
+    if (!keyStore) throw new NotFoundError("Not found key store");
   if (token) {
     // const token = token.split(" ")[1];
-    jwt.verify(
-      token,
-      "2e55c7e40f5ebf68843fa3704d843ea3964160ee4c4e53471d5dc82cd502939bec178862d7df4362b70a88f938aeef4fa6942e1c06950f7e4d31c9d3a62f648a",
-      (err, decoded) => {
-        if (err) {
-          return res.status(403).json("Token is not valid");
-        }
-        var user = JSON.stringify(decoded);
-        req.user = user;
-        next();
+    jwt.verify(token, keyStore.publicKey, (err, decoded) => {
+      if (err) {
+        return res.status(403).json("Token is not valid");
       }
-    );
+      var user = JSON.stringify(decoded);
+      req.user = user;
+      next();
+    });
   } else {
     return res.status(401).json("You're not authenticated");
   }

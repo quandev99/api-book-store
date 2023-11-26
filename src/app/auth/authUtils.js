@@ -18,13 +18,13 @@ export const authentication = asyncHandler( async (req, res, next) => {
     const accessToken = req.headers[HEADER.AUTHORIZATION_KEY];
     if (!accessToken) throw new AuthFailureError("Invalid authorization request 2");
 
-    const decodeUser = jwt.verify(accessToken, keyStore.publicKey);
+    const decodeUser = await verifyJWT(accessToken, keyStore.publicKey);
     if (userId !== decodeUser.userId)
       throw new AuthFailureError("Invalid user");
     req.keyStore = keyStore?._id;
     return next();
   } catch (error) {
-    return res.status(+error.status).json({
+    return res.status(+error.status || 500).json({
       message: error.message,
     });
   }

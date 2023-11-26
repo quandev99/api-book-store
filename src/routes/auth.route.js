@@ -4,11 +4,11 @@ import { authentication } from "../app/auth/authUtils";
 import asyncHandler from "../helpers/asyncHandler";
 const router = express.Router();
 
-router.post("/signup", register);
-router.post("/signin", login);
+router.post("/auths/signup", register);
+router.post("/auths/signin", login);
 
 router.use(authentication);
-router.post("/logout", logout);
-router.post("/refreshToken", handlerRefreshToken);
+router.post("/auths/logout", logout);
+router.post("/auths/refreshToken", handlerRefreshToken);
 
 export default router;

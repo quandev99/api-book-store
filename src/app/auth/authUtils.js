@@ -31,6 +31,17 @@ export const authentication = asyncHandler( async (req, res, next) => {
 });
 
 
-export const verifyJWT = async (token,keySecret) => {
-  return await jwt.verify(token,keySecret)
-}
+export const verifyJWT = async (token, keySecret) => {
+  try {
+    const decoded = await jwt.verify(token, keySecret);
+    return decoded;
+  } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      // Token đã hết hạn, trả về lỗi 401 Unauthorized
+      throw new AuthFailureError("Token has expired");
+    } else {
+      // Các lỗi khác, bạn có thể xử lý tùy thuộc vào yêu cầu của bạn
+      throw new AuthFailureError("Invalid token");
+    }
+  }
+};

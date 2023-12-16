@@ -7,6 +7,10 @@ import {
   uploadImage,
   uploadImages,
 } from "../app/controllers/upload.controller";
+import {
+  verifyToken,
+  verifyTokenMember,
+} from "../app/middlewares/auth.middleware";
 import cloudinary from "../config/cloudinary/cloudinary";
 const router = express.Router();
 
@@ -21,9 +25,24 @@ const storage = new CloudinaryStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/images/uploads/single", upload.single("images"), uploadImage);
-router.post("/images/uploads", upload.array("images", 10), uploadImages);
-router.delete("/images/:publicId/delete", deleteImage);
-router.put("/images/:publicId", upload.array("images", 10), updateImage);
+router.post(
+  "/images/uploads/single",
+  verifyToken,
+  upload.single("images"),
+  uploadImage
+);
+router.post(
+  "/images/uploads",
+  verifyTokenMember,
+  upload.array("images", 10),
+  uploadImages
+);
+router.delete("/images/:publicId/delete", verifyTokenMember, deleteImage);
+router.put(
+  "/images/:publicId",
+  verifyTokenMember,
+  upload.array("images", 10),
+  updateImage
+);
 
 export default router;

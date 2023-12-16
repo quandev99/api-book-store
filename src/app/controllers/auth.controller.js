@@ -96,7 +96,7 @@ export const login = async (req,res)=>{
        message: "Đăng nhập thành công",
        metaData: {
          user: getInfoData({
-           fileds: ["_id", "name", "email"],
+           fileds: ["_id", "name", "email", "image"],
            object: userExist,
          }),
          tokens,
@@ -128,17 +128,19 @@ export const logout = async (req, res) => {
 export const handlerRefreshToken = async (req, res) => {
     try {
       const refreshToken = req.body.refreshToken;
-      
       const foundToken = await KeyTokenService.findByRefreshTokensUsed(
         refreshToken
       );
       if (foundToken) {
-        const { userId, email } = await verifyJWT(refreshToken, foundToken.privateKey);
+        const { userId, email } = await verifyJWT(
+          refreshToken,
+          foundToken.privateKey
+        );
         console.log("foundToken --1:", { userId, email });
         const resultDel = await KeyTokenService.deleteKeyById(userId);
         if (resultDel.deletedCount === 0) throw new Error(`Error deleting key`);
         throw new ForBiddenError(
-            "Something went wrong with the refresh token !!  Please try logging in again later"
+          "Something went wrong with the refresh token !!  Please try logging in again later"
         );
       }
       const holderToken = await KeyTokenService.findByRefreshToken(
@@ -146,11 +148,14 @@ export const handlerRefreshToken = async (req, res) => {
       );
 
       if (!holderToken) throw new AuthFailureError("User not registered 1!");
-      
-      const { userId, email } = await verifyJWT(refreshToken, holderToken?.privateKey);
+
+      const { userId, email } = await verifyJWT(
+        refreshToken,
+        holderToken?.privateKey
+      );
       console.log("foundToken --2:", { userId, email });
- 
-      const foundAuth = await findByAuth({email});
+
+      const foundAuth = await findByAuth({ email });
 
       if (!foundAuth) throw new AuthFailureError("User not registered 2!");
 
@@ -159,29 +164,38 @@ export const handlerRefreshToken = async (req, res) => {
         {
           userId: foundAuth?._id,
           email,
+          role: foundAuth.role,
         },
         holderToken.publicKey,
         holderToken.privateKey
       );
-    const keyUpdate =  await KeyTokenService.findOneAndUpdate(
-      { refreshToken: refreshToken },
-      {
-        $set: {
-          refreshToken: tokens?.refreshToken,
+      const keyUpdate = await KeyTokenService.findOneAndUpdate(
+        { refreshToken: refreshToken },
+        {
+          $set: {
+            refreshToken: tokens?.refreshToken,
+          },
+          $addToSet: {
+            refreshTokensUsed: refreshToken,
+          },
         },
-        $addToSet: {
-          refreshTokensUsed: refreshToken,
-        },
-      },
-      { new: true } 
-    );
+        { new: true }
+      );
+      // Remove _doc property from keyUpdate
+      const { _doc, ...keyUpdateWithoutDoc } = keyUpdate.toObject();
+
+      // Add accessToken to metaData
+      const metaDataWithAccessToken = {
+        ...keyUpdateWithoutDoc,
+        accessToken: tokens?.accessToken,
+      };
 
       return new SuccessResponse({
         message: "RefreshToken thành công",
-        metaData: keyUpdate,
+        metaData: metaDataWithAccessToken,
       }).send(res);
     } catch (error) {
-      return res.status(+error.status).json({
+      return res.status(+error.status || 500).json({
         message: error.message,
       });
     }

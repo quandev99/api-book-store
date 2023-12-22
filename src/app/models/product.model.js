@@ -54,6 +54,7 @@ const bookSchema = mongoose.Schema(
       type: String,
       slug: "name",
     },
+    out_of_stock: { type: Boolean, default: false },
     active: { type: Boolean, default: true },
   },
   { timestamps: true, versionKey: false }

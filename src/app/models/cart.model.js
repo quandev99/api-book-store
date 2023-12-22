@@ -18,19 +18,36 @@ const cartSchema = new mongoose.Schema(
           type: Number,
           default: 1,
         },
+        product_name: {
+          type: String,
+        },
+        product_image: {
+          type: String,
+        },
         quantity: {
           type: Number,
           default: 1,
         },
+        is_checked: {
+          type: Boolean,
+          default: false,
+        },
       },
     ],
-    cart_totalPrice: {
-      type: Number,
-      default: 0,
-    },
-    cart_totalOrder: {
-      type: Number,
-      default: 0,
+    totals: {
+      type: Array,
+      default: [
+        {
+          code: "subtotal",
+          title: "Thành tiền",
+          price: 0,
+        },
+        {
+          code: "grand_total",
+          title: "Tổng Số Tiền (gồm VAT)",
+          price: 0,
+        },
+      ],
     },
   },
   { timestamps: true, versionKey: false }

@@ -42,7 +42,7 @@ export const register = async (req, res) => {
         {
           userId: user?._id,
           email,
-          role: 1,
+          role:2,
         },
         publicKey,
         privateKey

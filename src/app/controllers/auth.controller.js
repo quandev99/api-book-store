@@ -1,6 +1,6 @@
 import UserModel from "../models/user.model";
 import bcrypt from "bcryptjs";
-import crypto from "node:crypto"; 
+import crypto from "crypto"; 
 import { createTokenPair } from "../../until/jwtService";
 import dotenv from "dotenv";
 import { getInfoData } from "../../until/getInfo";

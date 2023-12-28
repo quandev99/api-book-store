@@ -54,6 +54,8 @@ export const addToCart = async (req, res) => {
         .status(404)
         .json({ message: "Tài khoản hoặc sản phẩm không tồn tại!" });
     }
+    if (product?.quantity <= 0 || product?.out_of_stock)
+      return res.status(402).json({ message: "Sản phẩm đã hết " });
     const { _id: user_id } = user;
     let cart = await cartModel.findOne({ user_id });
     if (!cart) {
@@ -255,9 +257,9 @@ export const updateCartItem = async (req, res) => {
     if (newQuantity > product?.quantity)
       return res
         .status(402)
-        .json({ message: "Sản phẩm đặt hàng vượt quá số lượng kho" });
+        .json({ message: `Số sản phẩm bạn đặt hàng ${newQuantity} không đủ trong kho ` });
 
-    existingItem.quantity = +newQuantity;
+    existingItem.quantity = +newQuantity !== 0 ? newQuantity : 1;
     // Lưu giỏ hàng đã được cập nhật
     await cart.save();
 

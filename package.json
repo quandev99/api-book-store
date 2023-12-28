@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "author": "nguyenvietquan",
   "license": "ISC",
@@ -34,5 +35,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.9.0"
+  },
+  "engines": {
+    "node": ">14.17.5"
   }
 }

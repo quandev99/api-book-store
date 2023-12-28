@@ -2,7 +2,7 @@ import UserModel from "../models/user.model";
 
 import dotenv from "dotenv";
 import { KeyTokenService } from "../../services/keyToken.service";
-import { CREATED, OK, SuccessResponse } from "../../core/success.reponse";
+import { CREATED, OK, SuccessResponse } from "../../core/success.response";
 import {
   AuthFailureError,
   BAD_REQUEST,

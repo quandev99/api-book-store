@@ -1,11 +1,11 @@
 import UserModel from "../models/user.model";
 import bcrypt from "bcryptjs";
-import crypto from "crypto"; 
+const crypto = await import('node:crypto');
 import { createTokenPair } from "../../until/jwtService";
 import dotenv from "dotenv";
 import { getInfoData } from "../../until/getInfo";
 import { KeyTokenService } from "../../services/keyToken.service";
-import { CREATED, OK, SuccessResponse } from "../../core/success.reponse";
+import { CREATED, OK, SuccessResponse } from "../../core/success.response";
 import { AuthFailureError, BAD_REQUEST, ConflictResponse, ForBiddenError } from "../../core/errors.response";
 import { verifyJWT } from "../auth/authUtils";
 import { findByAuth } from "../../services/author.service";

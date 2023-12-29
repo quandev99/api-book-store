@@ -51,7 +51,7 @@ export const getCartByUserChecked = async (req, res) => {
     const [user, cart] = await Promise.all([
       userModel.findById(id).lean(),
       cartModel
-        .findOne({ user_id: id, is_checked: true })
+        .findOne({ user_id: id, "products.is_checked": true })
         .populate({
           path: "products",
           populate: [

@@ -1,5 +1,5 @@
 import express from "express";
-import { addCheckedAllProduct, addCheckedProduct, addToCart, decreaseQuantity, deleAllCartItem, getCartByUser, increaseQuantity, removeCartItem, updateCartItem } from "../app/controllers/cart.controller";
+import { addCheckedAllProduct, addCheckedProduct, addToCart, decreaseQuantity, deleAllCartItem, getCartByUser, getCartByUserChecked,  increaseQuantity, removeCartItem, updateCartItem } from "../app/controllers/cart.controller";
 import {
   verifyToken,
 } from "../app/middlewares/auth.middleware";
@@ -13,6 +13,11 @@ router.post("/carts/increase", verifyToken, increaseQuantity);
 router.post("/carts/decrease", verifyToken, decreaseQuantity);
 router.post("/carts/deleteAllCart", verifyToken, deleAllCartItem);
 router.get("/carts/getCartByUser/:id", verifyToken, getCartByUser);
+router.get(
+  "/carts/getCartByUserChecked/:id",
+  verifyToken,
+  getCartByUserChecked
+);
 router.patch("/carts/update", verifyToken,  updateCartItem);
 
 export default router;

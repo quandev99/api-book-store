@@ -44,6 +44,48 @@ export const getCartByUser = async (req, res) => {
     return res.status(500).json({ message: "Error server: " + error.message });
   }
 };
+export const getCartByUserChecked = async (req, res) => {
+  const { id } = req.params;
+  try {
+    // Fetch user and cart data in parallel
+    const [user, cart] = await Promise.all([
+      userModel.findById(id).lean(),
+      cartModel
+        .findOne({ user_id: id, is_checked: true })
+        .populate({
+          path: "products",
+          populate: [
+            {
+              path: "product_id",
+              select: "name image category_id price quantity",
+            },
+          ],
+        })
+        .lean(),
+    ]);
+
+    // Return 404 if the user is not found
+    if (!user) {
+      return res.status(404).json({ message: "Tài khoản không tồn tại!" });
+    }
+
+    // Check if the cart exists
+    if (!cart) {
+      return res.status(404).json({
+        message: "Danh sách giỏ hàng không tồn tại!",
+        cart: [],
+      });
+    }
+
+    // Return the cart data
+    return res.status(200).json({
+      message: "Danh sách giỏ hàng theo tài khoản!",
+      cart,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Error server: " + error.message });
+  }
+};
 export const addToCart = async (req, res) => {
   const { userId, productId, quantity = 1 } = req.body
   try {

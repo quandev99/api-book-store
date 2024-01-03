@@ -51,7 +51,7 @@ export const getCartByUserChecked = async (req, res) => {
     const [user, cart] = await Promise.all([
       userModel.findById(id).lean(),
       cartModel
-        .findOne({ user_id: id, "products.is_checked": true })
+        .findOne({ user_id: id })
         .populate({
           path: "products",
           populate: [
@@ -76,11 +76,15 @@ export const getCartByUserChecked = async (req, res) => {
         cart: [],
       });
     }
-
+    const result = await cart?.products?.filter((item) => item.is_checked === true)
+    const data = {
+      products: result,
+      totals: cart?.totals,
+    };
     // Return the cart data
     return res.status(200).json({
       message: "Danh sách giỏ hàng theo tài khoản!",
-      cart,
+      cart: data,
     });
   } catch (error) {
     return res.status(500).json({ message: "Error server: " + error.message });

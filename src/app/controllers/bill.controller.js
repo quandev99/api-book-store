@@ -5,16 +5,17 @@ import billDetailModel from "../models/billDetail.model";
 import billModel from "../models/bill.model";
 
 export const addBill = async (req, res) => {
-
-  const {
-    user_id,
-    bill_shipping_Address,
-    bill_phoneNumber,
-    bill_note,
-    payment_method = "CashPayment",
-  } = req.body;
   try {
-    const user = await userModel.findOne({ _id: user_id });
+    
+      const {
+        user_id,
+        bill_userName,
+        bill_shippingAddress,
+        bill_phoneNumber,
+        bill_note,
+        payment_method = "CashPayment",
+      } = req.body;
+    const user = await userModel.findById({ _id: user_id });
     if (!user) {
       return res.status(400).json({ message: "Tài khoản không tồn tại!" });
     }
@@ -22,24 +23,25 @@ export const addBill = async (req, res) => {
     if (!cart) {
       return res.status(400).json({ message: "Giỏ hàng không tồn tại!" });
     }
-
+    const cartResult = await cart?.products?.filter(
+      (item) => item.is_checked === true
+    );
     // Tạo hóa đơn (bill) từ thông tin trong cart
     const newBill = new billModel({
       user_id: cart?.user_id,
-      bill_totalPrice: cart?.cart_totalPrice,
-      bill_totalOrder: cart?.cart_totalOrder,
-      bill_phoneNumber: user?.user_phone || bill_phoneNumber,
-      bill_shipping_Address: bill_shipping_Address,
+      bill_totals: cart?.totals,
+      bill_totalOrder: cart?.products?.length || 0,
+      bill_user_name: bill_userName,
+      bill_phoneNumber: bill_phoneNumber,
+      bill_shipping_Address: bill_shippingAddress,
       bill_note,
-      payment_method: payment_method,
+      payment_method,
     });
 
     // Lưu hóa đơn vào cơ sở dữ liệu
     const savedBill = await newBill.save();
-
-    // Tạo danh sách chi tiết hóa đơn từ sản phẩm trong giỏ hàng
     const billDetails = await Promise.all(
-      cart.products.map(async (item) => {
+      cartResult.map(async (item) => {
         const product = await productModel.findById(item.product_id);
         const image = product?.image[0]?.url;
         return new billDetailModel({
@@ -108,7 +110,26 @@ export const getAllBills = async (req, res) => {
     _sort = "createdAt",
     _order = "asc",
     _expand,
+    bill_status="", 
   } = req.query;
+  if (
+  !bill_status === "" ||  bill_status &&
+    ![
+      "Pending",
+      "Processing",
+      "Confirmed",
+      "Delivering",
+      "Delivered",
+      "Abort",
+      "Completed",
+    ].includes(bill_status)
+  ) {
+    return res.status(400).json({
+      success: false,
+      message: "Trạng thái hóa đơn không hợp lệ",
+    });
+  }
+
   const option = {
     page: _page,
     limit: _limit,
@@ -117,16 +138,23 @@ export const getAllBills = async (req, res) => {
     },
   };
   let query = {};
+
+  // Thêm điều kiện trạng thái hóa đơn vào truy vấn
+  if (bill_status) {
+    query.bill_status = bill_status;
+  }
+
   if (_expand) {
     query._id = _expand || "";
   }
+
   try {
     const bills = await billModel.paginate(query, {
       ...option,
       populate: [{ path: "bill_details" }],
     });
     if (!bills.docs || bills.docs.length === 0) {
-      return res.status(404).json({
+      return res.status(200).json({
         success: false,
         message: "Danh sách bill trống!",
         bills: bills.docs,
@@ -137,7 +165,7 @@ export const getAllBills = async (req, res) => {
         },
       });
     }
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "Danh sách tác giả !",
       bills: bills.docs,

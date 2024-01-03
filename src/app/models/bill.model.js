@@ -6,7 +6,6 @@ const billSchema = new mongoose.Schema(
     user_id: {
       type: mongoose.Types.ObjectId,
       ref: "User",
-      required: true,
     },
     bill_details: [
       {
@@ -40,20 +39,21 @@ const billSchema = new mongoose.Schema(
     bill_note: {
       type: String,
     },
-    bill_totalPrice: {
-      type: Number,
-      default: 0,
+    bill_totals: {
+      type: Object,
     },
     bill_totalOrder: {
       type: Number,
       default: 0,
+    },
+    bill_user_name: {
+      type: String,
     },
     bill_shipping_Address: {
       type: String,
     },
     bill_phoneNumber: {
       type: String,
-      required: true,
     },
   },
   { timestamps: true, versionKey: false }

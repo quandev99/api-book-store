@@ -3,10 +3,19 @@ import productModel from "../models/product.model";
 import cartModel from "../models/cart.model";
 import billDetailModel from "../models/billDetail.model";
 import billModel from "../models/bill.model";
+import { generateRandomCode } from "../../until/cryptoUtil";
 
+const dataBillStatus =[
+        "Pending",
+        "Processing",
+        "Confirmed",
+        "Delivering",
+        "Delivered",
+        "Abort",
+        "Completed",
+      ]
 export const addBill = async (req, res) => {
   try {
-    
       const {
         user_id,
         bill_userName,
@@ -29,6 +38,7 @@ export const addBill = async (req, res) => {
     // Tạo hóa đơn (bill) từ thông tin trong cart
     const newBill = new billModel({
       user_id: cart?.user_id,
+      bill_code: generateRandomCode(),
       bill_totals: cart?.totals,
       bill_totalOrder: cart?.products?.length || 0,
       bill_user_name: bill_userName,
@@ -110,19 +120,11 @@ export const getAllBills = async (req, res) => {
     _sort = "createdAt",
     _order = "asc",
     _expand,
-    bill_status="", 
+    _bill_status="", 
   } = req.query;
   if (
-  !bill_status === "" ||  bill_status &&
-    ![
-      "Pending",
-      "Processing",
-      "Confirmed",
-      "Delivering",
-      "Delivered",
-      "Abort",
-      "Completed",
-    ].includes(bill_status)
+    !_bill_status === "" ||
+    (_bill_status && !dataBillStatus.includes(_bill_status))
   ) {
     return res.status(400).json({
       success: false,
@@ -140,8 +142,8 @@ export const getAllBills = async (req, res) => {
   let query = {};
 
   // Thêm điều kiện trạng thái hóa đơn vào truy vấn
-  if (bill_status) {
-    query.bill_status = bill_status;
+  if (_bill_status) {
+    query.bill_status = _bill_status;
   }
 
   if (_expand) {
@@ -179,6 +181,60 @@ export const getAllBills = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: "Publisher error server: " + error.message,
+    });
+  }
+};
+
+export const updateBillStatus = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { newStatus } = req.body;
+    console.log("req.body", req.body);
+    // Kiểm tra trạng thái hóa đơn mới
+    const validStatuses = ["Pending", "Confirmed", "Delivering", "Delivered", "Abort", "Completed"];
+    if (!validStatuses.includes(newStatus)) {
+      return res.status(400).json({
+        success: false,
+        message: "Trạng thái hóa đơn mới không hợp lệ",
+      });
+    }
+
+    // Kiểm tra trạng thái hiện tại của hóa đơn
+    const currentBill = await billModel.findById(id);
+    if (!currentBill) {
+      return res.status(404).json({
+        success: false,
+        message: "Không tìm thấy hóa đơn",
+      });
+    }
+     const dataUser = req?.user;
+     const auth = JSON.parse(dataUser);
+    if (
+      currentBill?.bill_status === "Confirmed" &&
+      newStatus === "Abort" &&
+      auth?.role == 2
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Không thể hủy bỏ hóa đơn đã xác nhận",
+      });
+    }
+    // Cập nhật trạng thái hóa đơn
+    const updatedBill = await billModel.findByIdAndUpdate(
+      id,
+      { bill_status: newStatus },
+      { new: true } // Trả về hóa đơn sau khi đã cập nhật
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Cập nhật trạng thái hóa đơn thành công",
+      updatedBill,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Lỗi khi cập nhật trạng thái hóa đơn: " + error.message,
     });
   }
 };

@@ -39,6 +39,9 @@ const billSchema = new mongoose.Schema(
     bill_note: {
       type: String,
     },
+    bill_code: {
+      type: String,
+    },
     bill_totals: {
       type: Object,
     },

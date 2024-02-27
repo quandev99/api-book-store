@@ -93,13 +93,10 @@ export const addBill = async (req, res) => {
 
 
 export const getBillByUser = async (req, res) => {
-  const { id } = req.params;
+  const {id:_id} = req.params;
   try {
-    const user = await userModel.findById(id);
-    if (!user)
-      return res.status(500).json({ message: "Tài khoản không tồn tại!" });
-    const bill = await billModel.findOne({ user_id: user?._id }).populate({
-      path: "bill_details",
+    const bill = await billModel.findById(_id).populate({
+      path: "bill_details"
     });
     if (!bill)
       return res
@@ -229,7 +226,7 @@ export const updateBillStatus = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Cập nhật trạng thái hóa đơn thành công",
-      updatedBill,
+      bill: updatedBill,
     });
   } catch (error) {
     return res.status(500).json({

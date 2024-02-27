@@ -25,11 +25,11 @@ const keysTokenSchema = mongoose.Schema(
     },
     refreshTokensUsed: {
       type: Array,
-      default: [],// token đã sử dụng
+      default: [], // token đã sử dụng
     },
     refreshToken: {
-      type: String,
-      required: true,
+      type: Array,
+      default: [],
     },
   },
   { timestamps: true, versionKey: false }

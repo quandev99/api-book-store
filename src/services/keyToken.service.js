@@ -16,8 +16,8 @@ export class KeyTokenService {
           user: userId,
           publicKey,
           privateKey,
+          $push: { refreshToken },
           refreshTokensUsed: [],
-          refreshToken,
         },
         option = {
           upsert: true,

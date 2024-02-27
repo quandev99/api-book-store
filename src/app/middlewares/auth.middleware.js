@@ -23,7 +23,7 @@ const verifyToken =async (req, res, next) => {
             // Token has expired
             return res.status(401).json({ message: "Token has expired" });
           } else {
-            // Token is not valid for some other reason
+            // Token is not valid for some other reason (JsonWebTokenError: invalid signature,...)
             return res.status(403).json({ message: "Token is not valid" });
           }
         }

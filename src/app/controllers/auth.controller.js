@@ -5,12 +5,11 @@ import { createTokenPair } from "../../until/jwtService";
 import dotenv from "dotenv";
 import { getInfoData } from "../../until/getInfo";
 import { KeyTokenService } from "../../services/keyToken.service";
-import { CREATED, OK, SuccessResponse } from "../../core/success.response";
+import { CREATED,  SuccessResponse } from "../../core/success.response";
 import { AuthFailureError, BAD_REQUEST, ConflictResponse, ForBiddenError } from "../../core/errors.response";
 import { verifyJWT } from "../auth/authUtils";
 import { findByAuth } from "../../services/author.service";
 dotenv.config();
-
 
 export const register = async (req, res) => {
   const {email,name,password} = req.body
@@ -27,8 +26,8 @@ export const register = async (req, res) => {
       password: hashPassword,
     });
     if(user){
-      const privateKey = crypto.randomBytes(64).toString("hex");
-      const publicKey = crypto.randomBytes(64).toString("hex");
+      const privateKey = process.env.privateKey;
+      const publicKey = process.env.publicKey;
       const keyStore = await KeyTokenService.createKeyToken({
         userId: user?.id,
         publicKey,
@@ -42,7 +41,7 @@ export const register = async (req, res) => {
         {
           userId: user?._id,
           email,
-          role:2,
+          role: 2,
         },
         publicKey,
         privateKey
@@ -73,8 +72,8 @@ export const login = async (req,res)=>{
     if (!match) {
       throw new AuthFailureError("Password không khớp!");
     }
-    const privateKey = crypto.randomBytes(64).toString("hex");
-    const publicKey = crypto.randomBytes(64).toString("hex");
+   const privateKey = process.env.privateKey;
+   const publicKey = process.env.publicKey;
     // Tạo token
     const { _id: userId } = userExist;
     const tokens = await createTokenPair(
@@ -181,13 +180,10 @@ export const handlerRefreshToken = async (req, res) => {
         },
         { new: true }
       );
-      // Remove _doc property from keyUpdate
-      const { _doc, ...keyUpdateWithoutDoc } = keyUpdate.toObject();
-
       // Add accessToken to metaData
       const metaDataWithAccessToken = {
-        ...keyUpdateWithoutDoc,
         accessToken: tokens?.accessToken,
+        refreshToken: tokens?.refreshToken,
       };
 
       return new SuccessResponse({

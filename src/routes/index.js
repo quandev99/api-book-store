@@ -19,6 +19,7 @@ router.use(apiKey);
 router.use(permissions("0000"));
 
 const appRouters = [
+  auth,
   upload,
   author,
   supplier,
@@ -29,7 +30,6 @@ const appRouters = [
   cart,
   bill,
   user,
-  auth,
 ];
 appRouters.forEach((route) => router.use(route));
 

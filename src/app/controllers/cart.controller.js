@@ -6,7 +6,7 @@ export const getCartByUser = async (req, res) => {
   const { id } = req.params;
   try {
     // Fetch user and cart data in parallel
-    const [user, cart] = await Promise.all([
+    const [user, carts] = await Promise.all([
       userModel.findById(id).lean(),
       cartModel
         .findOne({ user_id: id })
@@ -21,24 +21,24 @@ export const getCartByUser = async (req, res) => {
         })
         .lean(),
     ]);
-
+   
     // Return 404 if the user is not found
     if (!user) {
       return res.status(404).json({ message: "Tài khoản không tồn tại!" });
     }
 
-    // Check if the cart exists
-    if (!cart) {
-      return res.status(404).json({
+    // Check if the carts exists
+    if (!carts) {
+      return res.status(300).json({
         message: "Danh sách giỏ hàng không tồn tại!",
-        cart: [],
+        carts: [],
       });
     }
 
-    // Return the cart data
+    // Return the carts data
     return res.status(200).json({
       message: "Danh sách giỏ hàng theo tài khoản!",
-      cart,
+      carts,
     });
   } catch (error) {
     return res.status(500).json({ message: "Error server: " + error.message });

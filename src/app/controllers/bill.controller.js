@@ -93,18 +93,82 @@ export const addBill = async (req, res) => {
 
 
 export const getBillByUser = async (req, res) => {
-  const {id:_id} = req.params;
+  const {
+    _userId,
+    _page = 1,
+    _limit = 10,
+    _sort = "createdAt",
+    _order = "desc",
+    _bill_status = "",
+  } = req.query;
+  console.log("getBillByUser", _userId, _page, _limit, _sort, _order);
+  const option = {
+    page: +_page,
+    limit: +_limit,
+    sort: {
+      [_sort]: _order === "desc" ? 1 : -1,
+    },
+  };
+  if (
+    !_bill_status === "" ||
+    (_bill_status && !dataBillStatus.includes(_bill_status))
+  ) {
+    return res.status(400).json({
+      success: false,
+      message: "Trạng thái hóa đơn không hợp lệ",
+    });
+  }
+  let query = {};
+  // Thêm điều kiện trạng thái hóa đơn vào truy vấn
+  if (_bill_status) {
+    query.bill_status = _bill_status;
+  }
+  query.user_id = _userId;
   try {
-    const bill = await billModel.findById(_id).populate({
-      path: "bill_details"
+    const bills = await billModel.paginate(query, {
+      ...option,
+      populate: {
+        path: "bill_details",
+      },
+    });
+    if (!bills.docs || !bills.docs.length === 0)
+      return res.status(300).json({
+        message: "Danh sách giỏ hàng không tồn tại!",
+        bills: bills.docs,
+        pagination: {
+          currentPage: bills.page,
+          totalPages: bills.totalPages,
+          totalItems: bills.totalDocs,
+        },
+      });
+    return res.status(200).json({
+      message: "Danh sách giỏ hàng theo tài khoản!",
+      bills: bills.docs,
+      pagination: {
+        currentPage: bills.page,
+        totalPages: bills.totalPages,
+        totalItems: bills.totalDocs,
+      },
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Error server: " + error.message });
+  }
+};
+export const getBillById = async (req, res) => {
+  const { orderId } = req.params;
+  try {
+    const bill = await billModel.findById(orderId).populate({
+      path: "bill_details",
     });
     if (!bill)
-      return res
-        .status(300)
-        .json({ message: "Danh sách giỏ hàng không tồn tại!", bill: [] });
-    return res
-      .status(200)
-      .json({ message: "Danh sách giỏ hàng theo tài khoản!", bill });
+      return res.status(300).json({
+        message: "Đơn hàng chi tiết không tồn tại!",
+        bill: [],
+      });
+    return res.status(200).json({
+      message: "Đơn hàng chi tiết theo tài khoản!",
+      bill,
+    });
   } catch (error) {
     return res.status(500).json({ message: "Error server: " + error.message });
   }
@@ -117,7 +181,7 @@ export const getAllBills = async (req, res) => {
     _sort = "createdAt",
     _order = "asc",
     _expand,
-    _bill_status="", 
+    _bill_status = "",
   } = req.query;
   if (
     !_bill_status === "" ||
@@ -130,10 +194,10 @@ export const getAllBills = async (req, res) => {
   }
 
   const option = {
-    page: _page,
-    limit: _limit,
+    page: +_page,
+    limit: +_limit,
     sort: {
-      [_sort]: _order === "desc" ? -1 : 1,
+      [_sort]: _order === "desc" ? 1 : -1,
     },
   };
   let query = {};

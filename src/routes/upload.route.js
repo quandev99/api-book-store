@@ -1,6 +1,6 @@
 import express from "express";
-import multer from "multer";
-import { CloudinaryStorage } from "multer-storage-cloudinary";
+const router = express.Router();
+import { uploadImageCloudinary } from "../app/middlewares/upload.middleware";
 import {
   deleteImage,
   updateImage,
@@ -11,37 +11,23 @@ import {
   verifyToken,
   verifyTokenMember,
 } from "../app/middlewares/auth.middleware";
-import cloudinary from "../config/cloudinary/cloudinary";
-const router = express.Router();
-
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: "book-store",
-    format: "jpg",
-    allowedFormats: ["jpg", "jpeg", "png", "gif"],
-  },
-});
-
-const upload = multer({ storage: storage });
-
 router.post(
-  "/images/uploads/single",
+  "/images/upload",
   verifyToken,
-  upload.single("images"),
+  uploadImageCloudinary.single("image"),
   uploadImage
 );
-router.post(
-  "/images/uploads",
-  verifyTokenMember,
-  upload.array("images", 10),
-  uploadImages
-);
+// router.post(
+//   "/images/uploads",
+//   verifyTokenMember,
+//   uploadImageCloudinary.array("images", 10),
+//   uploadImages
+// );
 router.delete("/images/:publicId/delete", verifyTokenMember, deleteImage);
 router.put(
   "/images/:publicId",
   verifyTokenMember,
-  upload.array("images", 10),
+  uploadImageCloudinary.array("images", 10),
   updateImage
 );
 

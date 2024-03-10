@@ -8,8 +8,8 @@ import {
 } from "../app/middlewares/auth.middleware";
 const router = express.Router();
 
-router.post("/auths/signup", register);
-router.post("/auths/signin", login);
+router.post("/auths/sign-up", register);
+router.post("/auths/sign-in", login);
 
 // router.use(authentication);
 router.post("/auths/logout", logout);

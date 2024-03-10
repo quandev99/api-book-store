@@ -38,6 +38,9 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    phone: {
+      type: String,
+    },
     role: {
       type: Number,
       enum: [0, 1],

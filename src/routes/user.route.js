@@ -4,8 +4,16 @@ import {verifyTokenAndAdminAuth,verifyTokenMember,} from "../app/middlewares/aut
 const router = express.Router();
 
 router.get("/users", verifyTokenMember, getAllUsers);
-router.get("/users/:id/getById", verifyTokenAndAdminAuth, getUserById);
-router.patch("/users/:id/update", verifyTokenAndAdminAuth, updateUser);
+router.get(
+  "/users/:id/getById",
+  verifyTokenMember,
+  getUserById
+);
+router.patch(
+  "/users/:id/update",
+  verifyTokenMember,
+  updateUser
+);
 router.delete("/users/:id/delete", verifyTokenAndAdminAuth, deleteUser);
 router.patch("/users/:id/restore", verifyTokenAndAdminAuth, restoreUser);
 router.delete("/users/:id/force", verifyTokenAndAdminAuth, forceDeleteUser);

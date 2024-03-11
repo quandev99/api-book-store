@@ -1,6 +1,6 @@
 
 import express from "express";
-import { addBill, getAllBills, getBillById, getBillByUser, updateBillStatus } from "../app/controllers/bill.controller";
+import { addBill, cancelBill, getAllBills, getBillById, getBillByUser, updateBillStatus } from "../app/controllers/bill.controller";
 import { verifyToken, verifyTokenAndAdminAuth, verifyTokenMember } from "../app/middlewares/auth.middleware";
 
 const router = express.Router();
@@ -14,6 +14,7 @@ router.get(
   getBillByUser
 );
 router.get("/bills/getBillById/:orderId", verifyTokenMember, getBillById);
+router.patch("/bills/cancelBill/:id", verifyTokenMember, cancelBill);
 router.patch(
   "/bills/updateBillStatus/:id",
   verifyTokenMember,

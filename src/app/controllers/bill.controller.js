@@ -280,6 +280,88 @@ export const updateBillStatus = async (req, res) => {
         message: "Không thể hủy bỏ hóa đơn đã xác nhận",
       });
     }
+    if (
+      currentBill?.bill_status === "Delivering" &&
+      newStatus === "Completed"
+    ) {
+       const updatedBill = await billModel.findByIdAndUpdate(
+         id,
+         { bill_status: newStatus,status:true },
+         { new: true } // Trả về hóa đơn sau khi đã cập nhật
+       );
+      return res.status(200).json({
+        success: true,
+        message: "Đơn hàng đã thanh toán thành công !",
+        bill: updatedBill,
+      });
+    }
+    // Cập nhật trạng thái hóa đơn
+    const updatedBill = await billModel.findByIdAndUpdate(
+      id,
+      { bill_status: newStatus },
+      { new: true } // Trả về hóa đơn sau khi đã cập nhật
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Cập nhật trạng thái hóa đơn thành công",
+      bill: updatedBill,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Lỗi khi cập nhật trạng thái hóa đơn: " + error.message,
+    });
+  }
+};
+export const cancelBill = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { newStatus } = req.body;
+    console.log("req.body", req.body);
+    // Kiểm tra trạng thái hóa đơn mới
+    const validStatuses = [
+      "Confirmed",
+      "Completed",
+      "Abort",
+    ];
+    if (!validStatuses.includes(newStatus)) {
+      return res.status(400).json({
+        success: false,
+        message: "Trạng thái hóa đơn mới không hợp lệ",
+      });
+    }
+
+    // Kiểm tra trạng thái hiện tại của hóa đơn
+    const currentBill = await billModel.findById(id);
+    if (!currentBill) {
+      return res.status(404).json({
+        success: false,
+        message: "Không tìm thấy hóa đơn",
+      });
+    }
+    const dataUser = req?.user;
+    const auth = JSON.parse(dataUser);
+    if (
+      currentBill?.bill_status === "Confirmed" &&
+      newStatus === "Abort" &&
+      auth?.role == 1
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Không thể hủy bỏ hóa đơn đã xác nhận",
+      });
+    }
+    if (
+      currentBill?.bill_status === "Confirmed" &&
+      newStatus === "Abort" &&
+      auth?.role == 1
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Không thể hủy bỏ hóa đơn đã xác nhận",
+      });
+    }
     // Cập nhật trạng thái hóa đơn
     const updatedBill = await billModel.findByIdAndUpdate(
       id,

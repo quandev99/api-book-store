@@ -54,6 +54,8 @@ const bookSchema = mongoose.Schema(
       type: String,
       slug: "name",
     },
+    review_count: { type: Number, default: 0 },
+    average_score: { type: Number, default: 0 },
     out_of_stock: { type: Boolean, default: false },
     active: { type: Boolean, default: true },
   },

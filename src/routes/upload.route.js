@@ -17,12 +17,12 @@ router.post(
   uploadImageCloudinary.single("image"),
   uploadImage
 );
-// router.post(
-//   "/images/uploads",
-//   verifyTokenMember,
-//   uploadImageCloudinary.array("images", 10),
-//   uploadImages
-// );
+router.post(
+  "/images/uploads",
+  verifyTokenMember,
+  uploadImageCloudinary.array("images", 10),
+  uploadImages
+);
 router.delete("/images/:publicId/delete", verifyTokenMember, deleteImage);
 router.put(
   "/images/:publicId",

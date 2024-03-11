@@ -58,6 +58,10 @@ const billSchema = new mongoose.Schema(
     bill_phoneNumber: {
       type: String,
     },
+    isReview: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true, versionKey: false }
 );

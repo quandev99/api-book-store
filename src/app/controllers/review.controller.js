@@ -87,14 +87,13 @@ export const addReview = async (req, res) => {
 
     const reviews = await reviewModel.find({ product_id });
     const totalRating = reviews.reduce(
-      (totalRating, rating_star) => totalRating + rating_star.rating_star,
+      (a, b) => a + b.rating_start,
       0
     );
-
     const reviewCount = reviews.length;
     const averageScore = totalRating / reviewCount;
 
-    product.average_score = Number(Math.round(averageScore));
+    product.average_score = Math.round(averageScore);
     product.review_count = reviewCount;
     await product.save();
 
@@ -110,5 +109,136 @@ export const addReview = async (req, res) => {
     return res.status(500).json({
       message: error.message,
     });
+  }
+};
+
+export const getAllReviews = async (req, res) => {
+  const {
+    _page = 1,
+    _sort = "createdAt",
+    _limit = 10,
+    _order = "asc",
+    _search,
+  } = req.query;
+  const options = {
+    page: _page,
+    sort: { [_sort]: _order === "desc" ? 1 : -1 },
+    limit: _limit,
+  };
+  let query = {};
+  if (_search) {
+    query.$and = [];
+    query.$and.push({
+      user_name: { $regex: _search, $options: "i" },
+    });
+  }
+  try {
+    const reviews = await reviewModel.paginate(query, {
+      ...options,
+      populate: [
+        { path: "user_id", select: "name image.url" },
+        { path: "product_id", select: "name image" },
+      ],
+    });
+
+    if (!reviews || reviews.docs.length === 0) {
+      return res.status(200).json({
+        message: `Chưa có đánh giá cuốn sách này.`,
+        reviews: reviews.docs,
+        pagination: {
+          currentPage: reviews.page,
+          totalPages: reviews.totalPages,
+          totalItems: reviews.totalDocs,
+          limit: reviews.limit,
+        },
+      });
+    }
+    return res.status(200).json({
+      message: `Lấy được danh sách đánh giá sản phẩm thành công`,
+      reviews: reviews.docs,
+      pagination: {
+        currentPage: reviews.page,
+        totalPages: reviews.totalPages,
+        totalItems: reviews.totalDocs,
+        limit: reviews.limit,
+      },
+      success: true,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message || "Lỗi server",
+    });
+  }
+};
+export const getReviewProductId = async (req, res) => {
+  const {
+    _page = 1,
+    _sort = "createdAt",
+    _limit = 1,
+    _order = "asc",
+  } = req.query;
+
+  const options = {
+    page: _page,
+    sort: { [_sort]: _order === "desc" ? 1 : -1 },
+    limit: _limit,
+  };
+  const { productId } = req.params;
+
+  try {
+    const reviews = await reviewModel.paginate(
+      { product_id: productId, active: false },
+      { ...options, populate: [{ path: "user_id" }] }
+    );
+
+    if (!reviews || reviews.docs.length === 0) {
+      return res.status(200).json({
+        message: `Chưa có đánh giá cuốn sách này.`,
+        review: reviews.docs,
+        pagination: {
+          currentPage: reviews.page,
+          totalPages: reviews.totalPages,
+          totalItems: reviews.totalDocs,
+          limit: reviews.limit,
+        },
+      });
+    }
+    return res.status(200).json({
+      message: `Lấy được danh sách đánh giá sản phẩm thành công`,
+      review: reviews.docs,
+      pagination: {
+        currentPage: reviews.page,
+        totalPages: reviews.totalPages,
+        totalItems: reviews.totalDocs,
+        limit: reviews.limit,
+      },
+      success: true,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message || "Lỗi server",
+    });
+  }
+};
+export const hiddenReview = async(req, res) => {
+  const  {reviewId} = req.params;
+  try {
+     // Tìm bình luận dựa trên ID
+    const review = await reviewModel.findById({ _id: reviewId });
+    if (!review) {
+      return res.status(404).json({ message: 'Bình luận không tồn tại' });
+    }
+    // Đảo ngược trạng thái active của bình luận
+    review.active = !review.active;
+
+    // Lưu bình luận đã được cập nhật vào cơ sở dữ liệu
+    await review.save();
+
+    return res
+      .status(200)
+      .json({ message: "Trạng thái bình luận đã được cập nhật", review });
+  
+  } catch (error) {
+    
   }
 };

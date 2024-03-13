@@ -8,7 +8,7 @@ const reviewSchema = new mongoose.Schema(
     },
     product_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Product",
+      ref: "Book",
     },
     bill_id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -27,6 +27,7 @@ const reviewSchema = new mongoose.Schema(
     images: {
       type: Array,
     },
+    active: { type: Boolean, default: false },
   },
   { timestamps: true, versionKey: false }
 );

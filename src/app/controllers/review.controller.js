@@ -127,13 +127,14 @@ export const getAllReviews = async (req, res) => {
   };
   let query = {};
   if (_search) {
-    query.$and = [];
-    query.$and.push({
+    query.$or = [];
+    query.$or.push({
       user_name: { $regex: _search, $options: "i" },
+      comment: { $regex: _search, $options: "i" },
     });
   }
   try {
-    const reviews = await reviewModel.paginate(query, {
+    const reviews = await reviewModel.paginate({...query}, {
       ...options,
       populate: [
         { path: "user_id", select: "name image.url" },
@@ -142,7 +143,7 @@ export const getAllReviews = async (req, res) => {
     });
 
     if (!reviews || reviews.docs.length === 0) {
-      return res.status(200).json({
+      return res.status(300).json({
         message: `Chưa có đánh giá cuốn sách này.`,
         reviews: reviews.docs,
         pagination: {

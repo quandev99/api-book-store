@@ -88,11 +88,13 @@ export const getAllProducts = async (req, res) => {
     },
   };
   let query = {};
+  
   if (_search) {
-    query.$and = [];
-        query.$and.push({
-          name: { $regex: _search, $options: "i" },
-        });
+     query.$or = queryArray;
+     query.$or.push({
+       name: { $regex: _search, $options: "i" }, 
+       "author_id.name": { $regex: _search, $options: "i" }, 
+     });
   }
  if (_category_id) {
    query.category_id = _category_id;

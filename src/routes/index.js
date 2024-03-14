@@ -12,6 +12,7 @@ import user from "./user.route";
 import cart from "./cart.route";
 import bill from "./bill.route";
 import review from "./review.route";
+import favorite from "./favorite.route";
 import { apiKey, permissions } from "../app/auth/checkAuth";
 
 const router = express.Router();
@@ -31,6 +32,7 @@ const appRouters = [
   cart,
   bill,
   review,
+  favorite,
   user,
 ];
 appRouters.forEach((route) => router.use(route));

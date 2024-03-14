@@ -47,6 +47,10 @@ const bookSchema = mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "Publisher",
     },
+    favorite_count: {
+      type: Number,
+      default: 0,
+    },
     publishing_year: {
       type: Number,
     },

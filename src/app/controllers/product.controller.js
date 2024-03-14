@@ -90,7 +90,7 @@ export const getAllProducts = async (req, res) => {
   let query = {};
   
   if (_search) {
-     query.$or = queryArray;
+     query.$or = [];
      query.$or.push({
        name: { $regex: _search, $options: "i" }, 
        "author_id.name": { $regex: _search, $options: "i" }, 

@@ -51,6 +51,11 @@ const userSchema = mongoose.Schema(
       ref: "Cart",
       default: null,
     },
+    favorite_id: {
+      type: mongoose.Types.ObjectId,
+      ref: "Favorite",
+      default: null,
+    },
   },
   { timestamps: true, versionKey: false }
 );

@@ -101,7 +101,6 @@ export const getBillByUser = async (req, res) => {
     _order = "desc",
     _bill_status = "",
   } = req.query;
-  console.log("getBillByUser", _userId, _page, _limit, _sort, _order);
   const option = {
     page: +_page,
     limit: +_limit,

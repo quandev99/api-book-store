@@ -29,7 +29,7 @@ export const getCartByUser = async (req, res) => {
 
     // Check if the carts exists
     if (!carts) {
-      return res.status(300).json({
+      return res.status(200).json({
         message: "Danh sách giỏ hàng không tồn tại!",
         carts: [],
       });

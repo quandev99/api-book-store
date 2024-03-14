@@ -10,7 +10,6 @@ router.get("/bills", verifyTokenMember, getAllBills);
 router.post("/bills/add", verifyTokenMember, addBill);
 router.get(
   "/bills/getBillByUser",
-  verifyToken,
   getBillByUser
 );
 router.get("/bills/getBillById/:orderId", verifyTokenMember, getBillById);

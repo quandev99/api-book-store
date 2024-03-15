@@ -63,7 +63,7 @@ export const getFavoriteProductsByUserId = async (req, res) => {
   try {
     const favorite = await favoriteModel
       .findOne({ user_id })
-      .populate("products","name");
+      .populate("products");
     if (!favorite) {
       return res.status(400).json({
         message: `Không tìm thấy danh sách sản phẩm yêu thích của người dùng có ID ${user_id}`,

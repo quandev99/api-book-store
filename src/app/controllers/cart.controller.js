@@ -4,6 +4,7 @@ import cartModel from '../models/cart.model'
 
 export const getCartByUser = async (req, res) => {
   const { id } = req.params;
+  console.log("id:::::",id);
   try {
     // Fetch user and cart data in parallel
     const [user, carts] = await Promise.all([

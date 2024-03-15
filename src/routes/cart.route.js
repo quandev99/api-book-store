@@ -14,15 +14,15 @@ router.post("/carts/increase", verifyTokenMember, increaseQuantity);
 router.post("/carts/decrease", verifyTokenMember, decreaseQuantity);
 router.post("/carts/deleteAllCart", verifyTokenMember, deleAllCartItem);
 router.get(
-  "/carts/getCartByUser/:id/getCartByUser",
+  "/carts/getCartByUser/:id",
   verifyTokenMember,
   getCartByUser
 );
-router.get(
-  "/carts/getCartByUserChecked/:id",
-  verifyTokenMember,
-  getCartByUserChecked
-);
+// router.get(
+//   "/carts/getCartByUserChecked/:id",
+//   verifyTokenMember,
+//   getCartByUserChecked
+// );
 router.patch("/carts/update", verifyToken,  updateCartItem);
 
 export default router;

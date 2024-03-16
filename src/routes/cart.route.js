@@ -13,16 +13,12 @@ router.patch("/carts/remove", verifyTokenMember, removeCartItem);
 router.post("/carts/increase", verifyTokenMember, increaseQuantity);
 router.post("/carts/decrease", verifyTokenMember, decreaseQuantity);
 router.post("/carts/deleteAllCart", verifyTokenMember, deleAllCartItem);
+router.get("/carts/getCartByUser/:userId", verifyTokenMember, getCartByUser);
 router.get(
-  "/carts/getCartByUser/:id",
+  "/carts/getCartByUserChecked/:id",
   verifyTokenMember,
-  getCartByUser
+  getCartByUserChecked
 );
-// router.get(
-//   "/carts/getCartByUserChecked/:id",
-//   verifyTokenMember,
-//   getCartByUserChecked
-// );
 router.patch("/carts/update", verifyToken,  updateCartItem);
 
 export default router;

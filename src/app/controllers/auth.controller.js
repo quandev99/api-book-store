@@ -2,6 +2,7 @@ import UserModel from "../models/user.model";
 import bcrypt from "bcryptjs";
 const crypto = await import('node:crypto');
 import { createTokenPair } from "../../until/jwtService";
+import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import { getInfoData } from "../../until/getInfo";
 import { KeyTokenService } from "../../services/keyToken.service";

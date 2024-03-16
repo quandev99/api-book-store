@@ -3,14 +3,14 @@ import productModel from '../models/product.model'
 import cartModel from '../models/cart.model'
 
 export const getCartByUser = async (req, res) => {
-  const { id } = req.params;
-  console.log("id:::::",id);
+  const { userId } = req.params;
+  console.log("id:::::", userId);
   try {
     // Fetch user and cart data in parallel
     const [user, carts] = await Promise.all([
-      userModel.findById(id).lean(),
+      userModel.findById(userId).lean(),
       cartModel
-        .findOne({ user_id: id })
+        .findOne({ user_id: userId })
         .populate({
           path: "products",
           populate: [
@@ -49,7 +49,7 @@ export const getCartByUserChecked = async (req, res) => {
   const { id } = req.params;
   try {
     // Fetch user and cart data in parallel
-    const [user, cart] = await Promise.all([
+    const [user, carts] = await Promise.all([
       userModel.findById(id).lean(),
       cartModel
         .findOne({ user_id: id })
@@ -71,21 +71,21 @@ export const getCartByUserChecked = async (req, res) => {
     }
 
     // Check if the cart exists
-    if (!cart) {
+    if (!carts) {
       return res.status(404).json({
         message: "Danh sách giỏ hàng không tồn tại!",
-        cart: [],
+        carts: [],
       });
     }
-    const result = await cart?.products?.filter((item) => item.is_checked === true)
+    const result = await carts?.products?.filter((item) => item.is_checked === true)
     const data = {
       products: result,
-      totals: cart?.totals,
+      totals: carts?.totals,
     };
     // Return the cart data
     return res.status(200).json({
       message: "Danh sách giỏ hàng theo tài khoản!",
-      cart: data,
+      carts: data,
     });
   } catch (error) {
     return res.status(500).json({ message: "Error server: " + error.message });

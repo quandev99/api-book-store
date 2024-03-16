@@ -17,12 +17,12 @@ import payment from "./payment.route";
 import { apiKey, permissions } from "../app/auth/checkAuth";
 
 const router = express.Router();
-
+router.use(auth);
+router.use(payment);
 router.use(apiKey);
 router.use(permissions("0000"));
 
 const appRouters = [
-  auth,
   upload,
   author,
   supplier,
@@ -34,8 +34,8 @@ const appRouters = [
   bill,
   review,
   favorite,
-  payment,
   user,
+  auth,
 ];
 appRouters.forEach((route) => router.use(route));
 

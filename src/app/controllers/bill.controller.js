@@ -4,6 +4,7 @@ import cartModel from "../models/cart.model";
 import billDetailModel from "../models/billDetail.model";
 import billModel from "../models/bill.model";
 import { generateRandomCode } from "../../until/cryptoUtil";
+import sendMail from "../../until/sendMail";
 
 const dataBillStatus =[
         "Pending",
@@ -82,12 +83,17 @@ export const addBill = async (req, res) => {
     );
     // Xóa giỏ hàng sau khi đã tạo hóa đơn thành công (nếu cần)
     await cartModel.findOneAndDelete({ user_id });
+     const html = `<p style="font-size: 16px; color: #002140; font-weight: 600;">Mong khách hàng chú ý đơn hàng để có thể giao đúng hẹn</p>`;
+     const subject = "Cảm ơn bạn đã mua hàng bên Book Store";
+     sendMail({ email: user?.email, subject, html });
     return res
       .status(200)
-      .json({ message: "Hóa đơn đã được tạo thành công!", bill: updatedBill });
+      .json({ message: "Hóa đơn đã được tạo thành công!", bill: updatedBill,success:true });
   } catch (error) {
     console.error("Lỗi khi tạo hóa đơn:", error);
-    return res.status(500).json({ message: "Đã xảy ra lỗi khi tạo hóa đơn!" });
+    return res
+      .status(500)
+      .json({ message: "Đã xảy ra lỗi khi tạo hóa đơn!", success: false });
   }
 };
 

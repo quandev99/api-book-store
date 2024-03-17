@@ -126,7 +126,7 @@ export const addToCart = async (req, res) => {
     } else {
       cart?.products.push({
         product_id: productId,
-        product_price: product.price,
+        product_price:product.discounted_price || product.price,
         product_name: product.name,
         product_image: product?.image[0]?.url || "",
         quantity,
@@ -579,7 +579,7 @@ if (existingItemIndex !== -1) {
   function calculateSubtotal(products) {
     const subtotal = products.reduce((total, product) => {
       if (product.is_checked) {
-        total += product.quantity * product.product_price;
+        total += product.quantity * (product.discounted_price || product.product_price);
       }
       return total;
     }, 0);

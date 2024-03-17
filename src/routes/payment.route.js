@@ -38,7 +38,7 @@ router.get("/payments/vnpay_return", async function (req, res, next) {
     if (rspCode == "00") {
       await billModel.findOneAndUpdate(
         { _id: orderId },
-        { $set: { status: true, bill_status: "Confirmed" } }
+        { $set: { status: true} }
       );
       // Xóa giỏ hàng sau khi đã tạo hóa đơn thành công (nếu cần)
       await cartModel.findOneAndDelete({ user_id: userId });

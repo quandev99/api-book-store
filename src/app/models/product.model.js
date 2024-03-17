@@ -24,6 +24,20 @@ const bookSchema = mongoose.Schema(
     price: {
       type: Number,
     },
+    discount: {
+      type: Number,
+      min: 0,
+      default: 0,
+    },
+    discounted_price: {
+      type: Number,
+      default: null, 
+    },
+    discount_percentage: {
+      type: Number,
+      min: 0,
+      default: null, 
+    },
     quantity: {
       type: Number,
     },

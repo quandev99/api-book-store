@@ -4,15 +4,24 @@ import PublisherModel from "../models/publisher.model";
 import SupplierModel from "../models/supplier.model";
 import CategoryModel from "../models/category.model";
 import slugify from "slugify";
+import { calculateDiscountedPrice } from "../../until/calculateDiscount";
 
 export const createProduct = async (req, res) => {
-  const { name,
+  const { 
+      name,
+      price,
+      discount_percentage,
       author_id,
       category_id,
       publisher_id, 
       supplier_id, 
     } = req.body;
   try {
+    if (!discount_percentage >= 100)
+      return res.status(400).json({
+        success: false,
+        message: "Sản phẩm khuyến mãi không được vượt quá 100 %",
+      });
     const supplier = await SupplierModel.findById(supplier_id);
     if (!supplier)
       return res.status(400).json({
@@ -45,8 +54,12 @@ export const createProduct = async (req, res) => {
         success: false,
         message: "Tên cuốn sách đã tồn tại: ",
       });
-
-    const newProduct = await ProductModel.create(req.body);
+      const discounted_price = calculateDiscountedPrice(
+        price,
+        discount_percentage
+      );
+    const newProduct = await ProductModel.create({discounted_price,
+            discount_percentage,...req.body});
     if (!newProduct)
       return res.status(401).json({
         success: false,
@@ -84,7 +97,7 @@ export const getAllProducts = async (req, res) => {
     page: _page,
     limit: _limit,
     sort: {
-      [_sort]: _order === "desc" ? -1 : 1,
+      [_sort]: _order === "desc" ? 1 : -1,
     },
   };
   let query = {};
@@ -166,8 +179,25 @@ export const getAllProducts = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   const { id } = req.params;
-  const { name, author_id, category_id, publisher_id, supplier_id } = req.body;
+  const {
+    name,
+    price,
+    discount_percentage,
+    author_id,
+    category_id,
+    publisher_id,
+    supplier_id,
+  } = req.body;
   try {
+    if (discount_percentage >= 100)
+      return res.status(400).json({
+        success: false,
+        message: "Sản phẩm khuyến mãi không được vượt quá 100 %",
+      });
+    const discounted_price = calculateDiscountedPrice(
+          price,
+          discount_percentage
+        );
     const supplier = await SupplierModel.findById(supplier_id);
     if (!supplier)
       return res.status(400).json({
@@ -202,7 +232,7 @@ export const updateProduct = async (req, res) => {
       const updateProductSlug = slugify(name, { lower: true });
     const updateProduct = await ProductModel.findByIdAndUpdate(
       id,
-      { ...req.body,slug: updateProductSlug },
+      { discounted_price,discount_percentage,slug: updateProductSlug,...req.body },
       { new: true }
     );
     if (!updateProduct)

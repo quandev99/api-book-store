@@ -35,7 +35,6 @@ const appRouters = [
   review,
   favorite,
   user,
-  auth,
 ];
 appRouters.forEach((route) => router.use(route));
 

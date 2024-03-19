@@ -5,7 +5,8 @@ import SupplierModel from "../models/supplier.model";
 import CategoryModel from "../models/category.model";
 import slugify from "slugify";
 import { calculateDiscountedPrice } from "../../until/calculateDiscount";
-
+import { Types } from "mongoose";
+import authorModel from "../models/author.model";
 export const createProduct = async (req, res) => {
   const { 
       name,
@@ -93,89 +94,94 @@ export const getAllProducts = async (req, res) => {
     _minPrice,
     _maxPrice,
   } = req.query;
+
   const option = {
     page: _page,
     limit: _limit,
     sort: {
       [_sort]: _order === "desc" ? 1 : -1,
     },
+    populate: [
+      { path: "author_id", select: "name" },
+      { path: "category_id", select: "name" },
+      { path: "supplier_id", select: "name" },
+      { path: "publisher_id", select: "name" },
+      { path: "genre_id", select: "name" },
+    ],
   };
+
   let query = {};
-  
-  if (_search) {
-     query.$or = [];
-     query.$or.push({
-       name: { $regex: _search, $options: "i" }, 
-       "author_id.name": { $regex: _search, $options: "i" }, 
-     });
+
+  if (_search && _search.trim() !== "") {
+    query.$or = [
+      { name: { $regex: _search, $options: "i" } },
+      // { "author_id.name": { $regex: _search, $options: "i" } },
+    ];
   }
- if (_category_id) {
-   query.category_id = _category_id;
- }
 
- if (_supplier_id) {
-   query.supplier_id = _supplier_id;
- }
- 
-   if (_publisher_id) {
-     query.publisher_id = _publisher_id;
-   }
+  if (_category_id) {
+    query.category_id = _category_id;
+  }
 
- if (_author_id) {
-   query.author_id = _author_id;
- }
- if (_genre_id) {
-   query.genre_id = _genre_id;
- }
+  if (_supplier_id) {
+    query.supplier_id = _supplier_id;
+  }
 
- if (_minPrice && _maxPrice) {
-   query.price = { $gte: _minPrice, $lte: _maxPrice };
- } else if (_minPrice) {
-   query.price = { $gte: _minPrice };
- } else if (_maxPrice) {
-   query.price = { $lte: _maxPrice };
- }
+  if (_publisher_id) {
+    query.publisher_id = _publisher_id;
+  }
+
+  if (_author_id) {
+    query.author_id = _author_id;
+  }
+
+  if (_genre_id) {
+    query.genre_id = _genre_id;
+  }
+
+  if (_minPrice && _maxPrice) {
+    query.price = { $gte: _minPrice, $lte: _maxPrice };
+  } else if (_minPrice) {
+    query.price = { $gte: _minPrice };
+  } else if (_maxPrice) {
+    query.price = { $lte: _maxPrice };
+  }
   try {
-    const products = await ProductModel.paginate(query, {
-      ...option,
-      populate: [
-        { path: "author_id", select: "name" },
-        { path: "category_id", select: "name" },
-        { path: "supplier_id", select: "name" },
-        { path: "publisher_id", select: "name" },
-        { path: "genre_id", select: "name" },
-      ],
-    });
+    let products = await ProductModel.paginate(query, option);
+
     if (!products.docs || products.docs.length === 0) {
-      return res.status(300).json({
+      return res.status(404).json({
         success: false,
-        message: "Không tìm thấy cuốn sách nào!",
-        products: products.docs,
+        message: "Không tìm thấy sản phẩm nào!",
+        products: [],
         pagination: {
           currentPage: products.page,
           totalPages: products.totalPages,
           totalItems: products.totalDocs,
         },
       });
-    }else{
-      return res.status(200).json({
-         success: true,
-         message: "Lấy danh sách cuốn sách thành công ",
-         products: products.docs,
-         pagination: {
-           currentPage: products.page,
-           totalPages: products.totalPages,
-           totalItems: products.totalDocs,
-         },
-       });
     }
+
+    return res.status(200).json({
+      success: true,
+      message: "Lấy danh sách sản phẩm thành công",
+      products: products.docs,
+      pagination: {
+        currentPage: products.page,
+        totalPages: products.totalPages,
+        totalItems: products.totalDocs,
+      },
+    });
   } catch (error) {
+    console.log("error", error);
     return res.status(500).json({
       success: false,
-      message: "Product error server: " + error.message,
+      message: "Lỗi server khi lấy sản phẩm: " + error.message,
     });
   }
 };
+
+
 
 export const updateProduct = async (req, res) => {
   const { id } = req.params;
@@ -279,10 +285,10 @@ export const getProductById = async (req, res) => {
     });
   }
 };
-export const getProductByCategory = async (req, res) => {
-  const { id } = req.params;
+export const getProductByCategoryId = async (req, res) => {
+  const { categoryId: category_id } = req.params;
   try {
-    const products = await ProductModel.find({ category_id: id })
+    const products = await ProductModel.find({ category_id})
       .populate("author_id", "name")
       .populate("category_id", "name")
       .populate("supplier_id", "name")

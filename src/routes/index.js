@@ -14,9 +14,11 @@ import bill from "./bill.route";
 import review from "./review.route";
 import favorite from "./favorite.route";
 import payment from "./payment.route";
+import client from "./client.route";
 import { apiKey, permissions } from "../app/auth/checkAuth";
 
 const router = express.Router();
+router.use(client);
 router.use(auth);
 router.use(payment);
 router.use(apiKey);
@@ -36,6 +38,7 @@ const appRouters = [
   favorite,
   user,
 ];
-appRouters.forEach((route) => router.use(route));
+router.use(...appRouters.map((route) => route));
+// appRouters.forEach((route) => router.use(route));
 
 export default router;

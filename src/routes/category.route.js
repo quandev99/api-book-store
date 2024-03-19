@@ -15,8 +15,8 @@ import {
 } from "../app/middlewares/auth.middleware";
 const router = express.Router();
 
-router.post("/category/add", verifyTokenMember, createCategory);
 router.get("/category", getAllCategories);
+router.post("/category/add", verifyTokenMember, createCategory);
 router.get("/category/:id/categoryById", getCategoryById);
 router.patch("/category/:id/update", verifyTokenMember, updateCategory);
 router.delete("/category/:id/delete", verifyTokenAndAdminAuth, deleteCategory);

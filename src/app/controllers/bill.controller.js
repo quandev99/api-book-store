@@ -134,6 +134,9 @@ export const getBillByUser = async (req, res) => {
       ...option,
       populate: {
         path: "bill_details",
+        populate: {
+          path: "product_id", // Populate trực tiếp product_id
+        },
       },
     });
     if (!bills.docs || !bills.docs.length === 0)
@@ -164,6 +167,9 @@ export const getBillById = async (req, res) => {
   try {
     const bill = await billModel.findById(orderId).populate({
       path: "bill_details",
+        populate: {
+          path: "product_id", // Populate trực tiếp product_id
+      },
     });
     if (!bill)
       return res.status(300).json({

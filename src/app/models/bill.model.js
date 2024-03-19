@@ -58,7 +58,7 @@ const billSchema = new mongoose.Schema(
     bill_phoneNumber: {
       type: String,
     },
-    isReview: {
+    is_review: {
       type: Boolean,
       default: false,
     },

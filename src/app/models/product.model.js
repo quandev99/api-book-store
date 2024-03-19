@@ -81,6 +81,7 @@ const bookSchema = mongoose.Schema(
 );
 
 mongoose.plugin(slug);
+bookSchema.index({ name: "text" });
 bookSchema.plugin(mongoosePaginate);
 bookSchema.plugin(mongooseDelete, {
   deleteAt: true,

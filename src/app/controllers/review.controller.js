@@ -97,7 +97,7 @@ export const addReview = async (req, res) => {
     product.review_count = reviewCount;
     await product.save();
 
-    bill.isReview = true;
+    bill.is_review = true;
     bill.save();
 
     return res.status(200).json({

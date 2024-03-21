@@ -10,8 +10,47 @@ import { CREATED,  SuccessResponse } from "../../core/success.response";
 import { AuthFailureError, BAD_REQUEST, ConflictResponse, ForBiddenError } from "../../core/errors.response";
 import { verifyJWT } from "../auth/authUtils";
 import { findByAuth } from "../../services/author.service";
+import { sendEmailToken, sendEmailVerify } from "../../services/email.service";
+import otpModel from "../models/otp.model";
 dotenv.config();
 
+export const checkAuthRegister = async (req, res) => {
+  const {email} = req.body
+  try {
+    await sendEmailToken({email});
+   
+      return new SuccessResponse({
+        message: "Vui lòng kiểm tra email của mình!",
+        metaData: {
+          token: 1,
+        },
+      }).send(res);
+
+  } catch (error) {
+    return res.status(error.status || 500).json({
+      message: "Server error: "+ error.message,
+    });
+  }
+};
+export const verifyUser = async (req, res) => {
+  const { token } = req.query;
+  try {
+    console.log("token", token);
+    const userExist = await otpModel.findOne({ otp_token: token }).lean();
+    if (!userExist?.otp_token == token) {
+      throw new ConflictResponse("Token không hợp lệ");
+    }
+    await sendEmailVerify({ email: userExist.otp_email });
+
+    return res.status(200).json({
+      message: "Token hợp lệ , vui lòng đăng nhập tài khoản của mình!"
+    })
+  } catch (error) {
+    return res.status(error.status || 500).json({
+      message: "Server error: " + error.message,
+    });
+  }
+};
 export const register = async (req, res) => {
   const {email,name,password} = req.body
   try {
@@ -56,7 +95,7 @@ export const register = async (req, res) => {
       }).send(res);
     }
   } catch (error) {
-    return res.status(500).json({
+    return res.status(error.status || 500).json({
       message: "Server error: "+ error.message,
     });
   }
@@ -66,8 +105,8 @@ export const login = async (req,res)=>{
   const { email, password, refreshToken=null } = req.body;
   try {
     const userExist = await UserModel.findOne({ email }).lean();
-    if (!userExist) {
-      throw new BAD_REQUEST("Email chưa đăng ký");
+    if (!userExist || !userExist.verify) {
+      throw new BAD_REQUEST("Email chưa đăng ký hoặc chưa xác nhận!");
     }
     const match = await bcrypt.compare(password, userExist.password);
     if (!match) {

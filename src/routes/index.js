@@ -15,30 +15,32 @@ import review from "./review.route";
 import favorite from "./favorite.route";
 import payment from "./payment.route";
 import client from "./client.route";
+import template from "./template.route";
 import { apiKey, permissions } from "../app/auth/checkAuth";
 
 const router = express.Router();
-router.use(client);
 router.use(auth);
+router.use(client);
+router.use(template);
 router.use(payment);
 router.use(apiKey);
 router.use(permissions("0000"));
 
-const appRouters = [
-  upload,
-  author,
-  supplier,
-  publisher,
-  genre,
-  category,
-  product,
-  cart,
-  bill,
-  review,
-  favorite,
-  user,
-];
-router.use(...appRouters.map((route) => route));
+// const appRouters = [
+//   upload,
+//   author,
+//   supplier,
+//   publisher,
+//   genre,
+//   category,
+//   product,
+//   cart,
+//   bill,
+//   review,
+//   favorite,
+//   user,
+// ];
+// router.use(...appRouters.map((route) => route));
 // appRouters.forEach((route) => router.use(route));
 
 export default router;

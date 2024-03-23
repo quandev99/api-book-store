@@ -1,7 +1,6 @@
 'use strict';
 
 import { ConflictResponse, NotFoundError } from "../core/errors.response";
-import { SuccessResponse } from "../core/success.response";
 import { replacePlaceHolder } from "../until";
 import sendMail from "../until/sendMail";
 import { getOtpService, newOtpService } from "./otp.service";
@@ -23,30 +22,29 @@ const sendEmailToken = async ({email=null})=>{
     const template = await getTemplateService({template_name: 'HTML EMAIL TOKEN'});
     if(!template) throw new NotFoundError('Template not found');
     const content = replacePlaceHolder(template.template_html, {
-      link_verify: `http://localhost:2605/api/auths/verifyUser?token=${token.otp_token}`,
+      link_verify: `${process.env.UR_ADMIN}/auths/verifyUser?token=${token.otp_token}`,
     });
     const sendEmailToken = await sendMail({
       email: token.otp_email,
       html: content,
-      subject:"Xác nhận email!"
+      subject:"Book Store gửi mã OTP xác nhận email của bạn!!!"
     });
     return sendEmailToken;
-  
   } catch (error) {
     throw new Error(`${error.message}`)
   }
 }
-const sendEmailVerify = async ({email=null})=>{
+const sendEmailVerify = async ({email=null,user_name="Cute"})=>{
   try {
-
-    // const template = await getTemplateService({template_name: 'HTML EMAIL TOKEN'});
-    // if(!template) throw new NotFoundError('Template not found');
-    // const content = replacePlaceHolder(template.template_html, {
-    //   link_verify: `http://localhost:2605/api/verifyUser?token=${token.otp_token}`,
-    // });
+    const template = await getTemplateService({template_name: 'HTML EMAIL THANK'});
+    if(!template) throw new NotFoundError('Template not found');
+    const content = replacePlaceHolder(template.template_html, {
+      user_name,
+      link_website: `${process.env.UR_CLIENT}`,
+    });
     const sendEmailToken = await sendMail({
       email: email,
-      html: "<div>Chúc bạn quân đẹp trai giàu có!</div>",
+      html: content,
       subject: "Chúc mừng bạn đã đăng ký thành công!",
     });
     return sendEmailToken;

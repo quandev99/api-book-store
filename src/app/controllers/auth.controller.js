@@ -17,6 +17,10 @@ dotenv.config();
 export const checkAuthRegister = async (req, res) => {
   const {email} = req.body
   try {
+    const userExist = await UserModel.findOne({ email, verify:true }).lean();
+    if (userExist) {
+      throw new ConflictResponse("Email đã tồn tại");
+    }
     await sendEmailToken({email});
    
       return new SuccessResponse({
@@ -36,69 +40,94 @@ export const verifyUser = async (req, res) => {
   const { token } = req.query;
   try {
     console.log("token", token);
-    const userExist = await otpModel.findOne({ otp_token: token }).lean();
-    if (!userExist?.otp_token == token) {
+    const otpUser = await otpModel.findOne({ otp_token: token }).lean();
+    if (!otpUser || !otpUser?.otp_token == token) {
       throw new ConflictResponse("Token không hợp lệ");
     }
-    await sendEmailVerify({ email: userExist.otp_email });
+     const user = await UserModel.findOneAndUpdate(
+       {
+         email: otpUser.otp_email,
+         verify: false,
+       },
+       { verify: true },
+       { new: true }
+     );
+     if (!user) {
+       throw new ConflictResponse("Xác nhận tài khoản của bạn thất bại");
+     }
+    await sendEmailVerify({ email: otpUser.otp_email ,user_name:user.name});
 
-    return res.status(200).json({
-      message: "Token hợp lệ , vui lòng đăng nhập tài khoản của mình!"
-    })
+    //  res.status(200).json({
+    //   message: "Token hợp lệ , vui lòng đăng nhập tài khoản của mình!"
+    //   })
+    return res.redirect(`${process.env.UR_CLIENT}/sign-in`);
   } catch (error) {
     return res.status(error.status || 500).json({
       message: "Server error: " + error.message,
     });
   }
 };
-export const register = async (req, res) => {
-  const {email,name,password} = req.body
-  try {
-    const userExist = await UserModel.findOne({ email }).lean();
-    if (userExist) {
-      throw new ConflictResponse("Email đã tồn tại");
-    }
-    const hashPassword = await bcrypt.hash(password, 10);
 
-    const user = await UserModel.create({
-      email,
-      name,
-      password: hashPassword,
-    });
-    if(user){
-      const privateKey = process.env.privateKey;
-      const publicKey = process.env.publicKey;
-      const keyStore = await KeyTokenService.createKeyToken({
-        userId: user?.id,
-        publicKey,
-        privateKey,
-      });
-      if (!keyStore){
-        throw new BAD_REQUEST("KeyStore error");
+export const register = async (req, res) => {
+  const { email, name, password, confirmPassword } = req.body;
+  if ((password!==confirmPassword)) return res.status(400).json({ message:"Nhập mật khẩu không khớp!"}) 
+    try {
+       const userExist = await UserModel.findOne({
+         email,
+         verify: true,
+       }).lean();
+      if (userExist) {
+        throw new ConflictResponse("Tài khoản của bạn đã đăng ký!");
+      }else if(!userExist){
+        await sendEmailToken({ email });
+        throw new CREATED({
+          message: "Vui lòng kiểm tra Email và xác thực tài khoản!",
+        });
       }
-      // Tạo token
-      const tokens = await createTokenPair(
-        {
-          userId: user?._id,
-          email,
-          role: 2,
-        },
-        publicKey,
-        privateKey
-      );
-      return new CREATED({
-        message: "Đăng ký thành công",
-        metaData: {
-          user: getInfoData({ fileds: ["_id", "name", "email"], object: user }),
-          tokens,
-        },
-      }).send(res);
+      const hashPassword = await bcrypt.hash(password, 10);
+      
+      const user = await UserModel.create({
+        email,
+        name,
+        password: hashPassword,
+      });
+      if(!user)  throw new BAD_REQUEST("Đăng ký tài khoản không thành công!");
+      await sendEmailToken({ email });
+        const privateKey = process.env.privateKey;
+        const publicKey = process.env.publicKey;
+        const keyStore = await KeyTokenService.createKeyToken({
+          userId: user?.id,
+          publicKey,
+          privateKey,
+        });
+        if (!keyStore) {
+          throw new BAD_REQUEST("KeyStore error");
+        }
+        // Tạo token
+        const tokens = await createTokenPair(
+          {
+            userId: user?._id,
+            email,
+            role: 2,
+          },
+          publicKey,
+          privateKey
+        );
+        return new CREATED({
+          message: "Đăng ký thành công vui lòng kiểm tra email để được xác thực!",
+          metaData: {
+            user: getInfoData({
+              fileds: ["_id", "name", "email"],
+              object: user,
+            }),
+            tokens,
+          },
+        }).send(res);
+    } catch (error) {
+      return res.status(error.status || 500).json({
+        message: "Server error: " + error.message,
+      });
     }
-  } catch (error) {
-    return res.status(error.status || 500).json({
-      message: "Server error: "+ error.message,
-    });
-  }
 };
 
 export const login = async (req,res)=>{

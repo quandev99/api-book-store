@@ -26,21 +26,21 @@ router.use(payment);
 router.use(apiKey);
 router.use(permissions("0000"));
 
-// const appRouters = [
-//   upload,
-//   author,
-//   supplier,
-//   publisher,
-//   genre,
-//   category,
-//   product,
-//   cart,
-//   bill,
-//   review,
-//   favorite,
-//   user,
-// ];
-// router.use(...appRouters.map((route) => route));
+const appRouters = [
+  upload,
+  author,
+  supplier,
+  publisher,
+  genre,
+  category,
+  product,
+  cart,
+  bill,
+  review,
+  favorite,
+  user,
+];
+router.use(...appRouters.map((route) => route));
 // appRouters.forEach((route) => router.use(route));
 
 export default router;

@@ -16,7 +16,7 @@ const otpSchema = mongoose.Schema(
       default: "pending",
       enum: ["pending", "active", "block"],
     },
-    expireAt: { type: Date, default: Date.now(), expires: 120 },
+    expireAt: { type: Date, default: Date.now(), expires: 300 },
   },
   { timestamps: true, versionKey: false }
 );

@@ -16,11 +16,13 @@ import favorite from "./favorite.route";
 import payment from "./payment.route";
 import client from "./client.route";
 import template from "./template.route";
+import discount from "./discount.route";
 import { apiKey, permissions } from "../app/auth/checkAuth";
 
 const router = express.Router();
 router.use(auth);
 router.use(client);
+router.use(discount);
 router.use(template);
 router.use(payment);
 router.use(apiKey);

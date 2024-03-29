@@ -34,6 +34,11 @@ const cartSchema = new mongoose.Schema(
         },
       },
     ],
+    discount_id: {
+      type: mongoose.Types.ObjectId,
+      ref: "Discount",
+      default: null,
+    },
     totals: {
       type: Array,
       default: [

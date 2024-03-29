@@ -1,6 +1,10 @@
 import userModel from '../models/user.model'
 import productModel from '../models/product.model'
 import cartModel from '../models/cart.model'
+import discountModel from '../models/discount.model';
+import { findDiscountById } from '../../services/discount.service';
+import { findCartByUser } from '../../services/cart.service';
+import { isExpired } from '../../until';
 
 export const getCartByUser = async (req, res) => {
   const { userId } = req.params;
@@ -104,7 +108,7 @@ export const addToCart = async (req, res) => {
     if (product?.quantity <= 0 || product?.out_of_stock)
       return res.status(402).json({ message: "Sản phẩm đã hết " });
     const { _id: user_id } = user;
-    let cart = await cartModel.findOne({ user_id });
+    let cart = await findCartByUser(user_id);
     if (!cart) {
       cart = new cartModel({
         user_id,
@@ -132,15 +136,28 @@ export const addToCart = async (req, res) => {
         quantity,
       });
     }
+     const isCheckedProduct = isCheckedExists(cart.products);
+     let discountPrice;
+     if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
+       const discount = await findDiscountById(cart?.discount_id);
+       if (!!isExpired(discount.expiration_date)) {
+         discountPrice = discount?.discount_amount;
+        }
+     }
     // Tính lại grand_total và subtotal
     const subtotal = calculateSubtotal(cart.products);
-    const grandTotal = calculateGrandTotal(subtotal);
+    const grandTotal = calculateGrandTotal(subtotal,discountPrice);
     // Cập nhật totals trong giỏ hàng
     cart.totals = [
       {
         code: "subtotal",
         title: "Thành tiền",
         price: subtotal,
+      },
+      {
+        code: "discount",
+        title: "Thành tiền",
+        price: discountPrice ? discountPrice : 0,
       },
       {
         code: "grand_total",
@@ -169,7 +186,7 @@ export const addCheckedProduct = async (req, res) => {
     }
 
     const { _id: user_id } = user;
-    let cart = await cartModel.findOne({ user_id });
+    let cart = await findCartByUser(user_id);
 
     if (!cart) {
       // Xử lý nếu giỏ hàng không tồn tại
@@ -185,16 +202,28 @@ export const addCheckedProduct = async (req, res) => {
       // Cập nhật trạng thái is_checked từ frontend
       productToUpdate.is_checked = isChecked;
 
-      // Tính lại grand_total dựa trên sản phẩm có is_checked
+      const isCheckedProduct = isCheckedExists(cart.products);
+      let discountPrice;
+      if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
+        const discount = await findDiscountById(cart?.discount_id);
+       if (!isExpired(discount.expiration_date)) {
+         discountPrice = discount?.discount_amount;
+       }
+      }
+      // Tính lại grand_total và subtotal
       const subtotal = calculateSubtotal(cart.products);
-      const grandTotal = calculateGrandTotal(subtotal);
-
-      // Thêm grand_total vào mảng totals
+      const grandTotal = calculateGrandTotal(subtotal, discountPrice);
+      // Cập nhật totals trong giỏ hàng
       cart.totals = [
         {
           code: "subtotal",
           title: "Thành tiền",
           price: subtotal,
+        },
+        {
+          code: "discount",
+          title: "Thành tiền",
+          price: discountPrice ? discountPrice : 0,
         },
         {
           code: "grand_total",
@@ -231,7 +260,7 @@ export const addCheckedAllProduct = async (req, res) => {
     const { _id: user_id } = user;
 
     // Update is_checked for all products in the cart
-    const updatedCart = await cartModel.findOneAndUpdate(
+    const cart = await cartModel.findOneAndUpdate(
       { user_id },
       {
         $set: {
@@ -241,20 +270,32 @@ export const addCheckedAllProduct = async (req, res) => {
       { new: true }
     );
 
-    if (!updatedCart) {
+    if (!cart) {
       return res.status(404).json({ message: "Giỏ hàng không tồn tại!" });
     }
 
-    // Tính lại grand_total dựa trên sản phẩm có is_checked
-    const subtotal = calculateSubtotal(updatedCart.products);
-    const grandTotal = calculateGrandTotal(subtotal);
-
-    // Thêm grand_total vào mảng totals
-    updatedCart.totals = [
+     const isCheckedProduct = isCheckedExists(cart.products);
+     let discountPrice;
+     if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
+       const discount = await findDiscountById(cart?.discount_id);
+       if (!isExpired(discount.expiration_date)) {
+         discountPrice = discount?.discount_amount;
+       }
+     }
+    // Tính lại grand_total và subtotal
+    const subtotal = calculateSubtotal(cart.products);
+    const grandTotal = calculateGrandTotal(subtotal, discountPrice);
+    // Cập nhật totals trong giỏ hàng
+    cart.totals = [
       {
         code: "subtotal",
         title: "Thành tiền",
         price: subtotal,
+      },
+      {
+        code: "discount",
+        title: "Thành tiền",
+        price: discountPrice ? discountPrice : 0,
       },
       {
         code: "grand_total",
@@ -263,12 +304,13 @@ export const addCheckedAllProduct = async (req, res) => {
       },
     ];
 
+
     // Lưu lại giỏ hàng sau khi cập nhật
-    await updatedCart.save();
+    await cart.save();
 
     return res.status(200).json({
       message: "Sản phẩm đã được cập nhật trong giỏ hàng!",
-      cart: updatedCart,
+      cart,
       success: true,
     });
   } catch (error) {
@@ -289,7 +331,7 @@ export const updateCartItem = async (req, res) => {
         .json({ message: "Tài khoản hoặc sản phẩm không tồn tại!" });
     }
     const { _id: user_id } = user;
-    const cart = await cartModel.findOne({ user_id });
+    const cart = await findCartByUser(user_id);
     if (!cart) {
       return res.status(404).json({ message: "Giỏ hàng không tồn tại" });
     }
@@ -310,23 +352,35 @@ export const updateCartItem = async (req, res) => {
     // Lưu giỏ hàng đã được cập nhật
     await cart.save();
 
-    // Tính lại grand_total dựa trên sản phẩm có is_checked
-    const subtotal = calculateSubtotal(cart.products);
-    const grandTotal = calculateGrandTotal(subtotal);
-
-    // Thêm grand_total vào mảng totals
-    cart.totals = [
-      {
-        code: "subtotal",
-        title: "Thành tiền",
-        price: subtotal,
-      },
-      {
-        code: "grand_total",
-        title: "Tổng Số Tiền (gồm VAT)",
-        price: grandTotal,
-      },
-    ];
+   const isCheckedProduct = isCheckedExists(cart.products);
+   let discountPrice;
+   if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
+     const discount = await findDiscountById(cart?.discount_id);
+      if (!isExpired(discount.expiration_date)) {
+        discountPrice = discount.discount_amount;
+      }
+   }
+   // Tính lại grand_total và subtotal
+   const subtotal = calculateSubtotal(cart.products);
+   const grandTotal = calculateGrandTotal(subtotal,discountPrice,);
+   // Cập nhật totals trong giỏ hàng
+   cart.totals = [
+     {
+       code: "subtotal",
+       title: "Thành tiền",
+       price: subtotal,
+     },
+     {
+       code: "discount",
+       title: "Thành tiền",
+       price: discountPrice ? discountPrice : 0,
+     },
+     {
+       code: "grand_total",
+       title: "Tổng Số Tiền (gồm VAT)",
+       price: grandTotal,
+     },
+   ];
 
     await cart.save();
 
@@ -343,7 +397,7 @@ export const updateCartItem = async (req, res) => {
 export const removeCartItem = async (req, res) => {
   const { userId, productId } = req.body
   try {
-    const cart = await cartModel.findOne({ user_id: userId });
+    const cart = await findCartByUser(userId);
     if (!cart) {
       return res.status(404).json({ message: "Giỏ hàng không tồn tại" });
     }
@@ -361,16 +415,28 @@ export const removeCartItem = async (req, res) => {
     // Lọc ra những sản phẩm không có productId
     cart.products.splice(existingItemIndex, 1);
 
-    // Tính lại grand_total dựa trên sản phẩm có is_checked
+    const isCheckedProduct = isCheckedExists(cart.products);
+    let discountPrice;
+    if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
+      const discount = await findDiscountById(cart?.discount_id);
+      if (!isExpired(discount.expiration_date)) {
+        discountPrice = discount.discount_amount;
+      }
+    }
+    // Tính lại grand_total và subtotal
     const subtotal = calculateSubtotal(cart.products);
-    const grandTotal = calculateGrandTotal(subtotal);
-
-    // Thêm grand_total vào mảng totals
+    const grandTotal = calculateGrandTotal(subtotal,discountPrice,);
+    // Cập nhật totals trong giỏ hàng
     cart.totals = [
       {
         code: "subtotal",
         title: "Thành tiền",
         price: subtotal,
+      },
+      {
+        code: "discount",
+        title: "Thành tiền",
+        price: discountPrice ? discountPrice : 0,
       },
       {
         code: "grand_total",
@@ -396,7 +462,7 @@ export const removeCartItem = async (req, res) => {
 export const deleAllCartItem = async (req, res) => {
   const { userId} = req.body
   try {
-    const cart = await cartModel.findOne({ user_id: userId });
+    const cart = await findCartByUser(userId);
     if (!cart) {
       return res.status(404).json({ message: "Giỏ hàng không tồn tại" });
     }
@@ -405,6 +471,11 @@ export const deleAllCartItem = async (req, res) => {
     cart.totals = [
       {
         code: "subtotal",
+        title: "Thành tiền",
+        price: 0,
+      },
+      {
+        code: "discount",
         title: "Thành tiền",
         price: 0,
       },
@@ -432,7 +503,7 @@ export const deleAllCartItem = async (req, res) => {
 export const increaseQuantity = async (req, res) => {
   const { userId, productId } = req.body;
   try {
-    const cart = await cartModel.findOne({ user_id: userId });
+    const cart = await findCartByUser({ user_id: userId });
     if (!cart) {
       return res.status(404).json({ message: "Giỏ hàng không tồn tại" });
     }
@@ -482,7 +553,7 @@ export const increaseQuantity = async (req, res) => {
 export const decreaseQuantity = async (req, res) => {
   const { userId, productId } = req.body;
   try {
-    const cart = await cartModel.findOne({ user_id: userId });
+    const cart = await findCartByUser({ user_id: userId });
     if (!cart) {
       return res.status(404).json({ message: "Giỏ hàng không tồn tại" });
     }
@@ -569,11 +640,7 @@ if (existingItemIndex !== -1) {
 // }
 
 
-/// 
-  // Hàm tính lại grand_total dựa trên sản phẩm có is_checked
-  function calculateGrandTotal(subtotal) {
-    return subtotal;
-  }
+
 
   // Hàm tính lại subtotal dựa trên sản phẩm có is_checked
   function calculateSubtotal(products) {
@@ -584,4 +651,14 @@ if (existingItemIndex !== -1) {
       return total;
     }, 0);
     return subtotal;
+  }
+
+  // Hàm tính lại grand_total 
+  function calculateGrandTotal(subtotal, discountPrice = 0) {
+    if (discountPrice > 0) return subtotal - discountPrice;
+    return subtotal;
+  }
+
+  function isCheckedExists(products) {
+    return products.some((product) => product.is_checked === true);
   }

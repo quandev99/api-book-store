@@ -1,6 +1,7 @@
 import discountModel from '../models/discount.model'
 import discountCart from '../models/cart.model'
 import { isExpired } from '../../until'
+import { findDiscountById } from '../../services/discount.service'
 export const createDiscount = async (req, res) => {
   const dataDiscount = req.body
   const { discount_name, discount_code, expiration_date } = req.body
@@ -55,21 +56,14 @@ export const applyDiscountToCart = async (req, res) => {
       return res.status(400).json({ message: 'Mã giảm giá không tồn tại' })
     }
 
-    // if (checkDiscount.isSpecial) {
-    //   if (!checkDiscount.users.includes(user_id)) {
-    //     return res
-    //       .status(400)
-    //       .json({ message: "Mã giảm giá không áp dụng được cho bạn." });
-    //   }
-    // }
     const grandTotalPrice = cart.totals.find(
-      item => item.code === 'grand_total'
-    ).price
+      (item) => item.code === "subtotal"
+    ).price;
 
-    if (Number(grandTotalPrice) < Number(checkDiscount.discount_amount)) {
+    if (Number(grandTotalPrice) < Number(checkDiscount.min_purchase_amount)) {
       return res
         .status(400)
-        .json({ message: 'Số tiền không đủ điều kiện để sử dụng mã giảm giá' })
+        .json({ message: "Số tiền không đủ điều kiện để sử dụng mã giảm giá" });
     }
 
     if (checkDiscount?.used_by_users?.includes(user_id)) {
@@ -88,44 +82,22 @@ export const applyDiscountToCart = async (req, res) => {
       return res.status(400).json({ message: 'Mã khuyến mãi đã hết số lượng.' })
     }
 
-    // Lấy thông tin giỏ hàng của người dùng
-    // const cart = await Cart.findOne({
-    //   user_id,
-    //   _id: cartId,
-    // });
-
-    // Kiểm tra xem mã khuyến mãi đã được áp dụng vào giỏ hàng chưa
-    // if (cart.coupon_id) {
-    //   return res
-    //     .status(400)
-    //     .json({ message: "Mã khuyến mãi đã được áp dụng vào giỏ hàng" });
-    // }
-
     if (grandTotalPrice <= checkDiscount.min_purchase_amount) {
       return res
         .status(400)
         .json({ message: 'Không đủ điều kiện áp dụng mã giảm giá.' })
     }
 
-    const totalOrder = grandTotalPrice - checkDiscount.discount_amount
-
-    // if (discount.used_by_users && discount.used_by_users.indexOf(user_id) !== -1) {
-    //   cart.discount_code = discount.discount_code;
-    //   cart.cart_couponPrice = discount.discount_amount;
-    //   await cart.save();
-    //   return res.status(200).json({
-    //     message: "Mã khuyến mãi đã được áp dụng vào giỏ hàng.",
-    //     cart,
-    //   });
-    // }
-
+   
     cart.discount_id = checkDiscount._id
-
-    const subtotal = calculateSubtotal(cart.products)
-    const grandTotal = calculateGrandTotal(
-      subtotal,
-      checkDiscount.discount_amount
-    )
+   const isCheckedProduct = isCheckedExists(cart.products);
+   let discountPrice;
+   if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
+      discountPrice = checkDiscount.discount_amount;
+   }
+   // Tính lại grand_total và subtotal
+   const subtotal = calculateSubtotal(cart.products);
+   const grandTotal = calculateGrandTotal(subtotal, discountPrice);
     // Cập nhật totals trong giỏ hàng
     cart.totals = [
       {
@@ -136,7 +108,7 @@ export const applyDiscountToCart = async (req, res) => {
       {
         code: 'discount',
         title: 'Thành tiền',
-        price: discountPrice ? discountPrice : 0
+        price: discountPrice || 0
       },
       {
         code: 'grand_total',
@@ -144,13 +116,8 @@ export const applyDiscountToCart = async (req, res) => {
         price: grandTotal
       }
     ]
-    // const newTotal = {
-    //   code: "Discount",
-    //   title: "Thành tiền",
-    //   price: checkDiscount.discount_amount,
-    // };
-    // cart.totals.splice(1, 0, newTotal);
     await cart.save()
+    const totalOrder = grandTotalPrice - checkDiscount.discount_amount;
     return res.status(200).json({
       message: 'Mã khuyến mãi đã được áp dụng vào giỏ hàng.',
       // cart,
@@ -309,8 +276,8 @@ export const removeDiscount = async (req, res) => {
   }
 }
 
-function calculateGrandTotal (subtotal, discountPrice = 0) {
-  if (discountPrice > 0) return subtotal - discountValue
+function calculateGrandTotal (subtotal, discountPrice) {
+  if (discountPrice > 0) return subtotal - discountPrice;
   return subtotal
 }
 
@@ -324,3 +291,6 @@ function calculateSubtotal (products) {
   }, 0)
   return subtotal
 }
+ function isCheckedExists(products) {
+   return products.some((product) => product.is_checked === true);
+ }

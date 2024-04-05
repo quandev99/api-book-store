@@ -8,7 +8,6 @@ import { isExpired } from '../../until';
 
 export const getCartByUser = async (req, res) => {
   const { userId } = req.params;
-  console.log("id:::::", userId);
   try {
     // Fetch user and cart data in parallel
     const [user, carts] = await Promise.all([
@@ -140,9 +139,11 @@ export const addToCart = async (req, res) => {
      let discountPrice;
      if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
        const discount = await findDiscountById(cart?.discount_id);
-       if (!!isExpired(discount.expiration_date)) {
+       if (
+         !!isExpired(discount.expiration_date) 
+       ) {
          discountPrice = discount?.discount_amount;
-        }
+       }
      }
     // Tính lại grand_total và subtotal
     const subtotal = calculateSubtotal(cart.products);
@@ -157,7 +158,7 @@ export const addToCart = async (req, res) => {
       {
         code: "discount",
         title: "Thành tiền",
-        price: discountPrice ? discountPrice : 0,
+        price: discountPrice || 0,
       },
       {
         code: "grand_total",
@@ -174,7 +175,7 @@ export const addToCart = async (req, res) => {
   }
 }
 export const addCheckedProduct = async (req, res) => {
-  const { isChecked, productId, userId } = req.body;
+  const { productId, userId } = req.body;
   try {
     const user = await userModel.findById(userId);
     const product = await productModel.findById(productId);
@@ -189,7 +190,6 @@ export const addCheckedProduct = async (req, res) => {
     let cart = await findCartByUser(user_id);
 
     if (!cart) {
-      // Xử lý nếu giỏ hàng không tồn tại
       return res.status(404).json({ message: "Giỏ hàng không tồn tại!" });
     }
 
@@ -199,19 +199,41 @@ export const addCheckedProduct = async (req, res) => {
     );
 
     if (productToUpdate) {
+      
       // Cập nhật trạng thái is_checked từ frontend
-      productToUpdate.is_checked = isChecked;
-
+      productToUpdate.is_checked = !productToUpdate?.is_checked;
       const isCheckedProduct = isCheckedExists(cart.products);
       let discountPrice;
-      if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
-        const discount = await findDiscountById(cart?.discount_id);
-       if (!isExpired(discount.expiration_date)) {
-         discountPrice = discount?.discount_amount;
-       }
+      let errorMessage = "";
+      const subtotal = calculateSubtotal(cart.products);
+      const checkDiscount = await findDiscountById(cart?.discount_id);
+      if (cart?.discount_id && cart?.products?.length > 0 && isCheckedProduct) {
+         if (
+           !isExpired(checkDiscount.expiration_date) &&
+           !checkDiscountUser(checkDiscount?.used_by_users) &&
+           checkDiscountMinPurchaseAmount(
+             subtotal,
+             checkDiscount.min_purchase_amount
+           )
+         ) {
+           discountPrice = checkDiscount.discount_amount;
+         } else if (checkDiscountUser(checkDiscount?.used_by_users)) {
+           errorMessage = "Mã giảm giá đã hết lần sử dụng!";
+         } else if (
+           !checkDiscountMinPurchaseAmount(
+             subtotal,
+             checkDiscount.min_purchase_amount
+           )
+         ) {
+           errorMessage = "Số tiền không đủ điều kiện để sử dụng mã giảm giá";
+         } else if (isExpired(checkDiscount.expiration_date)) {
+           errorMessage = "Mã giảm giá đã hết thời gian!";
+         } else {
+           discountPrice = 0;
+         }
       }
       // Tính lại grand_total và subtotal
-      const subtotal = calculateSubtotal(cart.products);
+      
       const grandTotal = calculateGrandTotal(subtotal, discountPrice);
       // Cập nhật totals trong giỏ hàng
       cart.totals = [
@@ -223,7 +245,7 @@ export const addCheckedProduct = async (req, res) => {
         {
           code: "discount",
           title: "Thành tiền",
-          price: discountPrice ? discountPrice : 0,
+          price: discountPrice || 0,
         },
         {
           code: "grand_total",
@@ -237,7 +259,7 @@ export const addCheckedProduct = async (req, res) => {
 
       return res
         .status(200)
-        .json({ message: "Sản phẩm đã được thêm vào giỏ hàng!", cart,success:true });
+        .json({ message: errorMessage || "Sản phẩm đã được thêm vào giỏ hàng!", cart,success:true });
     }
 
     return res
@@ -275,15 +297,20 @@ export const addCheckedAllProduct = async (req, res) => {
     }
 
      const isCheckedProduct = isCheckedExists(cart.products);
+      const subtotal = calculateSubtotal(cart.products);
      let discountPrice;
      if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
        const discount = await findDiscountById(cart?.discount_id);
-       if (!isExpired(discount.expiration_date)) {
+       if (
+         !isExpired(discount.expiration_date) &&
+         !checkDiscountUser(discount?.used_by_users) &&
+         checkDiscountMinPurchaseAmount(subtotal, discount.min_purchase_amount)
+       ) {
          discountPrice = discount?.discount_amount;
        }
      }
     // Tính lại grand_total và subtotal
-    const subtotal = calculateSubtotal(cart.products);
+   
     const grandTotal = calculateGrandTotal(subtotal, discountPrice);
     // Cập nhật totals trong giỏ hàng
     cart.totals = [
@@ -295,7 +322,7 @@ export const addCheckedAllProduct = async (req, res) => {
       {
         code: "discount",
         title: "Thành tiền",
-        price: discountPrice ? discountPrice : 0,
+        price: discountPrice || 0,
       },
       {
         code: "grand_total",
@@ -351,17 +378,38 @@ export const updateCartItem = async (req, res) => {
     existingItem.quantity = +newQuantity !== 0 ? newQuantity : 1;
     // Lưu giỏ hàng đã được cập nhật
     await cart.save();
-
    const isCheckedProduct = isCheckedExists(cart.products);
    let discountPrice;
-   if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
-     const discount = await findDiscountById(cart?.discount_id);
-      if (!isExpired(discount.expiration_date)) {
-        discountPrice = discount.discount_amount;
-      }
-   }
-   // Tính lại grand_total và subtotal
-   const subtotal = calculateSubtotal(cart.products);
+   let errorMessage="";
+  const subtotal = calculateSubtotal(cart.products);
+  const checkDiscount = await findDiscountById(cart?.discount_id);
+  if (cart?.discount_id && cart?.products?.length > 0 && isCheckedProduct) {
+    if (
+      !isExpired(checkDiscount.expiration_date) &&
+      !checkDiscountUser(checkDiscount?.used_by_users) &&
+      checkDiscountMinPurchaseAmount(
+        subtotal,
+        checkDiscount.min_purchase_amount
+      )
+    ) {
+      discountPrice = checkDiscount.discount_amount;
+    } else if (checkDiscountUser(checkDiscount?.used_by_users)) {
+      errorMessage = "Mã giảm giá đã hết lần sử dụng!";
+    } else if (
+      !checkDiscountMinPurchaseAmount(
+        subtotal,
+        checkDiscount.min_purchase_amount
+      )
+    ) {
+      errorMessage = "Số tiền không đủ điều kiện để sử dụng mã giảm giá";
+    } else if (isExpired(checkDiscount.expiration_date)) {
+      errorMessage = "Mã giảm giá đã hết thời gian!";
+    } else {
+      discountPrice = 0;
+    }
+  }
+  // Tính lại grand_total và subtotal
+
    const grandTotal = calculateGrandTotal(subtotal,discountPrice,);
    // Cập nhật totals trong giỏ hàng
    cart.totals = [
@@ -385,7 +433,7 @@ export const updateCartItem = async (req, res) => {
     await cart.save();
 
     return res.status(200).json({
-      message: "Số lượng sản phẩm đã được cập nhật",
+      message: errorMessage || "Số lượng sản phẩm đã được cập nhật",
       cart,
       success: true,
     });
@@ -414,18 +462,39 @@ export const removeCartItem = async (req, res) => {
 
     // Lọc ra những sản phẩm không có productId
     cart.products.splice(existingItemIndex, 1);
-
     const isCheckedProduct = isCheckedExists(cart.products);
     let discountPrice;
-    if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
-      const discount = await findDiscountById(cart?.discount_id);
-      if (!isExpired(discount.expiration_date)) {
-        discountPrice = discount.discount_amount;
+    let errorMessage = "";
+    const subtotal = calculateSubtotal(cart.products);
+    const checkDiscount = await findDiscountById(cart?.discount_id);
+    if (cart?.discount_id && cart?.products?.length > 0 && isCheckedProduct) {
+      if (
+        !isExpired(checkDiscount.expiration_date) &&
+        !checkDiscountUser(checkDiscount?.used_by_users) &&
+        checkDiscountMinPurchaseAmount(
+          subtotal,
+          checkDiscount.min_purchase_amount
+        )
+      ) {
+        discountPrice = checkDiscount.discount_amount;
+      } else if (checkDiscountUser(checkDiscount?.used_by_users)) {
+        errorMessage = "Mã giảm giá đã hết lần sử dụng!";
+      } else if (
+        !checkDiscountMinPurchaseAmount(
+          subtotal,
+          checkDiscount.min_purchase_amount
+        )
+      ) {
+        errorMessage = "Số tiền không đủ điều kiện để sử dụng mã giảm giá";
+      } else if (isExpired(checkDiscount.expiration_date)) {
+        errorMessage = "Mã giảm giá đã hết thời gian!";
+      } else {
+        discountPrice = 0;
       }
     }
     // Tính lại grand_total và subtotal
-    const subtotal = calculateSubtotal(cart.products);
-    const grandTotal = calculateGrandTotal(subtotal,discountPrice,);
+
+    const grandTotal = calculateGrandTotal(subtotal, discountPrice);
     // Cập nhật totals trong giỏ hàng
     cart.totals = [
       {
@@ -436,7 +505,7 @@ export const removeCartItem = async (req, res) => {
       {
         code: "discount",
         title: "Thành tiền",
-        price: discountPrice ? discountPrice : 0,
+        price: discountPrice || 0,
       },
       {
         code: "grand_total",
@@ -610,8 +679,6 @@ if (existingItemIndex !== -1) {
   }
 };
 
-
-
 // export const getCartByUser = async (req, res) => {
 //   const { id } = req.params
 //   try {
@@ -643,6 +710,7 @@ if (existingItemIndex !== -1) {
 
 
   // Hàm tính lại subtotal dựa trên sản phẩm có is_checked
+  
   function calculateSubtotal(products) {
     const subtotal = products.reduce((total, product) => {
       if (product.is_checked) {
@@ -662,3 +730,10 @@ if (existingItemIndex !== -1) {
   function isCheckedExists(products) {
     return products.some((product) => product.is_checked === true);
   }
+function checkDiscountUser(usedByUsers, userId) {
+  return !!usedByUsers?.includes(userId);
+}
+function checkDiscountMinPurchaseAmount(grandTotalPrice, purchaseAmount) {
+  return Number(grandTotalPrice) > Number(purchaseAmount);
+}
+

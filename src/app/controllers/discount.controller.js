@@ -56,11 +56,9 @@ export const applyDiscountToCart = async (req, res) => {
       return res.status(400).json({ message: 'Mã giảm giá không tồn tại' })
     }
 
-    const grandTotalPrice = cart.totals.find(
-      (item) => item.code === "subtotal"
-    ).price;
+    const subtotal = calculateSubtotal(cart.products);
 
-    if (Number(grandTotalPrice) < Number(checkDiscount.min_purchase_amount)) {
+    if (Number(subtotal) < Number(checkDiscount.min_purchase_amount)) {
       return res
         .status(400)
         .json({ message: "Số tiền không đủ điều kiện để sử dụng mã giảm giá" });
@@ -82,10 +80,10 @@ export const applyDiscountToCart = async (req, res) => {
       return res.status(400).json({ message: 'Mã khuyến mãi đã hết số lượng.' })
     }
 
-    if (grandTotalPrice <= checkDiscount.min_purchase_amount) {
+    if (subtotal <= checkDiscount.min_purchase_amount) {
       return res
         .status(400)
-        .json({ message: 'Không đủ điều kiện áp dụng mã giảm giá.' })
+        .json({ message: "Không đủ điều kiện áp dụng mã giảm giá." });
     }
 
    
@@ -96,28 +94,28 @@ export const applyDiscountToCart = async (req, res) => {
       discountPrice = checkDiscount.discount_amount;
    }
    // Tính lại grand_total và subtotal
-   const subtotal = calculateSubtotal(cart.products);
+  //  const subtotal = calculateSubtotal(cart.products);
    const grandTotal = calculateGrandTotal(subtotal, discountPrice);
     // Cập nhật totals trong giỏ hàng
     cart.totals = [
       {
-        code: 'subtotal',
-        title: 'Thành tiền',
-        price: subtotal
+        code: "subtotal",
+        title: "Thành tiền",
+        price: subtotal,
       },
       {
-        code: 'discount',
-        title: 'Thành tiền',
-        price: discountPrice || 0
+        code: "discount",
+        title: `Tiền giảm giá (${checkDiscount?.discount_name})`,
+        price: discountPrice || 0,
       },
       {
-        code: 'grand_total',
-        title: 'Tổng Số Tiền (gồm VAT)',
-        price: grandTotal
-      }
-    ]
+        code: "grand_total",
+        title: "Tổng Số Tiền (gồm VAT)",
+        price: grandTotal,
+      },
+    ];
     await cart.save()
-    const totalOrder = grandTotalPrice - checkDiscount.discount_amount;
+    const totalOrder = grandTotal - checkDiscount.discount_amount;
     return res.status(200).json({
       message: 'Mã khuyến mãi đã được áp dụng vào giỏ hàng.',
       // cart,
@@ -129,6 +127,50 @@ export const applyDiscountToCart = async (req, res) => {
     return res.status(500).json({ message: error.message })
   }
 }
+export const unDiscountCart = async (req, res) => {
+  const { userId: user_id, discountCode: discount_code } = req.body;
+  try {
+    const cart = await discountCart.findOne({ user_id });
+    if (!cart) {
+      return res.status(400).json({ message: "Giỏ hàng không tồn tại." });
+    }
+
+    const checkDiscount = await discountModel.findOne({ discount_code });
+    if (!checkDiscount) {
+      return res.status(400).json({ message: "Mã giảm giá không tồn tại" });
+    }
+
+    cart.discount_id = null;
+    const isCheckedProduct = isCheckedExists(cart.products);
+    let discountPrice;
+    if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
+      discountPrice = 0;
+    }
+    const subtotal = calculateSubtotal(cart.products);
+    const grandTotal = calculateGrandTotal(subtotal, discountPrice);
+    // Cập nhật totals trong giỏ hàng
+    cart.totals = [
+      {
+        code: "subtotal",
+        title: "Thành tiền",
+        price: subtotal,
+      },
+      {
+        code: "grand_total",
+        title: "Tổng Số Tiền (gồm VAT)",
+        price: grandTotal,
+      },
+    ];
+    await cart.save();
+    return res.status(200).json({
+      message: "Hủy mã khuyến mãi khỏi giỏ hàng.",
+      cart,
+      success: true,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
 
 export const updateDiscount = async (req, res) => {
   const { discount_name, discount_code, expiration_date } = req.body

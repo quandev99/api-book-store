@@ -1,401 +1,309 @@
-{
-  "success": true,
-  "isLogin": false,
-  "items": [
-    {
-      "product_id": 312951,
-      "quantity": 2,
-      "is_checked": false,
-      "soon_release": "",
-      "original_price": 135000,
-      "sku": "8935250704472",
-      "type_id": "simple",
-      "weight": 300,
-      "name": "OVERLORD - Tập 2: Chiến Binh Bóng Tối",
-      "image": "https://cdn0.fahasa.com/media/catalog/product//o/v/overlord-2---bia1_1.jpg",
-      "product_url": "https://www.fahasa.com/overlord-tap-2-chien-binh-bong-toi.html",
-      "category_main": "Sách tiếng Việt",
-      "category_mid": "Văn học",
-      "category_3": "Light Novel",
-      "category_4": null,
-      "category_main_id": 4,
-      "category_mid_id": 9,
-      "category_3_id": 5981,
-      "category_4_id": 1,
-      "supplier": "CT01768",
-      "publisher": "NXB Hồng Đức",
-      "evoucher": null,
-      "price": 114750,
-      "options": {},
-      "discount_amount": 20250,
-      "discount_percent": 15,
-      "row_total": 229500,
-      "out_of_stock": false,
-      "message": "",
-      "is_unchecked": false,
-      "has_error": false
-    }
-  ],
-  "totals": [
-    { "code": "subtotal", "title": "Thành tiền", "price": 0 },
-    { "code": "grand_total", "title": "Tổng Số Tiền (gồm VAT)", "price": 0 }
-  ],
-  "can_payment": false,
+{"couponCode": "FHS50KT04", "apply": 1}
 
-  "coupon": {
-    "action_id": 1357,
-    "action_type": "salesrule",
-    "title": "MÃ GIẢM 30K - ĐƠN HÀNG TỪ 270K",
-    "is_auto": true,
-    "coupon_code": "FHS1TUW3T10",
-    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 30K\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng từ 270K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Từ Thứ 2 đến Thứ 4 Hằng tuần\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
-    "options": [
-      {
-        "option_id": 1387,
-        "option_value": "4157",
-        "option_name": "Rule 4157",
-        "option_qty": null,
-        "active": false,
-        "almost_run_out": true
-      }
-    ],
-    "matched_items": null,
-    "reach_percent": 0,
-    "matched": false,
-    "sub_total": "0 đ",
-    "min_total": "0 đ",
-    "max_total": "270.000 đ",
-    "need_total": "270.000 đ",
-    "error": [],
-    "payment_method": null,
-    "event_type": 1,
-    "almost_run_out": true,
-    "order_index": -13,
-    "event_id": 1324,
-    "applied": false,
-    "page_detail": "sale-thu-3?fhs_campaign=GIO_HANG_GAN_DAT",
-    "title_2": "ÁP DỤNG TỪ THỨ 2 ĐẾN THỨ 4 HẰNG TUẦN"
-  },
-  "payload": {
-    "amount": 0,
-    "product_id": "312951",
-    "name": "OVERLORD - Tập 2: Chiến Binh Bóng Tối",
-    "brand": "CT01768",
-    "quantity": "2",
-    "price": "135000",
-    "final_price": "114750",
-    "currency": "VNĐ",
-    "category_main": "Sách tiếng Việt",
-    "category_mid": "Văn học",
-    "category_3": "Light Novel",
-    "category_4": "null",
-    "image": "https://cdn0.fahasa.com/media/catalog/product//o/v/overlord-2---bia1_1.jpg",
-    "moe_logged_in_status": true,
-    "moe_first_visit": false,
-    "URL": "https://www.fahasa.com/checkout/cart/"
-  },
-  
-  "items": [
-    {
-      "product_id": 312951,
-      "quantity": 2,
-      "is_checked": true,
-      "soon_release": "",
-      "original_price": 135000,
-      "sku": "8935250704472",
-      "type_id": "simple",
-      "weight": 300,
-      "name": "OVERLORD - Tập 2: Chiến Binh Bóng Tối",
-      "image": "https://cdn0.fahasa.com/media/catalog/product//o/v/overlord-2---bia1_1.jpg",
-      "product_url": "https://www.fahasa.com/overlord-tap-2-chien-binh-bong-toi.html",
-      "category_main": "Sách tiếng Việt",
-      "category_mid": "Văn học",
-      "category_3": "Light Novel",
-      "category_4": null,
-      "category_main_id": 4,
-      "category_mid_id": 9,
-      "category_3_id": 5981,
-      "category_4_id": 1,
-      "supplier": "CT01768",
-      "publisher": "NXB Hồng Đức",
-      "evoucher": null,
-      "price": 114750,
-      "options": {},
-      "discount_amount": 20250,
-      "discount_percent": 15,
-      "row_total": 229500,
-      "out_of_stock": false,
-      "message": "",
-      "is_unchecked": false,
-      "has_error": false
-    }
-  ],
-  "totals": [
-    { "code": "subtotal", "title": "Thành tiền", "price": 229500 },
-    {
-      "code": "grand_total",
-      "title": "Tổng Số Tiền (gồm VAT)",
-      "price": 229500
-    }
-  ],
-  "can_payment": true
-},
 {
-    "items": [
-        {
-            "product_id": 101480,
-            "quantity": 1,
-            "is_checked": false,
-            "soon_release": "",
-            "original_price": 318000,
-            "sku": "9786048557553",
-            "type_id": "simple",
-            "weight": 830,
-            "name": "Hackers TOEIC Listening (Kèm CD)",
-            "image": "https://cdn0.fahasa.com/media/catalog/product//i/m/image_64661.jpg",
-            "product_url": "https://www.fahasa.com/hackers-toeic-listening-kem-cd.html",
-            "category_main": "Sách tiếng Việt",
-            "category_mid": "Sách học ngoại ngữ",
-            "category_3": "Tiếng Anh",
-            "category_4": "Luyện Thi TOEIC ",
-            "category_main_id": 4,
-            "category_mid_id": 20,
-            "category_3_id": 193,
-            "category_4_id": 6625,
-            "supplier": "CT01735",
-            "publisher": "NXB Tổng hợp TP.HCM",
-            "evoucher": null,
-            "price": 241680,
-            "options": {},
-            "discount_amount": 76320,
-            "discount_percent": 24,
-            "row_total": 241680,
-            "out_of_stock": false,
-            "message": "",
-            "is_unchecked": false,
-            "has_error": false,
-            "merged": true
+    "success": true,
+    "checkout": {
+        "products": [
+            {
+                "product_id": 311147,
+                "quantity": 3,
+                "is_checked": true,
+                "soon_release": "",
+                "original_price": 248000,
+                "sku": "8935086853634",
+                "type_id": "simple",
+                "weight": 420,
+                "name": "Thay Đổi Cuộc Sống Với Nhân Số Học",
+                "image": "https://cdn0.fahasa.com/media/catalog/product//t/d/tdcsvnsh.jpg",
+                "product_url": "https://www.fahasa.com/thay-doi-cuoc-song-voi-nhan-so-hoc.html",
+                "category_main": "Sách tiếng Việt",
+                "category_mid": "Tâm lý - Kỹ năng sống",
+                "category_3": "Kỹ năng sống",
+                "category_4": null,
+                "category_main_id": 4,
+                "category_mid_id": 12,
+                "category_3_id": 213,
+                "category_4_id": 1,
+                "supplier": "CT00094",
+                "publisher": "NXB Tổng Hợp TPHCM",
+                "evoucher": null,
+                "price": 181040,
+                "options": {},
+                "discount_amount": 66960,
+                "discount_percent": 27,
+                "row_total": 543120,
+                "out_of_stock": false,
+                "message": "",
+                "is_unchecked": false,
+                "has_error": false,
+                "merged": false
+            }
+        ],
+        "couponCode": "FHS50KT04",
+        "couponLabel": "Nhập mã thành công - Mã giảm giá 50K TOÀN SÀN - Đơn hàng từ 500K",
+        "fhsCoin": null,
+        "freeshipCouponCode": false,
+        "freeshipCouponLabel": null,
+        "subTotalPriceItems_calculated": 543120,
+        "totals": [
+            {
+                "code": "subtotal",
+                "title": "Thành tiền",
+                "price": 543120
+            },
+            {
+                "code": "discount",
+                "title": "Giảm giá (Nhập mã thành công - Mã giảm giá 50K TOÀN SÀN - Đơn hàng từ 500K)",
+                "price": -50000
+            },
+            {
+                "code": "shipping",
+                "title": "Phí vận chuyển (Giao hàng tiêu chuẩn)",
+                "price": 31000
+            },
+            {
+                "code": "grand_total",
+                "title": "Tổng Số Tiền (gồm VAT)",
+                "price": 524120
+            }
+        ],
+        "isHiddenCOD": false,
+        "membership": {
+            "canTryout": false,
+            "tryout": false,
+            "fpoint": 0,
+            "fpointDisplay": "0 đ",
+            "canFreeship": false,
+            "freeship": false,
+            "freeshipNumber": 0,
+            "freeshipNumberDisplay": "0 lần"
         },
-        {
-            "product_id": 311147,
-            "quantity": 3,
-            "is_checked": true,
-            "soon_release": "",
-            "original_price": 248000,
-            "sku": "8935086853634",
-            "type_id": "simple",
-            "weight": 420,
-            "name": "Thay Đổi Cuộc Sống Với Nhân Số Học",
-            "image": "https://cdn0.fahasa.com/media/catalog/product//t/d/tdcsvnsh.jpg",
-            "product_url": "https://www.fahasa.com/thay-doi-cuoc-song-voi-nhan-so-hoc.html",
-            "category_main": "Sách tiếng Việt",
-            "category_mid": "Tâm lý - Kỹ năng sống",
-            "category_3": "Kỹ năng sống",
-            "category_4": null,
-            "category_main_id": 4,
-            "category_mid_id": 12,
-            "category_3_id": 213,
-            "category_4_id": 1,
-            "supplier": "CT00094",
-            "publisher": "NXB Tổng Hợp TPHCM",
-            "evoucher": null,
-            "price": 181040,
-            "options": {},
-            "discount_amount": 66960,
-            "discount_percent": 27,
-            "row_total": 543120,
-            "out_of_stock": false,
-            "message": "",
-            "is_unchecked": false,
-            "has_error": false,
-            "merged": false
-        },
-        {
-            "product_id": 443242,
-            "quantity": 3,
-            "is_checked": false,
-            "soon_release": "",
-            "original_price": 230000,
-            "sku": "8934974189657-khongqua",
-            "type_id": "simple",
-            "weight": 400,
-            "name": "Mùa Hè Không Tên - Bìa Cứng",
-            "image": "https://cdn0.fahasa.com/media/catalog/product//m/u/mua-he-khong-ten---bia-cung---3d-1_1.jpg",
-            "product_url": "https://www.fahasa.com/mua-he-khong-ten-bia-cung.html",
-            "category_main": "Sách tiếng Việt",
-            "category_mid": "Văn học",
-            "category_3": "Tiểu thuyết",
-            "category_4": null,
-            "category_main_id": 4,
-            "category_mid_id": 9,
-            "category_3_id": 201,
-            "category_4_id": 1,
-            "supplier": "CT02256",
-            "publisher": "Trẻ",
-            "evoucher": null,
-            "price": 179400,
-            "options": {},
-            "discount_amount": 50600,
-            "discount_percent": 22,
-            "row_total": 538200,
-            "out_of_stock": true,
-            "message": "Sản phẩm đã hết hàng. Xin gỡ bỏ.",
-            "is_unchecked": false,
-            "has_error": true,
-            "merged": false
-        }
-    ],
-    "totals": [
-        {
-            "code": "subtotal",
-            "title": "Thành tiền",
-            "price": 543120
-        },
-        {
-            "code": "discount",
-            "title": "Giảm giá (Nhập mã thành công - Mã giảm giá 10K TOÀN SÀN - Đơn hàng từ 150K)",
-            "price": -10000
-        },
-        {
-            "code": "shipping",
-            "title": "Phí vận chuyển (Giao hàng tiêu chuẩn)",
-            "price": 31000
-        },
-        {
-            "code": "grand_total",
-            "title": "Tổng Số Tiền (gồm VAT)",
-            "price": 564120
-        }
-    ],
-    "can_payment": true,
-    "error_cart": [],
+        "coupon_message": ""
+    },
     "event_cart": {
         "success": true,
         "event": [],
         "affect_items": [],
         "affect_carts": {
             "matched": [],
-            "not_matched": []
+            "not_matched": [
+                {
+                    "action_id": 1659,
+                    "action_type": "add_gift",
+                    "title": "QUÀ TẶNG SÁCH - ĐƠN HÀNG VĂN LANG TỪ 200K",
+                    "is_auto": true,
+                    "coupon_code": "",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 5px 0;\r\n    }\r\n\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n \r\n        .image-in-popup{\r\n              width:130px;\r\n             height:130px;\r\n        } \r\n        .image-in-popup-container{\r\n         display : flex; \r\n         justify-content: center;\r\n        }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nCHƯƠNG TRÌNH MUA SẢN PHẨM TỪ VĂN LANG - NHẬN SÁCH Biến Nhược Điểm Thành Ưu Điểm\r\n</div>\r\n<br>\r\n<div class=\"fhs-container bold-text\">\r\nĐiều kiện\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mua đơn hàng từ ncc VĂN LANG trên 200k sẽ được tặng SÁCH Biến Nhược Điểm Thành Ưu Điểm\r\nLưu ý: \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình diễn ra từ 01/04/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng quà có hạn.\r\n</div>\r\n\r\n\r\n\r\n",
+                    "options": [
+                        {
+                            "option_id": 1689,
+                            "option_value": "446041",
+                            "option_name": "VL200k",
+                            "option_qty": null,
+                            "active": false,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 0,
+                    "matched": false,
+                    "sub_total": "0 đ",
+                    "min_total": "0 đ",
+                    "max_total": "200.000 đ",
+                    "need_total": "200.000 đ",
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 2,
+                    "almost_run_out": false,
+                    "order_index": -8,
+                    "event_id": 1636,
+                    "page_detail": "van-lang-books?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Đơn hàng NCC Văn Lang từ 200K sẽ được tặng phần quà SÁCH Biến Nhược Điểm Thành Ưu Điểm"
+                },
+                {
+                    "action_id": 1660,
+                    "action_type": "add_gift",
+                    "title": "QUÀ TẶNG TÚI VẢI - ĐƠN HÀNG MINH LONG TỪ 500K",
+                    "is_auto": true,
+                    "coupon_code": "",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 5px 0;\r\n    }\r\n\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n \r\n        .image-in-popup{\r\n              width:130px;\r\n             height:130px;\r\n        } \r\n        .image-in-popup-container{\r\n         display : flex; \r\n         justify-content: center;\r\n        }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nCHƯƠNG TRÌNH MUA SẢN PHẨM TỪ MINH LONG - NHẬN QUÀ TẶNG THEO TỪNG MỐC\r\n</div>\r\n<br>\r\n<div class=\"fhs-container bold-text\">\r\nĐiều kiện\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mua đơn hàng từ ncc MINH LONG trên 300k sẽ được tặng QUÀ TẶNG SỔ\r\n\r\n- Mua đơn hàng từ ncc MINH LONG trên 500k sẽ được tặng QUÀ TẶNG TÚI VẢI\r\nLưu ý: \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình diễn ra đến 30/04/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng quà có hạn.\r\n</div>\r\n\r\n\r\n\r\n",
+                    "options": [
+                        {
+                            "option_id": 1690,
+                            "option_value": "523171",
+                            "option_name": "qt-sc-minhlong500k",
+                            "option_qty": null,
+                            "active": false,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 0,
+                    "matched": false,
+                    "sub_total": "0 đ",
+                    "min_total": "0 đ",
+                    "max_total": "500.000 đ",
+                    "need_total": "500.000 đ",
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 2,
+                    "almost_run_out": false,
+                    "order_index": -8,
+                    "event_id": 1637,
+                    "page_detail": "minh-long?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Đơn hàng NCC Minh Long từ 500K sẽ được tặng phần quà Túi vải"
+                },
+                {
+                    "action_id": 1661,
+                    "action_type": "add_gift",
+                    "title": "QUÀ TẶNG SỔ TAY - ĐƠN HÀNG MINH LONG TỪ 300K",
+                    "is_auto": true,
+                    "coupon_code": "",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 5px 0;\r\n    }\r\n\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n \r\n        .image-in-popup{\r\n              width:130px;\r\n             height:130px;\r\n        } \r\n        .image-in-popup-container{\r\n         display : flex; \r\n         justify-content: center;\r\n        }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nCHƯƠNG TRÌNH MUA SẢN PHẨM TỪ MINH LONG - NHẬN QUÀ TẶNG THEO TỪNG MỐC\r\n</div>\r\n<br>\r\n<div class=\"fhs-container bold-text\">\r\nĐiều kiện\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mua đơn hàng từ ncc MINH LONG trên 300k sẽ được tặng QUÀ TẶNG SỔ\r\n\r\n- Mua đơn hàng từ ncc MINH LONG trên 500k sẽ được tặng QUÀ TẶNG TÚI VẢI\r\nLưu ý: \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình diễn ra đến 30/04/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng quà có hạn.\r\n</div>\r\n\r\n\r\n\r\n",
+                    "options": [
+                        {
+                            "option_id": 1691,
+                            "option_value": "523168",
+                            "option_name": "qt-sc-minhlong300k",
+                            "option_qty": null,
+                            "active": false,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 0,
+                    "matched": false,
+                    "sub_total": "0 đ",
+                    "min_total": "0 đ",
+                    "max_total": "300.000 đ",
+                    "need_total": "300.000 đ",
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 2,
+                    "almost_run_out": false,
+                    "order_index": -8,
+                    "event_id": 1638,
+                    "page_detail": "minh-long?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Đơn hàng NCC Minh Long từ 300K sẽ được tặng phần quà Sổ Tay"
+                },
+                {
+                    "action_id": 1666,
+                    "action_type": "add_gift",
+                    "title": "Tặng Thẻ Học Từ Vựng Tiếng Anh (Mẫu Ngẫu Nhiên)",
+                    "is_auto": true,
+                    "coupon_code": "",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 5px 0;\r\n    }\r\n\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n \r\n        .image-in-popup{\r\n              width:130px;\r\n             height:130px;\r\n        } \r\n        .image-in-popup-container{\r\n         display : flex; \r\n         justify-content: center;\r\n        }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nTặng Thẻ Học Từ Vựng Tiếng Anh (Mẫu Ngẫu Nhiên).\r\n</div>\r\n<br>\r\n<div class=\"fhs-container bold-text\">\r\nĐiều kiện:\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Áp dụng cho đơn hàng khi mua Bút chấm đọc phiên bản bất kỳ.\r\nLưu ý: \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 04/2024.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình có thể kết thúc sớm hơn dự kiến do số lượng quà có hạn.\r\n</div>",
+                    "options": [
+                        {
+                            "option_id": 1696,
+                            "option_value": "458317",
+                            "option_name": "qt-kd-fctanviet11",
+                            "option_qty": null,
+                            "active": false,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": [],
+                    "reach_percent": 0,
+                    "matched": false,
+                    "sub_total": "0 sản phẩm",
+                    "min_total": "0 sản phẩm",
+                    "max_total": "1 sản phẩm",
+                    "need_total": "1 sản phẩm",
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 2,
+                    "almost_run_out": false,
+                    "order_index": -8,
+                    "event_id": 1643,
+                    "page_detail": "but-cham-doc-hoc-tieng-anh-tan-viet-danh-thuc-nang-luc-phi-thuong-tu-tre-tho-phien-ban-5-sach-danh-cho-tre-tu-0-den-6-tuoi.html?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Áp dụng cho đơn hàng khi mua Bút chấm đọc phiên bản bất kỳ"
+                },
+                {
+                    "action_id": 1670,
+                    "action_type": "add_gift",
+                    "title": "TẶNG LỊCH TÚI  - ĐƠN HÀNG CÓ SẢN PHẨM CỦA NHÀ CUNG CẤP HƯƠNG TRANG",
+                    "is_auto": true,
+                    "coupon_code": "",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 5px 0;\r\n    }\r\n\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n \r\n        .image-in-popup{\r\n              width:130px;\r\n             height:130px;\r\n        } \r\n        .image-in-popup-container{\r\n         display : flex; \r\n         justify-content: center;\r\n        }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nTẶNG 1 LỊCH TÚI HƯƠNG TRANG CHO ĐƠN HÀNG TRÊN CỦA NCC HƯƠNG TRANG\r\n</div>\r\n<br>\r\n<div class=\"fhs-container bold-text\">\r\nĐiều kiện\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Đơn hàng có vật phẩm của NCC Hương Trang sẽ được tặng 1 lịch túi Hương Trang\r\n</div>\r\n\r\n\r\n<div class=\"fhs-container\">\r\nLưu ý: \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng quà có hạn.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình có thể kết thúc sớm hơn khi hết quà tặng\r\n</div>\r\n\r\n\r\n",
+                    "options": [
+                        {
+                            "option_id": 1700,
+                            "option_value": "429550",
+                            "option_name": "8935209634645",
+                            "option_qty": null,
+                            "active": false,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 0,
+                    "matched": false,
+                    "sub_total": "0 sản phẩm",
+                    "min_total": "0 sản phẩm",
+                    "max_total": "1 sản phẩm",
+                    "need_total": "1 sản phẩm",
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 2,
+                    "almost_run_out": false,
+                    "order_index": -8,
+                    "event_id": 1647,
+                    "page_detail": "huong-trang?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "MUA SẢN PHẨM TỪ HƯƠNG TRANG - TẶNG LỊCH TÚI"
+                },
+                {
+                    "action_id": 1667,
+                    "action_type": "add_gift",
+                    "title": "QUÀ TẶNG TỪ NCC STACOM - QUÀ TẶNG LỊCH",
+                    "is_auto": true,
+                    "coupon_code": "",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 5px 0;\r\n    }\r\n\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n \r\n        .image-in-popup{\r\n              width:130px;\r\n             height:130px;\r\n        } \r\n        .image-in-popup-container{\r\n         display : flex; \r\n         justify-content: center;\r\n        }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nCHƯƠNG TRÌNH MUA SẢN PHẨM TỪ STACOM - NHẬN LỊCH\r\n</div>\r\n<br>\r\n<div class=\"fhs-container bold-text\">\r\nĐiều kiện\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mua đơn hàng từ ncc STACOM trên 150k sẽ được tặng QUÀ LỊCH\r\nLưu ý: \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình diễn ra từ 02/04/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng quà có hạn.\r\n</div>\r\n\r\n\r\n\r\n",
+                    "options": [
+                        {
+                            "option_id": 1697,
+                            "option_value": "463140",
+                            "option_name": "qt-sc-pentel200k",
+                            "option_qty": null,
+                            "active": false,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 0,
+                    "matched": false,
+                    "sub_total": "0 đ",
+                    "min_total": "0 đ",
+                    "max_total": "150.000 đ",
+                    "need_total": "150.000 đ",
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 2,
+                    "almost_run_out": false,
+                    "order_index": -7,
+                    "event_id": 1644,
+                    "page_detail": "van-phong-pham?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Đơn hàng từ 150K của ncc STACOM sẽ được nhận phần quà lịch"
+                }
+            ]
         },
         "affect_coupons": {
             "matched": [
                 {
-                    "action_id": 1605,
-                    "action_type": "salesrule",
-                    "title": "MÃ GIẢM 10K - ĐƠN HÀNG TỪ 150K",
-                    "is_auto": true,
-                    "coupon_code": "FHS10KT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 10K cho đơn hàng từ 150K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng từ 150K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
-                    "options": [
-                        {
-                            "option_id": 1635,
-                            "option_value": "4439",
-                            "option_name": "Rule 4439",
-                            "option_qty": null,
-                            "active": true,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": null,
-                    "reach_percent": 100,
-                    "matched": true,
-                    "sub_total": "543.120 đ",
-                    "min_total": "0 đ",
-                    "max_total": "150.000 đ",
-                    "need_total": null,
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 1,
-                    "almost_run_out": true,
-                    "order_index": -12,
-                    "event_id": 1582,
-                    "applied": true,
-                    "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa"
-                },
-                {
-                    "action_id": 1606,
-                    "action_type": "salesrule",
-                    "title": "MÃ GIẢM 25K - ĐƠN HÀNG TỪ 300K",
-                    "is_auto": true,
-                    "coupon_code": "FHS25KT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 25K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng từ 300K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng và Sách Giáo Khoa \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
-                    "options": [
-                        {
-                            "option_id": 1636,
-                            "option_value": "4440",
-                            "option_name": "Rule 4440",
-                            "option_qty": null,
-                            "active": true,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": null,
-                    "reach_percent": 100,
-                    "matched": true,
-                    "sub_total": "543.120 đ",
-                    "min_total": "0 đ",
-                    "max_total": "300.000 đ",
-                    "need_total": null,
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 1,
-                    "almost_run_out": true,
-                    "order_index": -12,
-                    "event_id": 1583,
-                    "applied": false,
-                    "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa"
-                },
-                {
-                    "action_id": 1608,
-                    "action_type": "salesrule",
-                    "title": "MÃ GIẢM 30K - ĐƠN HÀNG TỪ 400K",
-                    "is_auto": true,
-                    "coupon_code": "FHS30KT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 30K cho đơn hàng từ 400K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng từ 400K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
-                    "options": [
-                        {
-                            "option_id": 1638,
-                            "option_value": "4441",
-                            "option_name": "Rule 4441",
-                            "option_qty": null,
-                            "active": true,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": null,
-                    "reach_percent": 100,
-                    "matched": true,
-                    "sub_total": "543.120 đ",
-                    "min_total": "0 đ",
-                    "max_total": "400.000 đ",
-                    "need_total": null,
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 1,
-                    "almost_run_out": true,
-                    "order_index": -12,
-                    "event_id": 1585,
-                    "applied": false,
-                    "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa"
-                },
-                {
-                    "action_id": 1609,
+                    "action_id": 1640,
                     "action_type": "salesrule",
                     "title": "MÃ GIẢM 50K - ĐƠN HÀNG TỪ 500K",
                     "is_auto": true,
-                    "coupon_code": "FHS50KT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 50K cho đơn hàng từ 500K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng từ 500K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng và Sách Giáo Khoa\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHS50KT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 50K cho đơn hàng từ 500K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng từ 500K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng và Sách Giáo Khoa\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1639,
-                            "option_value": "4442",
-                            "option_name": "Rule 4442",
+                            "option_id": 1670,
+                            "option_value": "4538",
+                            "option_name": "Rule 4538",
                             "option_qty": null,
                             "active": true,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -408,30 +316,132 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -12,
-                    "event_id": 1586,
+                    "event_id": 1617,
+                    "applied": true,
+                    "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa"
+                },
+                {
+                    "action_id": 1637,
+                    "action_type": "salesrule",
+                    "title": "MÃ GIẢM 10K - ĐƠN HÀNG TỪ 150K",
+                    "is_auto": true,
+                    "coupon_code": "FHS10KT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 10K cho đơn hàng từ 150K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng từ 150K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "options": [
+                        {
+                            "option_id": 1667,
+                            "option_value": "4535",
+                            "option_name": "Rule 4535",
+                            "option_qty": null,
+                            "active": true,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 100,
+                    "matched": true,
+                    "sub_total": "543.120 đ",
+                    "min_total": "0 đ",
+                    "max_total": "150.000 đ",
+                    "need_total": null,
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 1,
+                    "almost_run_out": false,
+                    "order_index": -12,
+                    "event_id": 1614,
                     "applied": false,
                     "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa và Giấy Photo"
+                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa"
+                },
+                {
+                    "action_id": 1639,
+                    "action_type": "salesrule",
+                    "title": "MÃ GIẢM 30K - ĐƠN HÀNG TỪ 400K",
+                    "is_auto": true,
+                    "coupon_code": "FHS30KT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 30K cho đơn hàng từ 400K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng từ 400K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "options": [
+                        {
+                            "option_id": 1669,
+                            "option_value": "4537",
+                            "option_name": "Rule 4537",
+                            "option_qty": null,
+                            "active": true,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 100,
+                    "matched": true,
+                    "sub_total": "543.120 đ",
+                    "min_total": "0 đ",
+                    "max_total": "400.000 đ",
+                    "need_total": null,
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 1,
+                    "almost_run_out": false,
+                    "order_index": -12,
+                    "event_id": 1616,
+                    "applied": false,
+                    "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa"
+                },
+                {
+                    "action_id": 1668,
+                    "action_type": "salesrule",
+                    "title": "MÃ GIẢM 25K - ĐƠN HÀNG TỪ 300K",
+                    "is_auto": true,
+                    "coupon_code": "FHS25KT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 25K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng từ 300K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng và Sách Giáo Khoa \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "options": [
+                        {
+                            "option_id": 1698,
+                            "option_value": "4536",
+                            "option_name": "Rule 4536",
+                            "option_qty": null,
+                            "active": true,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 100,
+                    "matched": true,
+                    "sub_total": "543.120 đ",
+                    "min_total": "0 đ",
+                    "max_total": "300.000 đ",
+                    "need_total": null,
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 1,
+                    "almost_run_out": false,
+                    "order_index": -12,
+                    "event_id": 1645,
+                    "applied": false,
+                    "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa"
                 }
             ],
             "not_matched": [
                 {
-                    "action_id": 1610,
+                    "action_id": 1641,
                     "action_type": "salesrule",
                     "title": "MÃ GIẢM 100K - ĐƠN HÀNG TỪ 1TR",
                     "is_auto": true,
-                    "coupon_code": "FHS100KT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 100K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng từ 1TR, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng và Sách Giáo Khoa\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHS100KT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 100K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng từ 1TR, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng và Sách Giáo Khoa\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1640,
-                            "option_value": "4443",
-                            "option_name": "Rule 4443",
+                            "option_id": 1671,
+                            "option_value": "4539",
+                            "option_name": "Rule 4539",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -444,61 +454,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -12,
-                    "event_id": 1587,
+                    "event_id": 1618,
                     "applied": false,
                     "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa và Giấy Photo"
+                    "title_2": "Không Áp Dụng Cho Sách Giáo Khoa"
                 },
                 {
-                    "action_id": 1626,
-                    "action_type": "salesrule",
-                    "title": "MÃ GIẢM 30K - ĐƠN TỪ 250K;Áp dụng cho đơn hàng mua sản phẩm của NCC tham gia Brand Day; Không Áp Dụng Cho Phiếu Quà Tặng",
-                    "is_auto": true,
-                    "coupon_code": "HSOBD30K",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 30K \r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Áp dụng cho đơn hàng có tổng giá trị đơn hàng của các NCC dưới đây từ 250K:\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Kim Đồng\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Đinh Tị\r\n\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Tân Việt\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC 1980books\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Mcbooks\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Huy Hoàng\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Sài Gòn Books\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Zenbooks\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Minh Long\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Bách Việt\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết 03/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
-                    "options": [
-                        {
-                            "option_id": 1656,
-                            "option_value": "4461",
-                            "option_name": "Rule 4461",
-                            "option_qty": null,
-                            "active": false,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": null,
-                    "reach_percent": 0,
-                    "matched": false,
-                    "sub_total": "0 đ",
-                    "min_total": "0 đ",
-                    "max_total": "250.000 đ",
-                    "need_total": "250.000 đ",
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 1,
-                    "almost_run_out": true,
-                    "order_index": -9,
-                    "event_id": 1603,
-                    "applied": false,
-                    "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT"
-                },
-                {
-                    "action_id": 1612,
+                    "action_id": 1643,
                     "action_type": "salesrule",
                     "title": "MÃ GIẢM 10K - ĐƠN TỪ 120K",
                     "is_auto": true,
-                    "coupon_code": "FHS1MANGAT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 10K Đơn từ 120K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHS1MANGAT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 10K Đơn từ 120K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1642,
-                            "option_value": "4445",
-                            "option_name": "Rule 4445",
+                            "option_id": 1673,
+                            "option_value": "4541",
+                            "option_name": "Rule 4541",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -511,28 +488,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1589,
+                    "event_id": 1620,
                     "applied": false,
                     "page_detail": "nhap-hoi-manga-comic?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, Không Áp Dụng Cho Phiếu Quà Tặng"
                 },
                 {
-                    "action_id": 1613,
+                    "action_id": 1644,
                     "action_type": "salesrule",
                     "title": "MÃ GIẢM 20K - ĐƠN TỪ 210K",
                     "is_auto": true,
-                    "coupon_code": "FHS2MANGAT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 20K Đơn từ 210K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHS2MANGAT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 20K Đơn từ 210K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1643,
-                            "option_value": "4446",
-                            "option_name": "Rule 4446",
+                            "option_id": 1674,
+                            "option_value": "4542",
+                            "option_name": "Rule 4542",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -545,28 +522,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1590,
+                    "event_id": 1621,
                     "applied": false,
                     "page_detail": "nhap-hoi-manga-comic?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, Không Áp Dụng Cho Phiếu Quà Tặng"
                 },
                 {
-                    "action_id": 1614,
+                    "action_id": 1645,
                     "action_type": "salesrule",
                     "title": "MÃ GIẢM 40K - ĐƠN TỪ 410K",
                     "is_auto": true,
-                    "coupon_code": "FHS3MANGAT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 40K Đơn từ 410K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHS3MANGAT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 40K Đơn từ 410K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1644,
-                            "option_value": "4447",
-                            "option_name": "Rule 4447",
+                            "option_id": 1675,
+                            "option_value": "4543",
+                            "option_name": "Rule 4543",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -579,28 +556,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1591,
+                    "event_id": 1622,
                     "applied": false,
                     "page_detail": "nhap-hoi-manga-comic?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng cho đơn hàng mua Manga / Light Novel / Đam Mỹ, Không Áp Dụng Cho Phiếu Quà Tặng"
                 },
                 {
-                    "action_id": 1616,
+                    "action_id": 1647,
                     "action_type": "salesrule",
                     "title": "MÃ GIẢM 20K - ĐƠN TỪ 210K",
                     "is_auto": true,
-                    "coupon_code": "FHSTN20T03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 20K Đơn từ 210K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua Sách Thiếu Nhi, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHSTN20T04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 20K Đơn từ 210K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua Sách Thiếu Nhi, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1646,
-                            "option_value": "4449",
-                            "option_name": "Rule 4449",
+                            "option_id": 1677,
+                            "option_value": "4545",
+                            "option_name": "Rule 4545",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -613,28 +590,62 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1593,
+                    "event_id": 1624,
                     "applied": false,
                     "page_detail": "trang-thieu-nhi?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp Dụng Cho Đơn Hàng Mua Sách Thiếu Nhi"
                 },
                 {
-                    "action_id": 1619,
+                    "action_id": 1649,
+                    "action_type": "salesrule",
+                    "title": "MÃ GIẢM 15K - ĐƠN TỪ 149K",
+                    "is_auto": true,
+                    "coupon_code": "FHSBDT415K",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 30K \r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Áp dụng cho đơn hàng có tổng giá trị đơn hàng của các NCC dưới đây từ 250K:\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Văn Lang\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Tân Việt\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Minh Long\r\n</div>\r\n\r\n\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết 04/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "options": [
+                        {
+                            "option_id": 1679,
+                            "option_value": "4547",
+                            "option_name": "Rule 4547",
+                            "option_qty": null,
+                            "active": false,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 0,
+                    "matched": false,
+                    "sub_total": "0 đ",
+                    "min_total": "0 đ",
+                    "max_total": "149.000 đ",
+                    "need_total": "149.000 đ",
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 1,
+                    "almost_run_out": false,
+                    "order_index": -8,
+                    "event_id": 1626,
+                    "applied": false,
+                    "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Áp dụng cho đơn hàng mua ncc Tân Việt,  Minh Long, Văn Lang Không Áp Dụng Cho Phiếu Quà Tặng"
+                },
+                {
+                    "action_id": 1652,
                     "action_type": "salesrule",
                     "title": "Mã Giảm 10% Tối Đa 50K",
                     "is_auto": true,
-                    "coupon_code": "FHSVPP0324",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 10% - Tối đa 50k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Văn Phòng Phẩm - Dụng Cụ Học Sinh từ 100K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHSVPP0424",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 10% - Tối đa 50k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Văn Phòng Phẩm - Dụng Cụ Học Sinh từ 100K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1649,
-                            "option_value": "4452",
-                            "option_name": "Rule 4452",
+                            "option_id": 1682,
+                            "option_value": "4550",
+                            "option_name": "Rule 4550",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -647,28 +658,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1596,
+                    "event_id": 1629,
                     "applied": false,
                     "page_detail": "van-phong-pham?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng Cho Đơn Hàng Mua VPP DCHS từ 100K"
                 },
                 {
-                    "action_id": 1621,
+                    "action_id": 1654,
                     "action_type": "salesrule",
                     "title": "Mã Giảm 10% Tối Đa 30K",
                     "is_auto": true,
-                    "coupon_code": "FHSDC1T0324",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 10% - Tối đa 30k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Đồ Chơi từ 100K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHSDC1T0424",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 10% - Tối đa 30k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Đồ Chơi từ 100K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1651,
-                            "option_value": "4454",
-                            "option_name": "Rule 4454",
+                            "option_id": 1684,
+                            "option_value": "4552",
+                            "option_name": "Rule 4552",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -681,28 +692,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1598,
+                    "event_id": 1631,
                     "applied": false,
                     "page_detail": "do-choi-cho-be?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng Cho Đơn Hàng Mua Đồ Chơi từ 100K"
                 },
                 {
-                    "action_id": 1622,
+                    "action_id": 1655,
                     "action_type": "salesrule",
                     "title": "Mã Giảm 12% Tối Đa 60K",
                     "is_auto": true,
-                    "coupon_code": "FHSDC2T0324",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 12% - Tối đa 60k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Đồ Chơi từ 300K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FHSDC2T0424",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 12% - Tối đa 60k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Đồ Chơi từ 300K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1652,
-                            "option_value": "4455",
-                            "option_name": "Rule 4455",
+                            "option_id": 1685,
+                            "option_value": "4553",
+                            "option_name": "Rule 4553",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -715,9 +726,9 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 1,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1599,
+                    "event_id": 1632,
                     "applied": false,
                     "page_detail": "do-choi-cho-be?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng Cho Đơn Hàng Mua Đồ Chơi từ 300K"
@@ -727,20 +738,20 @@
         "affect_payments": {
             "matched": [
                 {
-                    "action_id": 1627,
+                    "action_id": 1662,
                     "action_type": "no_action",
-                    "title": "ZALOPAY: GIẢM 15K CHO ĐƠN HÀNG TỪ 300K HOẶC GIẢM 10K CHO DH 600K",
+                    "title": "SHOPEEPAY: GIẢM 10K CHO ĐH TỪ 200K",
                     "is_auto": true,
                     "coupon_code": "",
-                    "rule_content": "<style>\r\n   .fhs-container{\r\n      padding: 5px 0;\r\n   }\r\n   .bold-text{\r\n      font-weight: bold;\r\n   }\r\n  .image-in-popup{\r\n   /*max-height: 100vh;*/\r\n   width: 70%;\r\n   } \r\n   .image-in-popup-container{\r\n   text-align: center;\r\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   height: 100%;\r\n   }\r\n    .parent-container-mobile{\r\n   display: none;\r\n   }\r\n   .container-mobile{\r\n   display: none;\r\n   }\r\n    @media only screen and (max-width: 600px) {\r\n   .parent-container {\r\n   display: block;\r\n   }\r\n   .child-left{\r\n   /*width: 100%;*/\r\n   padding: 10px;\r\n   }\r\n   .child-right{\r\n   /*width: 100%;*/\r\n   padding: 10px;\r\n   }\r\n   .parent-container-mobile{\r\n   display: flex;\r\n   }\r\n   .parent-container{\r\n   display: none;\r\n   }\r\n   .container-mobile{\r\n   display: block;\r\n   }\r\n   }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nGiảm 15K cho đơn hàng từ 300K (Áp dụng cho khách lần đầu thanh toán bằng ZaloPay) và Giảm 10K  cho đơn 600K (Áp dụng cho khách đã từng thanh toán bằng ZaloPay tại Fahasa.com) , nhập mã \"ZLPFHS\" - Áp dụng khi thanh toán bằng Ví ZaloPay\r\n</div>\r\n\r\n<div style=\"background-color: #e1eaf4;padding: 8px 16px; color: #2F80ED;\">\r\nMã: <b>ZLPFHS</b> - Giảm 15k  hoặc Giảm 10K - Nhập mã tại <b>ví ZALOPAY</b>\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\nThời gian chương trình: 01/03/2024 - 31/03/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\nĐiều kiện áp dụng: Đơn hàng từ 300K và 600K\r\n</div>\r\n</BR>\r\n<div class=\"fhs-container\">\r\n<b>Lưu ý:</b> Mỗi Khách hàng hoặc ZaloPay ID hoặc điện thoại được nhận <b>1 lần</b> khuyến mại/1 chương trình/1 tháng.\r\n</div>\r\n<div class=\"fhs-container\">\r\nÁp dụng cho khách hàng mua hàng và thanh toán bằng ứng dụng ZaloPay tại Fahasa.com\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n   <span class=\"bold-text\">\r\n</BR>\r\nCác bước nhận ưu đãi:\r\n</span>\r\n</br>- Truy cập Website/Ứng dụng, thực hiện mua hàng tại Fahasa.com.\r\n</br>- Chọn thanh toán bằng <b>Ví ZaloPay</b></li>\r\n</br>- Mở ZaloPay và chọn <b>\"Quét mã QR\"</b></li>\r\n</br>- Trên màn hình thông tin thanh toán đơn hàng của ZaloPay, chọn mục <b>\"Ưu đãi\"</b>\r\n</br>- Tại ứng dụng <b>Ví Zalopay</b>, kiểm tra đơn hàng, nhập <b>\"ZLPFHS\"</b> tại ô mã giảm giá.\r\n        \r\n</br>- Kiểm tra đơn hàng và bấm “Xác nhận” để hoàn tất thanh toán.\r\n</div>\r\n\r\n</br>",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 3px 0;\r\n    }\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n     .child-left {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n    .child-right {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\n    Giảm 10K cho đơn hàng từ 200.000Đ , nhập mã \"SPPFHST4\" - Thời gian áp dụng từ 01/04/2024 đến 30/04/2024\r\n</div>\r\n<div style=\"background-color: #e1eaf4;padding: 8px 16px; color: #2F80ED;\">\r\nMã: <b>SPPFHST4</b> - Giảm10K cho đơn hàng từ 200K- Nhập mã tại <b>Ví ShopeePay</b>\r\n</div>\r\n<div class=\"fhs-container\">\r\n    HSD:01/04/2024 - 30/04/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Điều kiện áp dụng: Cho đơn hàng từ 200.000Đ, Chương trình Áp dụng cho tất cả khách hàng (New user và User của ShopeePay) giao dịch mua sắm và thanh toán bằng ShopeePay tại web/app FAHASA .\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <b>Lưu ý:</b> \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mỗi khách hàng được sử dụng mã khuyến mại <b>2 lần/khách hàng/ tháng</b> trong chương trình.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng mã giảm có hạn, chương trình có thể kết thúc sớm ngay khi hết mã giảm.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Không áp dụng đồng thời 02 (hai) Chương trình cho cùng 01 (một) hoá đơn bán hàng.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mã giảm chỉ có hiệu lực khi khách hàng nhập mã khuyến mãi và thanh toán bằng dịch vụ Shopeepay.\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n    <span class=\"bold-text\">\r\n        Các bước nhận ưu đãi:\r\n    </span>\r\n    <!--------------dien noi dung 1----------------->\r\n   \r\n    <div class=\"parent-container\">\r\n        <div class=\"child-left\">\r\n            <b>B1.</b> Truy cập Website/App Fahasa và mua đơn hàng.\r\n        </div>\r\n\r\n        <div class=\"child-left\">\r\n            <b>B2.</b> Tại bước thanh toán, chọn thanh toán bằng <b>\"Ví ShopeePay\"</b>\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B3.</b> Trên Ví ShopeePay, chọn mục <b>\"Coupon\"</b> và nhập mã: <b>\"SPPFHST4\"</b>\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B4.</b> Kiểm tra đơn hàng sau khi được giảm và bấm <b>\"Xác nhận\"</b> để hoàn tất thanh toán.\r\n        </div>\r\n    </div>\r\n</div>",
                     "options": [
                         {
-                            "option_id": 1657,
+                            "option_id": 1692,
                             "option_value": "0",
-                            "option_name": "GIẢM 15K CHO ĐƠN 300K HOẶC 10K CHO ĐƠN 600K",
+                            "option_name": "Giảm 10K",
                             "option_qty": null,
                             "active": true,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -748,33 +759,33 @@
                     "matched": true,
                     "sub_total": "543.120 đ",
                     "min_total": "0 đ",
-                    "max_total": "300.000 đ",
+                    "max_total": "200.000 đ",
                     "need_total": null,
                     "error": [],
-                    "payment_method": "zalopayapp",
+                    "payment_method": "airpay",
                     "event_type": 3,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": 1,
-                    "event_id": 1604,
+                    "event_id": 1639,
                     "applied": true,
                     "page_detail": "flashsale?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Nhập mã \"ZLPFHS\": Giảm 15K cho ĐH 300K(Áp dụng cho khách lần đầu thanh toán ) và 10K cho ĐH 600K(Áp dụng cho khách đã từng thanh toán ) - Nhập mã tại ZALOPAY"
+                    "title_2": "Nhập mã \"SPPFHST4\": Giảm 10K cho ĐH 200.000Đ - Nhập mã tại SHOPEEPAY - Số lượng có hạn"
                 },
                 {
-                    "action_id": 1632,
+                    "action_id": 1663,
                     "action_type": "no_action",
                     "title": "SACOMBANK: HOÀN 50.000Đ CHO ĐƠN HÀNG TỪ 300.000Đ",
                     "is_auto": true,
                     "coupon_code": "",
-                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 3px 0;\r\n    }\r\n    .bold-text {\r\n        font-weight: normal;\r\n    }\r\n     .child-left {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n    .child-right {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\n    <b>Hoàn tiền 50.000đ cho HĐ từ 300.000đ - Thời gian áp dụng: Thứ 7 và chủ nhật hàng tuần, từ ngày 01/02/2024- 31/03/2024</b>\r\n<div style=\"background-color: #e1eaf4;padding: 8px 16px; color: #2F80ED;\">\r\n <b>SACOMBANK</b> - Hoàn tiền 50.000đ - Thanh toán ngay bằng <b>THẺ TÍN DỤNG SACOMBANK</b>\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Áp dụng: Thứ 7 và chủ nhật hàng tuần, từ ngày 01/02/2024 - 31/03/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Điều kiện áp dụng: Đơn hàng từ 300.000Đ\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <b>Lưu ý:</b> \r\n</div>\r\n<div class=\"fhs-container\">\r\n-Mỗi Chủ thẻ Sacombank được ưu đãi 02 lần trong thời gian chương trình (Bao gồm 01 lần ưu đãi cho giao dịch trực tiếp (giao dịch hợp lệ tại hệ thống nhà sách) và 01 lần ưu đãi cho giao dịch trực truyến (giao dịch hợp lệ tại ứng dụng/website Fahasa) trong thời gian chương trình. Nếu Chủ thẻ sở hữu nhiều thẻ ưu đãi sẽ áp dụng cho 02 giao dịch hợp lệ đầu tiên (xác định “Chủ thẻ” theo số CMND/ CCCD/ Hộ chiếu cập nhật tại hệ thống Sacombank)\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình có thể kết thúc sớm khi đạt số lượt ưu đãi tối đa.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thẻ tín dụng Sacombank là thẻ có 6 số đầu (BIN thẻ) như sau: 401520, 422151, 423238, 436438, 455376, 466243, 468945, 469654, 472074, 472075, 478082, 486265.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Ưu đãi của chương trình này không áp dụng đồng thời với bất kỳ chương trình ưu đãi/chương trình khuyến mãi nào khác do Sacombank thực hiện được áp dụng cùng thời điểm\r\n</div>\r\n- Giao dịch phải thỏa mãn điều kiện giao dịch thành công, không áp dụng cho các giao dịch hủy (hủy Thẻ hoặc tài khoản) trước thời điểm xét thưởng của chương trình\r\n</div>\r\n- Giao dịch thành công là giao dịch đã được ghi nhận tại hệ thống Sacombank, được hiểu là giao dịch được bút toán, lên sao kê tài khoản hoặc giao dịch đang chờ cập nhật sao kê tại thời điểm Sacombank xét thưởng\r\n<div class=\"fhs-container\">\r\n- Giao dịch thỏa điều kiện hoàn tiền ưu đãi sẽ được hoàn tiền trực tiếp vào số tài khoản thẻ phát sinh giao dịch chậm nhất 30 ngày kể từ ngày kết thúc chương trình\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <span class=\"bold-text\">\r\n- Mọi thắc mắc liên quan thông tin chương trình Khách hàng vui lòng liên hệ Trung Tâm Dịch vụ khách hàng Sacombank để được giải đáp các thông tin chương trình nhanh chóng - <b>Hotline: 1800 5858 88.</b>\r\n</div>\r\n\r\n\r\n<div class=\"fhs-container\">\r\n<div class=\"fhs-container\">\r\n    <span class=\"bold-text\">\r\n\r\n</br>\r\n        Các bước nhận ưu đãi:\r\n    </span>\r\n    <!--------------dien noi dung 1----------------->\r\n   \r\n    <div class=\"parent-container\">\r\n        <div class=\"child-left\">\r\n            <b>B1.</b> Truy cập Website/App Fahasa và mua đơn hàng.\r\n\r\n        </div>\r\n        <div class=\"child-left\">\r\n            <b>B2.</b> Tại bước thanh toán, chọn thanh toán bằng thẻ Visa.\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B3.</b> Kiểm tra đơn hàng và điều kiện áp dụng phù hợp với tiêu chí chương trình.\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B4.</b> Thanh toán và đợi hoàn tiền sau 30 ngày chương trình kết thúc. \r\n        </div>\r\n    </div>\r\n</div>",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 3px 0;\r\n    }\r\n    .bold-text {\r\n        font-weight: normal;\r\n    }\r\n     .child-left {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n    .child-right {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\n    <b>Hoàn tiền 50.000đ cho HĐ từ 300.000đ - Thời gian áp dụng: Thứ 7 và chủ nhật hàng tuần, từ ngày 01/04/2024- 30/06/2024</b>\r\n<div style=\"background-color: #e1eaf4;padding: 8px 16px; color: #2F80ED;\">\r\n <b>SACOMBANK</b> - Hoàn tiền 50.000đ - Thanh toán ngay bằng <b>THẺ TÍN DỤNG SACOMBANK</b>\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Áp dụng: Thứ 7 và chủ nhật hàng tuần, từ ngày 01/04/2024 - 30/06/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Điều kiện áp dụng: Đơn hàng từ 300.000Đ\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <b>Lưu ý:</b> \r\n</div>\r\n<div class=\"fhs-container\">\r\n-Mỗi Chủ thẻ Sacombank được ưu đãi 02 lần trong thời gian chương trình (Bao gồm 01 lần ưu đãi cho giao dịch trực tiếp (giao dịch hợp lệ tại hệ thống nhà sách) và 01 lần ưu đãi cho giao dịch trực truyến (giao dịch hợp lệ tại ứng dụng/website Fahasa) trong thời gian chương trình. Nếu Chủ thẻ sở hữu nhiều thẻ ưu đãi sẽ áp dụng cho 02 giao dịch hợp lệ đầu tiên (xác định “Chủ thẻ” theo số CMND/ CCCD/ Hộ chiếu cập nhật tại hệ thống Sacombank)\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình có thể kết thúc sớm khi đạt số lượt ưu đãi tối đa.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thẻ tín dụng Sacombank là thẻ có 6 số đầu (BIN thẻ) như sau: 401520, 422151, 423238, 436438, 455376, 466243, 468945, 469654, 472074, 472075, 478082, 486265.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Ưu đãi của chương trình này không áp dụng đồng thời với bất kỳ chương trình ưu đãi/chương trình khuyến mãi nào khác do Sacombank thực hiện được áp dụng cùng thời điểm\r\n</div>\r\n- Giao dịch phải thỏa mãn điều kiện giao dịch thành công, không áp dụng cho các giao dịch hủy (hủy Thẻ hoặc tài khoản) trước thời điểm xét thưởng của chương trình\r\n</div>\r\n- Giao dịch thành công là giao dịch đã được ghi nhận tại hệ thống Sacombank, được hiểu là giao dịch được bút toán, lên sao kê tài khoản hoặc giao dịch đang chờ cập nhật sao kê tại thời điểm Sacombank xét thưởng\r\n<div class=\"fhs-container\">\r\n- Giao dịch thỏa điều kiện hoàn tiền ưu đãi sẽ được hoàn tiền trực tiếp vào số tài khoản thẻ phát sinh giao dịch chậm nhất 30 ngày kể từ ngày kết thúc chương trình\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <span class=\"bold-text\">\r\n- Mọi thắc mắc liên quan thông tin chương trình Khách hàng vui lòng liên hệ Trung Tâm Dịch vụ khách hàng Sacombank để được giải đáp các thông tin chương trình nhanh chóng - <b>Hotline: 1800 5858 88.</b>\r\n</div>\r\n\r\n\r\n<div class=\"fhs-container\">\r\n<div class=\"fhs-container\">\r\n    <span class=\"bold-text\">\r\n\r\n</br>\r\n        Các bước nhận ưu đãi:\r\n    </span>\r\n    <!--------------dien noi dung 1----------------->\r\n   \r\n    <div class=\"parent-container\">\r\n        <div class=\"child-left\">\r\n            <b>B1.</b> Truy cập Website/App Fahasa và mua đơn hàng.\r\n\r\n        </div>\r\n        <div class=\"child-left\">\r\n            <b>B2.</b> Tại bước thanh toán, chọn thanh toán bằng thẻ Visa.\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B3.</b> Kiểm tra đơn hàng và điều kiện áp dụng phù hợp với tiêu chí chương trình.\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B4.</b> Thanh toán và đợi hoàn tiền sau 30 ngày chương trình kết thúc. \r\n        </div>\r\n    </div>\r\n</div>",
                     "options": [
                         {
-                            "option_id": 1662,
+                            "option_id": 1693,
                             "option_value": "0",
                             "option_name": "HOÀN 50.000Đ CHO ĐƠN TỪ 300.000Đ",
                             "option_qty": null,
                             "active": true,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -787,25 +798,93 @@
                     "error": [],
                     "payment_method": "zalopayappcc",
                     "event_type": 3,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": 1,
-                    "event_id": 1609,
+                    "event_id": 1640,
                     "applied": true,
                     "page_detail": "flashsale?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Thanh toán bằng thẻ tín dụng Sacombank: Hoàn ngay 50.000Đ - SỐ LƯỢNG CÓ HẠN"
                 },
                 {
-                    "action_id": 1636,
+                    "action_id": 1664,
                     "action_type": "no_action",
-                    "title": "VNPAY: GIẢM 10K CHO ĐH TỪ 50K VÀ GIẢM 24K CHO ĐH TỪ 240K",
+                    "title": "ZALOPAY: GIẢM 10K CHO ĐƠN HÀNG TỪ 300K",
                     "is_auto": true,
                     "coupon_code": "",
-                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 3px 0;\r\n    }\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n     .child-left {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n    .child-right {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\n    Giảm 10K cho đơn hàng từ 50K và giảm 24K cho đơn hàng từ 240K, nhập mã \"VNPAYFHS24\" - Thời gian áp dụng từ 18/03/2024 đến 10/04/2024\r\n</div>\r\n<div style=\"background-color: #e1eaf4;padding: 8px 16px; color: #2F80ED;\">\r\nMã: <b>VNPAYFHS24</b> - Giảm10K cho ĐH từ 50K và giảm 24K cho ĐH từ 240K- Nhập mã tại <b>ví VNPAY</b>\r\n</div>\r\n<div class=\"fhs-container\">\r\n    HSD:18/03/2024 - 10/04/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Điều kiện áp dụng: Cho đơn hàng 50.000Đ và cho đơn hàng  240.000Đ.\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <b>Lưu ý:</b> \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mỗi khách hàng được sử dụng mã khuyến mại <b>1 lần/khách hàng/nửa tháng</b> trong chương trình.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng mã giảm có hạn, chương trình có thể kết thúc sớm ngay khi hết mã giảm.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mã giảm không có giá trị quy đổi thành tiền mặt.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Không áp dụng đồng thời 02 (hai) Chương trình cho cùng 01 (một) hoá đơn bán hàng.\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <span class=\"bold-text\">\r\n        Các bước nhận ưu đãi:\r\n    </span>\r\n    <!--------------dien noi dung 1----------------->\r\n   \r\n    <div class=\"parent-container\">\r\n        <div class=\"child-left\">\r\n            <b>B1.</b> Truy cập Website/App Fahasa và mua đơn hàng.\r\n        </div>\r\n\r\n        <div class=\"child-left\">\r\n            <b>B2.</b> Chọn thanh toán bằng VNPAY, sau đó chọn <b>\"Ví Vnpay - Ví của gia đình\"</b>\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B3.</b> Tại ứng dụng <b>Ví Vnpay</b>, kiểm tra đơn hàng, nhập <b>\"VNPAYFHS24\"</b> tại ô mã giảm giá.\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B4.</b> Xác nhận giao dịch và thanh toán.\r\n        </div>\r\n    </div>\r\n</div>",
+                    "rule_content": "<style>\r\n   .fhs-container{\r\n      padding: 5px 0;\r\n   }\r\n   .bold-text{\r\n      font-weight: bold;\r\n   }\r\n  .image-in-popup{\r\n   /*max-height: 100vh;*/\r\n   width: 70%;\r\n   } \r\n   .image-in-popup-container{\r\n   text-align: center;\r\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   height: 100%;\r\n   }\r\n    .parent-container-mobile{\r\n   display: none;\r\n   }\r\n   .container-mobile{\r\n   display: none;\r\n   }\r\n    @media only screen and (max-width: 600px) {\r\n   .parent-container {\r\n   display: block;\r\n   }\r\n   .child-left{\r\n   /*width: 100%;*/\r\n   padding: 10px;\r\n   }\r\n   .child-right{\r\n   /*width: 100%;*/\r\n   padding: 10px;\r\n   }\r\n   .parent-container-mobile{\r\n   display: flex;\r\n   }\r\n   .parent-container{\r\n   display: none;\r\n   }\r\n   .container-mobile{\r\n   display: block;\r\n   }\r\n   }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nGiảm 10K cho đơn hàng từ 300K (Áp dụng cho khách đã từng thanh toán bằng ZaloPay) nhập mã \"ZLPFHS\" - Áp dụng khi thanh toán bằng Ví ZaloPay\r\n</div>\r\n\r\n<div style=\"background-color: #e1eaf4;padding: 8px 16px; color: #2F80ED;\">\r\nMã: <b>ZLPFHS</b> - Giảm 10k  - Nhập mã tại <b>ví ZALOPAY</b>\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\nThời gian chương trình: 01/04/2024 - 30/04/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\nĐiều kiện áp dụng: Đơn hàng từ 300K \r\n</div>\r\n</BR>\r\n<div class=\"fhs-container\">\r\n<b>Lưu ý:</b> Mỗi Khách hàng hoặc ZaloPay ID hoặc điện thoại được nhận <b>1 lần</b> khuyến mại/1 chương trình/1 tháng.\r\n</div>\r\n<div class=\"fhs-container\">\r\nÁp dụng cho khách hàng mua hàng và thanh toán bằng ứng dụng ZaloPay tại Fahasa.com\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n   <span class=\"bold-text\">\r\n</BR>\r\nCác bước nhận ưu đãi:\r\n</span>\r\n</br>- Truy cập Website/Ứng dụng, thực hiện mua hàng tại Fahasa.com.\r\n</br>- Chọn thanh toán bằng <b>Ví ZaloPay</b></li>\r\n</br>- Mở ZaloPay và chọn <b>\"Quét mã QR\"</b></li>\r\n</br>- Trên màn hình thông tin thanh toán đơn hàng của ZaloPay, chọn mục <b>\"Ưu đãi\"</b>\r\n</br>- Tại ứng dụng <b>Ví Zalopay</b>, kiểm tra đơn hàng, nhập <b>\"ZLPFHS\"</b> tại ô mã giảm giá.\r\n        \r\n</br>- Kiểm tra đơn hàng và bấm “Xác nhận” để hoàn tất thanh toán.\r\n</div>\r\n\r\n</br>",
                     "options": [
                         {
-                            "option_id": 1666,
+                            "option_id": 1694,
                             "option_value": "0",
-                            "option_name": "GIẢM 10K CHO ĐH 50K VÀ GIẢM 24K CHO ĐH 240K",
+                            "option_name": "GIẢM 10K CHO ĐƠN 300K",
+                            "option_qty": null,
+                            "active": true,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 99,
+                    "matched": true,
+                    "sub_total": "543.120 đ",
+                    "min_total": "0 đ",
+                    "max_total": "300.000 đ",
+                    "need_total": null,
+                    "error": [],
+                    "payment_method": "zalopayapp",
+                    "event_type": 3,
+                    "almost_run_out": false,
+                    "order_index": 1,
+                    "event_id": 1641,
+                    "applied": true,
+                    "page_detail": "flashsale?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Nhập mã \"ZLPFHS\": Giảm 10K cho ĐH 300K(Áp dụng cho khách đã từng thanh toán bằng ZaloPay )"
+                },
+                {
+                    "action_id": 1665,
+                    "action_type": "no_action",
+                    "title": "ZALOPAY: HOÀN 30K CHO ĐH 60K",
+                    "is_auto": true,
+                    "coupon_code": "",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 3px 0;\r\n    }\r\n    .bold-text {\r\n        font-weight: normal;\r\n    }\r\n     .child-left {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n    .child-right {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\n    <b>Hoàn tiền 30.000đ cho HĐ từ 60.000đ (Áp dụng cho khách hàng lần đầu thanh toán bằng Tài khoản trả sau của ZaloPay - </b>\r\n<div style=\"background-color: #e1eaf4;padding: 8px 16px; color: #2F80ED;\">\r\n <b> ZALOPAY</b> - Hoàn tiền 30.000đ - Thanh toán ngay bằng <b>Ví Zalopay trả sau</b>\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Áp dụng: Từ ngày 01/04/2024 - 30/04/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Điều kiện áp dụng: Áp dụng thanh toán qua ví Zalopay trả sau.\r\n</div>\r\n <div class=\"fhs-container\">\r\n    <b>Lưu ý</b> Mỗi người dùng tham gia chương trình được áp dụng <b>1 lần/chương trình/ tháng</b> trong suốt thời gian diễn ra chương trình .\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <span class=\"bold-text\">\r\n        Các bước nhận ưu đãi:\r\n    </span>\r\n    <!--------------dien noi dung 1----------------->\r\n   \r\n    <div class=\"parent-container\">\r\n        <div class=\"child-left\">\r\n            <b>B1.</b> Truy cập website/app Fahasa và mua đơn hàng\r\n        </div>\r\n        <div class=\"child-left\">\r\n            <b>B2.</b> Chọn thanh toán qua <b>ví Zalopay</b>.\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B3.</b> Tại màng hình xác nhận thanh toán chọn <b>Tài khoản/ Thẻ ví trả sau</b>\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B4.</b> Xác nhận đơn hàng và hoàn tất thanh toán (Tiền sẽ tự động trừ trực tiếp khi thanh toán bằng ví Zalopay của khách hàng).\r\n        </div>\r\n        \r\n    </div>\r\n</div>\r\n<div class=\"fhs-container bold-text\">\r\nQuy định chung:\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình Áp dụng cho  khách hàng lần đầu giao dịch mua sắm và thanh toán bằng ví Zalopay trả sau tại web/app FAHASA.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mỗi người dùng tham gia chương trình được áp dụng 1 lần/chương trình/ tháng tại website: fahasa.com .\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Không áp dụng hoàn tiền hoặc hủy hoặc đổi trả đơn hàng đối với các giao dịch được hưởng ưu đãi từ chương trình khuyến mại.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình có thể kết thúc sớm hơn dự kiến khi hết ngân sách khuyến mãi.\r\n</div>",
+                    "options": [
+                        {
+                            "option_id": 1695,
+                            "option_value": "0",
+                            "option_name": "HOÀN 30K ĐƠN HÀNG 60K",
+                            "option_qty": null,
+                            "active": true,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 99,
+                    "matched": true,
+                    "sub_total": "543.120 đ",
+                    "min_total": "0 đ",
+                    "max_total": "60.000 đ",
+                    "need_total": null,
+                    "error": [],
+                    "payment_method": "zalopayapp",
+                    "event_type": 3,
+                    "almost_run_out": false,
+                    "order_index": 1,
+                    "event_id": 1642,
+                    "applied": true,
+                    "page_detail": "flashsale?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Hoàn ngay 30K cho đơn hàng 60K, áp dụng cho KH lần đầu thanh toán bằng ví Zalopay trả sau"
+                },
+                {
+                    "action_id": 1675,
+                    "action_type": "no_action",
+                    "title": "VNPAY: GIẢM 10K CHO ĐH TỪ 50K VÀ GIẢM 20K CHO ĐH TỪ 200K",
+                    "is_auto": true,
+                    "coupon_code": "",
+                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 3px 0;\r\n    }\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n     .child-left {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n    .child-right {\r\n        width: 100%;\r\n        padding: 5px;\r\n    }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\n    Giảm 10K cho đơn hàng từ 50K và giảm 20K cho đơn hàng từ 200K, nhập mã \"VNPAYONLINE\" - Thời gian áp dụng từ 05/04/2024 đến 30/06/2024\r\n</div>\r\n<div style=\"background-color: #e1eaf4;padding: 8px 16px; color: #2F80ED;\">\r\nMã: <b>VNPAYONLINE</b> - Giảm10K cho ĐH từ 50K và giảm 20K cho ĐH từ 200K- Nhập mã tại <b>ví VNPAY</b>\r\n</div>\r\n<div class=\"fhs-container\">\r\n    HSD:05/04/2024 - 30/06/2024\r\n</div>\r\n<div class=\"fhs-container\">\r\n    Điều kiện áp dụng: Cho đơn hàng 50.000Đ và cho đơn hàng  200.000Đ.\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <b>Lưu ý:</b> \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mỗi khách hàng được sử dụng mã khuyến mại <b>1 lần/khách hàng/nửa tháng</b> trong chương trình.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng mã giảm có hạn, chương trình có thể kết thúc sớm ngay khi hết mã giảm.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mã giảm không có giá trị quy đổi thành tiền mặt.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Không áp dụng đồng thời 02 (hai) Chương trình cho cùng 01 (một) hoá đơn bán hàng.\r\n</div>\r\n<div class=\"fhs-container\">\r\n    <span class=\"bold-text\">\r\n        Các bước nhận ưu đãi:\r\n    </span>\r\n    <!--------------dien noi dung 1----------------->\r\n   \r\n    <div class=\"parent-container\">\r\n        <div class=\"child-left\">\r\n            <b>B1.</b> Truy cập Website/App Fahasa và mua đơn hàng.\r\n        </div>\r\n\r\n        <div class=\"child-left\">\r\n            <b>B2.</b> Chọn thanh toán bằng VNPAY, sau đó chọn <b>\"Ví Vnpay - Ví của gia đình\"</b>\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B3.</b> Tại ứng dụng <b>Ví Vnpay</b>, kiểm tra đơn hàng, nhập <b>\"VNPAYONLINE\"</b> tại ô mã giảm giá.\r\n        </div>\r\n        <div class=\"child-right\">\r\n            <b>B4.</b> Xác nhận giao dịch và thanh toán.\r\n        </div>\r\n    </div>\r\n</div>",
+                    "options": [
+                        {
+                            "option_id": 1705,
+                            "option_value": "0",
+                            "option_name": "GIẢM 10K CHO ĐH 50K VÀ GIẢM 20K CHO ĐH 200K",
                             "option_qty": null,
                             "active": true,
                             "almost_run_out": false
@@ -823,188 +902,17 @@
                     "event_type": 3,
                     "almost_run_out": false,
                     "order_index": 1,
-                    "event_id": 1613,
+                    "event_id": 1652,
                     "applied": true,
                     "page_detail": "flashsale?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Nhập mã \"VNPAYFHS24\": Giảm 10k cho ĐH từ 50K và giảm 24K cho ĐH từ 240K - Nhập mã tại VNPAY"
+                    "title_2": "Nhập mã \"VNPAYONLINE\": Giảm 10k cho ĐH từ 50K và giảm 20K cho ĐH từ 200K - Nhập mã tại VNPAY"
                 }
             ],
             "not_matched": []
         },
         "affect_freeships": {
-            "matched": [
-                {
-                    "action_id": 1635,
-                    "action_type": "salesrule",
-                    "title": "Mã Freeship 50%",
-                    "is_auto": true,
-                    "coupon_code": "FSTH234T3",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã Freeship 100% Đơn hàng từ 200K\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng mua hàng từ 200K từ thứ Hai đến thứ Tư hàng tuần\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Hết tháng 3/2024\r\n</div>\r\n\r\n",
-                    "options": [
-                        {
-                            "option_id": 1665,
-                            "option_value": "4460",
-                            "option_name": "Rule 4460",
-                            "option_qty": null,
-                            "active": true,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": null,
-                    "reach_percent": 100,
-                    "matched": true,
-                    "sub_total": "543.120 đ",
-                    "min_total": "0 đ",
-                    "max_total": "200.000 đ",
-                    "need_total": null,
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 4,
-                    "almost_run_out": true,
-                    "order_index": -12,
-                    "event_id": 1612,
-                    "applied": false,
-                    "page_detail": "sale-thu-3?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Áp dụng Cho đơn hàng từ 200K"
-                },
-                {
-                    "action_id": 1634,
-                    "action_type": "salesrule",
-                    "title": "Mã Freeship Tháng 3/2024 - Freeship 100% Tối Đa 19K - Đơn Hàng từ 250K",
-                    "is_auto": true,
-                    "coupon_code": "FHSFSHIPT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ FREESHIP THÁNG 4\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm 100% tối đa 19k phí vận chuyển cho đơn hàng từ 250K\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng từ 250K \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Từ ngày 14.03.2024 đến hết ngày 31.03.2024 - Mỗi ngày duy nhất 150 mã.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với Mã giảm giá sản phẩm.\r\n</div>",
-                    "options": [
-                        {
-                            "option_id": 1664,
-                            "option_value": "4521",
-                            "option_name": "Rule 4521",
-                            "option_qty": null,
-                            "active": true,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": null,
-                    "reach_percent": 100,
-                    "matched": true,
-                    "sub_total": "543.120 đ",
-                    "min_total": "0 đ",
-                    "max_total": "250.000 đ",
-                    "need_total": null,
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 4,
-                    "almost_run_out": true,
-                    "order_index": -9,
-                    "event_id": 1611,
-                    "applied": false,
-                    "page_detail": "hoi-sach-online-fahasa-thang-3-2024?utm_source=internal&utm_medium=mgg?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Đơn hàng từ 250.000đ"
-                }
-            ],
+            "matched": [],
             "not_matched": [
-                {
-                    "action_id": 1498,
-                    "action_type": "salesrule",
-                    "title": "MÃ FREESHIP - TỐI ĐA 31K",
-                    "is_auto": true,
-                    "coupon_code": "FSTINGTING",
-                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 5px 0;\r\n    }\r\n\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n \r\n        .image-in-popup{\r\n              width:130px;\r\n             height:130px;\r\n        } \r\n        .image-in-popup-container{\r\n         display : flex; \r\n         justify-content: center;\r\n        }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nCTKM MUA 1 BỘ BOARDGAME DOREAMON, TẶNG MÃ FREESHIP 100%\r\n</div>\r\n<br>\r\n<div class=\"fhs-container bold-text\">\r\nĐiều kiện\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mua đơn hàng có boardgame Doraemon, tặng mã Freeship 100%\r\n</div>\r\nLưu ý: \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng quà có hạn.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình sẽ kết thúc khi mã quà\r\n</div>\r\n\r\n\r\n",
-                    "options": [
-                        {
-                            "option_id": 1528,
-                            "option_value": "4308",
-                            "option_name": "Rule 4308",
-                            "option_qty": null,
-                            "active": false,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": [],
-                    "reach_percent": 0,
-                    "matched": false,
-                    "sub_total": "0 đ",
-                    "min_total": "0 đ",
-                    "max_total": "1 đ",
-                    "need_total": "1 đ",
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 4,
-                    "almost_run_out": true,
-                    "order_index": -9,
-                    "event_id": 1467,
-                    "applied": false,
-                    "page_detail": "catalog/product/view/id/459870?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Áp Dụng Cho Đơn Hàng Mua Boardgame Doraemon"
-                },
-                {
-                    "action_id": 1511,
-                    "action_type": "salesrule",
-                    "title": "MÃ FREESHIP - TỐI ĐA 31K",
-                    "is_auto": true,
-                    "coupon_code": "FSHAIKYU2BST12",
-                    "rule_content": "<style>\r\n    .fhs-container {\r\n        padding: 5px 0;\r\n    }\r\n\r\n    .bold-text {\r\n        font-weight: bold;\r\n    }\r\n \r\n        .image-in-popup{\r\n              width:130px;\r\n             height:130px;\r\n        } \r\n        .image-in-popup-container{\r\n         display : flex; \r\n         justify-content: center;\r\n        }\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nCTKM MUA 1 BỘ BOX SET HAIKYU, TẶNG MÃ FREESHIP 100%\r\n</div>\r\n<br>\r\n<div class=\"fhs-container bold-text\">\r\nĐiều kiện\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Mua đơn hàng có box set Haikyu, tặng mã Freeship 100%\r\n</div>\r\nLưu ý: \r\n</div>\r\n<div class=\"fhs-container\">\r\n- Số lượng quà có hạn.\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Chương trình sẽ kết thúc khi mã quà\r\n</div>\r\n\r\n\r\n",
-                    "options": [
-                        {
-                            "option_id": 1541,
-                            "option_value": "4307",
-                            "option_name": "Rule 4307",
-                            "option_qty": null,
-                            "active": false,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": [],
-                    "reach_percent": 0,
-                    "matched": false,
-                    "sub_total": "0 đ",
-                    "min_total": "0 đ",
-                    "max_total": "1 đ",
-                    "need_total": "1 đ",
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 4,
-                    "almost_run_out": true,
-                    "order_index": -9,
-                    "event_id": 1481,
-                    "applied": false,
-                    "page_detail": "premium-boxset-haikyu-2-tap-16-30-bo-15-cuon-tang-kem-2-set-bookmark-pvc-1-hop-dung-bia-ao-box-1.html?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Áp Dụng Cho Đơn Hàng Mua Haikyu Premium Box Set 2"
-                },
-                {
-                    "action_id": 1617,
-                    "action_type": "salesrule",
-                    "title": "Mã Freeship 100% Tối Đa 31K",
-                    "is_auto": true,
-                    "coupon_code": "FHSFORBOOKT03",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã freeship 100% - Tối đa 31k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Sách Ngoại Văn từ 2TR, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n",
-                    "options": [
-                        {
-                            "option_id": 1647,
-                            "option_value": "4450",
-                            "option_name": "Rule 4450",
-                            "option_qty": null,
-                            "active": false,
-                            "almost_run_out": true
-                        }
-                    ],
-                    "matched_items": null,
-                    "reach_percent": 0,
-                    "matched": false,
-                    "sub_total": "0 đ",
-                    "min_total": "0 đ",
-                    "max_total": "2.000.000 đ",
-                    "need_total": "2.000.000 đ",
-                    "error": [],
-                    "payment_method": null,
-                    "event_type": 4,
-                    "almost_run_out": true,
-                    "order_index": -9,
-                    "event_id": 1594,
-                    "applied": false,
-                    "page_detail": "multilingual-bookshelf?fhs_campaign=GIO_HANG_GAN_DAT",
-                    "title_2": "Áp dụng Cho Đơn Hàng Mua Sách Ngoại Văn từ 2tr"
-                },
                 {
                     "action_id": 1470,
                     "action_type": "salesrule",
@@ -1040,20 +948,20 @@
                     "title_2": "Áp dụng Cho Đơn Hàng Mua Sách Ngoại Văn từ 2tr"
                 },
                 {
-                    "action_id": 1611,
+                    "action_id": 1642,
                     "action_type": "salesrule",
                     "title": "Mã Giảm Phí Vận Chuyển 15K",
                     "is_auto": true,
-                    "coupon_code": "FSMG0324",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm phí vận chuyển 15k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Manga / Light Novel / Đam Mỹ từ 350K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm giá\r\n</div>\r\n",
+                    "coupon_code": "FSMG0424",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm phí vận chuyển 15k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Manga / Light Novel / Đam Mỹ từ 350K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm giá\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1641,
-                            "option_value": "4444",
-                            "option_name": "Rule 4444",
+                            "option_id": 1672,
+                            "option_value": "4540",
+                            "option_name": "Rule 4540",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -1066,28 +974,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 4,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1588,
+                    "event_id": 1619,
                     "applied": false,
                     "page_detail": "nhap-hoi-manga-comic?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp Dụng Cho Đơn Hàng Mua Manga Từ 350K, Không Áp Dụng Cho Phiếu Quà Tặng"
                 },
                 {
-                    "action_id": 1615,
+                    "action_id": 1646,
                     "action_type": "salesrule",
                     "title": "Mã Freeship 10K",
                     "is_auto": true,
-                    "coupon_code": "FSSTN0324",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm phí vận chuyển 10k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Sách Thiếu Nhi từ 150K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm giá\r\n</div>\r\n",
+                    "coupon_code": "FSSTN0424",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm phí vận chuyển 10k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Sách Thiếu Nhi từ 150K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm giá\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1645,
-                            "option_value": "4448",
-                            "option_name": "Rule 4448",
+                            "option_id": 1676,
+                            "option_value": "4544",
+                            "option_name": "Rule 4544",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -1100,28 +1008,62 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 4,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1592,
+                    "event_id": 1623,
                     "applied": false,
                     "page_detail": "trang-thieu-nhi?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng Cho Đơn Hàng Mua Sách Thiếu Nhi từ 150k"
                 },
                 {
-                    "action_id": 1620,
+                    "action_id": 1648,
+                    "action_type": "salesrule",
+                    "title": "MÃ FREESHIP 31K - ĐƠN TỪ 200K",
+                    "is_auto": true,
+                    "coupon_code": "FHSNVT04",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã freeship 100% - Tối đa 31k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Sách Ngoại Văn từ 200K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: đến hết tháng 4/2024\r\n\r\n</div>\r\n",
+                    "options": [
+                        {
+                            "option_id": 1678,
+                            "option_value": "4546",
+                            "option_name": "Rule 4546",
+                            "option_qty": null,
+                            "active": false,
+                            "almost_run_out": false
+                        }
+                    ],
+                    "matched_items": null,
+                    "reach_percent": 0,
+                    "matched": false,
+                    "sub_total": "0 đ",
+                    "min_total": "0 đ",
+                    "max_total": "200.000 đ",
+                    "need_total": "200.000 đ",
+                    "error": [],
+                    "payment_method": null,
+                    "event_type": 4,
+                    "almost_run_out": false,
+                    "order_index": -8,
+                    "event_id": 1625,
+                    "applied": false,
+                    "page_detail": "multilingual-bookshelf?fhs_campaign=GIO_HANG_GAN_DAT",
+                    "title_2": "Áp dụng cho đơn hàng mua sách ngoại văn"
+                },
+                {
+                    "action_id": 1653,
                     "action_type": "salesrule",
                     "title": "Mã Freeship 10K",
                     "is_auto": true,
-                    "coupon_code": "FSVPP0324",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm phí vận chuyển 10k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Văn Phòng Phẩm - Dụng Cụ Học Sinh từ 150K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm giá\r\n</div>\r\n",
+                    "coupon_code": "FSVPP0424",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm phí vận chuyển 10k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Văn Phòng Phẩm - Dụng Cụ Học Sinh từ 150K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm giá\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1650,
-                            "option_value": "4453",
-                            "option_name": "Rule 4453",
+                            "option_id": 1683,
+                            "option_value": "4551",
+                            "option_name": "Rule 4551",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -1134,28 +1076,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 4,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1597,
+                    "event_id": 1630,
                     "applied": false,
                     "page_detail": "van-phong-pham?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng Cho Đơn Hàng Mua VPP DCHS từ 100k"
                 },
                 {
-                    "action_id": 1623,
+                    "action_id": 1656,
                     "action_type": "salesrule",
                     "title": "Mã Freeship 15K",
                     "is_auto": true,
-                    "coupon_code": "FSDC0324",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm phí vận chuyển 15k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Đồ Chơi từ 50K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FSDC0424",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm phí vận chuyển 15k\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng khi mua Đồ Chơi từ 50K, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1653,
-                            "option_value": "4456",
-                            "option_name": "Rule 4456",
+                            "option_id": 1686,
+                            "option_value": "4554",
+                            "option_name": "Rule 4554",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -1168,28 +1110,28 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 4,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1600,
+                    "event_id": 1633,
                     "applied": false,
                     "page_detail": "do-choi-cho-be?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng Cho Đơn Hàng Mua Đồ Chơi từ 150K"
                 },
                 {
-                    "action_id": 1624,
+                    "action_id": 1657,
                     "action_type": "salesrule",
                     "title": "Mã Freeship 100% Tối Đa 31K",
                     "is_auto": true,
-                    "coupon_code": "FSBALOT32024",
-                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã freeship\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng có sản phẩm Balo\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
+                    "coupon_code": "FSBALOT42024",
+                    "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã freeship\r\n\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: áp dụng cho đơn hàng có sản phẩm Balo\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết tháng 4/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
                     "options": [
                         {
-                            "option_id": 1654,
-                            "option_value": "4459",
-                            "option_name": "Rule 4459",
+                            "option_id": 1687,
+                            "option_value": "4555",
+                            "option_name": "Rule 4555",
                             "option_qty": null,
                             "active": false,
-                            "almost_run_out": true
+                            "almost_run_out": false
                         }
                     ],
                     "matched_items": null,
@@ -1202,9 +1144,9 @@
                     "error": [],
                     "payment_method": null,
                     "event_type": 4,
-                    "almost_run_out": true,
+                    "almost_run_out": false,
                     "order_index": -8,
-                    "event_id": 1601,
+                    "event_id": 1634,
                     "applied": false,
                     "page_detail": "balo?fhs_campaign=GIO_HANG_GAN_DAT",
                     "title_2": "Áp dụng Cho đơn hàng có sản phẩm balo"
@@ -1212,198 +1154,7 @@
             ]
         },
         "affect_payments_checkout": null
-    },
-    "event_cart_front": {
-        "event_cart_show": [
-            {
-                "action_id": 1610,
-                "action_type": "salesrule",
-                "title": "MÃ GIẢM 100K - ĐƠN HÀNG TỪ 1TR",
-                "is_auto": true,
-                "coupon_code": "FHS100KT03",
-                "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 100K\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Điều kiện áp dụng: Áp dụng cho đơn hàng từ 1TR, không áp dụng cho đơn hàng có sản phẩm Phiếu Quà Tặng và Sách Giáo Khoa\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết Tháng 3/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
-                "options": [
-                    {
-                        "option_id": 1640,
-                        "option_value": "4443",
-                        "option_name": "Rule 4443",
-                        "option_qty": null,
-                        "active": false,
-                        "almost_run_out": true
-                    }
-                ],
-                "matched_items": null,
-                "reach_percent": 54,
-                "matched": false,
-                "sub_total": "543.120 đ",
-                "min_total": "0 đ",
-                "max_total": "1.000.000 đ",
-                "need_total": "456.880 đ",
-                "error": [],
-                "payment_method": null,
-                "event_type": 1,
-                "almost_run_out": true,
-                "order_index": -12,
-                "event_id": 1587,
-                "applied": false,
-                "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
-                "title_2": "Không Áp Dụng Cho Sách Giáo Khoa và Giấy Photo",
-                "key_index": 0,
-                "key_name": "affect_coupons",
-                "key_type": "not_matched"
-            },
-            {
-                "action_id": 1626,
-                "action_type": "salesrule",
-                "title": "MÃ GIẢM 30K - ĐƠN TỪ 250K;Áp dụng cho đơn hàng mua sản phẩm của NCC tham gia Brand Day; Không Áp Dụng Cho Phiếu Quà Tặng",
-                "is_auto": true,
-                "coupon_code": "HSOBD30K",
-                "rule_content": "<style>\r\n\t.fhs-container{\r\n\t\tpadding: 5px 0;\r\n\t}\r\n\t.bold-text{\r\n\t\tfont-weight: bold;\r\n\t}\r\n</style>\r\n<div class=\"fhs-container bold-text\">\r\nMÃ GIẢM GIÁ\r\n</div>\r\n<div style=\"background-color: #f2ddc3ab;padding: 8px 16px; color: #ea7601;\">\r\nMã giảm giá 30K \r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Áp dụng cho đơn hàng có tổng giá trị đơn hàng của các NCC dưới đây từ 250K:\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Kim Đồng\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Đinh Tị\r\n\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Tân Việt\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC 1980books\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Mcbooks\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Huy Hoàng\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Sài Gòn Books\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Zenbooks\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Minh Long\r\n</div>\r\n\r\n<div class=\"fhs-container\">\r\n+ NCC Bách Việt\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Thời gian áp dụng: Đến hết 03/2024\r\n\r\n</div>\r\n<div class=\"fhs-container\">\r\n- Khách hàng có thể áp dụng cùng lúc với mã giảm phí vận chuyển\r\n</div>\r\n",
-                "options": [
-                    {
-                        "option_id": 1656,
-                        "option_value": "4461",
-                        "option_name": "Rule 4461",
-                        "option_qty": null,
-                        "active": false,
-                        "almost_run_out": true
-                    }
-                ],
-                "matched_items": null,
-                "reach_percent": 0,
-                "matched": false,
-                "sub_total": "0 đ",
-                "min_total": "0 đ",
-                "max_total": "250.000 đ",
-                "need_total": "250.000 đ",
-                "error": [],
-                "payment_method": null,
-                "event_type": 1,
-                "almost_run_out": true,
-                "order_index": -9,
-                "event_id": 1603,
-                "applied": false,
-                "page_detail": "deal-hot-pages?fhs_campaign=GIO_HANG_GAN_DAT",
-                "key_index": 1,
-                "key_name": "affect_coupons",
-                "key_type": "not_matched"
-            }
-        ],
-        "num_events_matched": 9,
-        "event_cart_viewmore": true
-    },
-    "minicart": {
-        "items": [
-            {
-                "product_id": 101480,
-                "quantity": 1,
-                "is_checked": false,
-                "soon_release": "",
-                "original_price": 318000,
-                "sku": "9786048557553",
-                "type_id": "simple",
-                "weight": 830,
-                "name": "Hackers TOEIC Listening (Kèm CD)",
-                "image": "https://cdn0.fahasa.com/media/catalog/product//i/m/image_64661.jpg",
-                "product_url": "https://www.fahasa.com/hackers-toeic-listening-kem-cd.html",
-                "category_main": "Sách tiếng Việt",
-                "category_mid": "Sách học ngoại ngữ",
-                "category_3": "Tiếng Anh",
-                "category_4": "Luyện Thi TOEIC ",
-                "category_main_id": 4,
-                "category_mid_id": 20,
-                "category_3_id": 193,
-                "category_4_id": 6625,
-                "supplier": "CT01735",
-                "publisher": "NXB Tổng hợp TP.HCM",
-                "evoucher": null,
-                "price": 241680,
-                "options": {},
-                "discount_amount": 76320,
-                "discount_percent": 24,
-                "row_total": 241680,
-                "out_of_stock": false,
-                "message": "",
-                "is_unchecked": false,
-                "has_error": false,
-                "merged": true
-            },
-            {
-                "product_id": 311147,
-                "quantity": 3,
-                "is_checked": true,
-                "soon_release": "",
-                "original_price": 248000,
-                "sku": "8935086853634",
-                "type_id": "simple",
-                "weight": 420,
-                "name": "Thay Đổi Cuộc Sống Với Nhân Số Học",
-                "image": "https://cdn0.fahasa.com/media/catalog/product//t/d/tdcsvnsh.jpg",
-                "product_url": "https://www.fahasa.com/thay-doi-cuoc-song-voi-nhan-so-hoc.html",
-                "category_main": "Sách tiếng Việt",
-                "category_mid": "Tâm lý - Kỹ năng sống",
-                "category_3": "Kỹ năng sống",
-                "category_4": null,
-                "category_main_id": 4,
-                "category_mid_id": 12,
-                "category_3_id": 213,
-                "category_4_id": 1,
-                "supplier": "CT00094",
-                "publisher": "NXB Tổng Hợp TPHCM",
-                "evoucher": null,
-                "price": 181040,
-                "options": {},
-                "discount_amount": 66960,
-                "discount_percent": 27,
-                "row_total": 543120,
-                "out_of_stock": false,
-                "message": "",
-                "is_unchecked": false,
-                "has_error": false,
-                "merged": false
-            },
-            {
-                "product_id": 443242,
-                "quantity": 3,
-                "is_checked": false,
-                "soon_release": "",
-                "original_price": 230000,
-                "sku": "8934974189657-khongqua",
-                "type_id": "simple",
-                "weight": 400,
-                "name": "Mùa Hè Không Tên - Bìa Cứng",
-                "image": "https://cdn0.fahasa.com/media/catalog/product//m/u/mua-he-khong-ten---bia-cung---3d-1_1.jpg",
-                "product_url": "https://www.fahasa.com/mua-he-khong-ten-bia-cung.html",
-                "category_main": "Sách tiếng Việt",
-                "category_mid": "Văn học",
-                "category_3": "Tiểu thuyết",
-                "category_4": null,
-                "category_main_id": 4,
-                "category_mid_id": 9,
-                "category_3_id": 201,
-                "category_4_id": 1,
-                "supplier": "CT02256",
-                "publisher": "Trẻ",
-                "evoucher": null,
-                "price": 179400,
-                "options": {},
-                "discount_amount": 50600,
-                "discount_percent": 22,
-                "row_total": 538200,
-                "out_of_stock": true,
-                "message": "Sản phẩm đã hết hàng. Xin gỡ bỏ.",
-                "is_unchecked": false,
-                "has_error": true,
-                "merged": false
-            }
-        ],
-        "qty": 3,
-        "total": "1.323.000 đ"
-    },
-    "couponCode": "FHS10KT03",
-    "couponLabel": "FHS10KT03"
+    }
 }
-
-
 
 

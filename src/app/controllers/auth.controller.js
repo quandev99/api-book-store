@@ -17,7 +17,11 @@ dotenv.config();
 export const checkAuthRegister = async (req, res) => {
   const {email} = req.body
   try {
-    const userExist = await UserModel.findOne({ email, verify:true }).lean();
+    const userExist = await UserModel.findOne({
+      email,
+      verify: true,
+      provider: "local",
+    }).lean();
     if (userExist) {
       throw new ConflictResponse("Email đã tồn tại");
     }
@@ -32,7 +36,7 @@ export const checkAuthRegister = async (req, res) => {
 
   } catch (error) {
     return res.status(error.status || 500).json({
-      message: "Server error: "+ error.message,
+      message: "Server error: 0"+ error.message,
     });
   }
 };
@@ -57,13 +61,10 @@ export const verifyUser = async (req, res) => {
      }
     await sendEmailVerify({ email: otpUser.otp_email ,user_name:user.name});
 
-    //  res.status(200).json({
-    //   message: "Token hợp lệ , vui lòng đăng nhập tài khoản của mình!"
-    //   })
     return res.redirect(`${process.env.UR_CLIENT}/sign-in`);
   } catch (error) {
     return res.status(error.status || 500).json({
-      message: "Server error: " + error.message,
+      message: "Server error 1: " + error.message,
     });
   }
 };
@@ -75,24 +76,22 @@ export const register = async (req, res) => {
        const userExist = await UserModel.findOne({
          email,
          verify: true,
+         provider: "local",
        }).lean();
       if (userExist) {
         throw new ConflictResponse("Tài khoản của bạn đã đăng ký!");
-      }else if(!userExist){
-        await sendEmailToken({ email });
-        throw new CREATED({
-          message: "Vui lòng kiểm tra Email và xác thực tài khoản!",
-        });
       }
-      const hashPassword = await bcrypt.hash(password, 10);
-      
-      const user = await UserModel.create({
-        email,
-        name,
-        password: hashPassword,
-      });
-      if(!user)  throw new BAD_REQUEST("Đăng ký tài khoản không thành công!");
-      await sendEmailToken({ email });
+        const hashPassword = await bcrypt.hash(password, 10);
+        const user = await UserModel.create({
+          email,
+          name,
+          password: hashPassword,
+        });
+        console.log("user ::", user);
+        if (!user) {
+          throw new BAD_REQUEST("Đăng ký tài khoản không thành công!");
+        }
+        // await sendEmailToken({ email });
         const privateKey = process.env.privateKey;
         const publicKey = process.env.publicKey;
         const keyStore = await KeyTokenService.createKeyToken({
@@ -108,22 +107,28 @@ export const register = async (req, res) => {
           {
             userId: user?._id,
             email,
-            role: 2,
+            role: 1,
           },
           publicKey,
           privateKey
         );
-        return new CREATED({
-          message: "Đăng ký thành công vui lòng kiểm tra email để được xác thực!",
-          metaData: {
-            user: getInfoData({
-              fileds: ["_id", "name", "email"],
-              object: user,
-            }),
-            tokens,
-          },
-        }).send(res);
+        await sendEmailToken({ email });
+        throw new CREATED({
+          message: "Vui lòng kiểm tra Email và xác thực tài khoản!",
+        });
+      
+        // return new CREATED({
+        //   message: "Đăng ký thành công vui lòng kiểm tra email để được xác thực!",
+        //   metaData: {
+        //     user: getInfoData({
+        //       fileds: ["_id", "name", "email"],
+        //       object: user,
+        //     }),
+        //     tokens,
+        //   },
+        // }).send(res);
     } catch (error) {
+      console.error("error 2:: ", error);
       return res.status(error.status || 500).json({
         message: "Server error: " + error.message,
       });
@@ -133,7 +138,10 @@ export const register = async (req, res) => {
 export const login = async (req,res)=>{
   const { email, password, refreshToken=null } = req.body;
   try {
-    const userExist = await UserModel.findOne({ email }).lean();
+    const userExist = await UserModel.findOne({
+      email,
+      provider: "local",
+    }).lean();
     if (!userExist || !userExist.verify) {
       throw new BAD_REQUEST("Email chưa đăng ký hoặc chưa xác nhận!");
     }

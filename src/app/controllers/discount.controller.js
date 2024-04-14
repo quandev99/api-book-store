@@ -128,14 +128,14 @@ export const applyDiscountToCart = async (req, res) => {
   }
 }
 export const unDiscountCart = async (req, res) => {
-  const { userId: user_id, discountCode: discount_code } = req.body;
+  const { userId: user_id, discountId: discount_id } = req.body;
   try {
     const cart = await discountCart.findOne({ user_id });
     if (!cart) {
       return res.status(400).json({ message: "Giỏ hàng không tồn tại." });
     }
 
-    const checkDiscount = await discountModel.findOne({ discount_code });
+    const checkDiscount = await discountModel.findById(discount_id);
     if (!checkDiscount) {
       return res.status(400).json({ message: "Mã giảm giá không tồn tại" });
     }

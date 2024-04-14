@@ -7,14 +7,14 @@ const userSchema = mongoose.Schema(
     name: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
       trim: true,
       maxLength: 150,
     },
     email: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
       trim: true,
     },
     gender: {
@@ -34,6 +34,19 @@ const userSchema = mongoose.Schema(
       },
     },
     active: { type: Boolean, default: true },
+    googleId: {
+      type: String,
+      default: null,
+    },
+    facebookId: {
+      type: String,
+      default: null,
+    },
+    provider: {
+      type: String,
+      enum: ["local", "google", "facebook"],
+      default: "local",
+    },
     verify: {
       type: Boolean,
       default: false,

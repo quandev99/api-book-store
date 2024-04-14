@@ -229,37 +229,36 @@ export const addCheckedProduct = async (req, res) => {
       let errorMessage = "";
       const subtotal = calculateSubtotal(cart.products);
       const checkDiscount = await findDiscountById(cart?.discount_id);
-      if (cart?.discount_id && cart?.products?.length > 0 && isCheckedProduct) {
+      if (cart?.discount_id && cart?.products?.length > 0 || isCheckedProduct) {
          if (
-           !isExpired(checkDiscount.expiration_date) &&
+           !isExpired(checkDiscount?.expiration_date) &&
            !checkDiscountUser(checkDiscount?.used_by_users) &&
            checkDiscountMinPurchaseAmount(
              subtotal,
-             checkDiscount.min_purchase_amount
+             checkDiscount?.min_purchase_amount
            )
          ) {
-           discountPrice = checkDiscount.discount_amount;
-         } else if (checkDiscountUser(checkDiscount?.used_by_users)) {
-           errorMessage = "Mã giảm giá đã hết lần sử dụng!";
+           discountPrice = checkDiscount?.discount_amount;
+          } else if (checkDiscountUser(checkDiscount?.used_by_users)) {
+            errorMessage = "Mã giảm giá đã hết lần sử dụng!";
             cart.discount_id = null;
-         } else if (
-           !checkDiscountMinPurchaseAmount(
-             subtotal,
-             checkDiscount.min_purchase_amount
+          } else if (
+            !checkDiscountMinPurchaseAmount(
+              subtotal,
+              checkDiscount?.min_purchase_amount
            )
-         ) {
-           errorMessage = "Số tiền không đủ điều kiện để sử dụng mã giảm giá";
+          ) {
+            errorMessage = "Số tiền không đủ điều kiện để sử dụng mã giảm giá";
             cart.discount_id = null;
-         } else if (isExpired(checkDiscount.expiration_date)) {
-           errorMessage = "Mã giảm giá đã hết thời gian!";
+          } else if (isExpired(checkDiscount?.expiration_date)) {
+            errorMessage = "Mã giảm giá đã hết thời gian!";
             cart.discount_id = null;
-         } else {
-           discountPrice = 0;
+          } else {
+            discountPrice = 0;
             cart.discount_id = null;
          }
       }
       // Tính lại grand_total và subtotal
-      
       const grandTotal = calculateGrandTotal(subtotal, discountPrice);
        if (!isCheckedProduct || !cart.discount_id) {
          cart.totals = [
@@ -339,18 +338,33 @@ export const addCheckedAllProduct = async (req, res) => {
       const subtotal = calculateSubtotal(cart.products);
      let discountPrice;
      const checkDiscount = await findDiscountById(cart?.discount_id);
-     if (cart?.discount_id && cart.products.length > 0 && isCheckedProduct) {
+     if (
+       (cart?.discount_id && cart?.products?.length > 0) ||
+       isCheckedProduct
+     ) {
        if (
-         !isExpired(checkDiscount.expiration_date) &&
+         !isExpired(checkDiscount?.expiration_date) &&
          !checkDiscountUser(checkDiscount?.used_by_users) &&
          checkDiscountMinPurchaseAmount(
            subtotal,
-           checkDiscount.min_purchase_amount
+           checkDiscount?.min_purchase_amount
          )
        ) {
          discountPrice = checkDiscount?.discount_amount;
-       }else{
-        cart.discount_id=null;
+       } else if (checkDiscountUser(checkDiscount?.used_by_users)) {
+         cart.discount_id = null;
+       } else if (
+         !checkDiscountMinPurchaseAmount(
+           subtotal,
+           checkDiscount?.min_purchase_amount
+         )
+       ) {
+         cart.discount_id = null;
+       } else if (isExpired(checkDiscount?.expiration_date)) {
+         cart.discount_id = null;
+       } else {
+         discountPrice = 0;
+         cart.discount_id = null;
        }
      }
     // Tính lại grand_total và subtotal
@@ -395,7 +409,7 @@ export const addCheckedAllProduct = async (req, res) => {
     await cart.save();
 
     return res.status(200).json({
-      message: "Sản phẩm đã được cập nhật trong giỏ hàng!",
+      message:  "Sản phẩm đã được cập nhật trong giỏ hàng!",
       cart,
       success: true,
     });
@@ -439,32 +453,34 @@ export const updateCartItem = async (req, res) => {
     await cart.save();
    const isCheckedProduct = isCheckedExists(cart.products);
    let discountPrice;
-   let errorMessage="";
   const subtotal = calculateSubtotal(cart.products);
   const checkDiscount = await findDiscountById(cart?.discount_id);
-  if (cart?.discount_id && cart?.products?.length > 0 && isCheckedProduct) {
+  if (cart?.discount_id && cart?.products?.length > 0 || isCheckedProduct) {
+    console.log(subtotal);
     if (
-      !isExpired(checkDiscount.expiration_date) &&
+      !isExpired(checkDiscount?.expiration_date) &&
       !checkDiscountUser(checkDiscount?.used_by_users) &&
       checkDiscountMinPurchaseAmount(
         subtotal,
-        checkDiscount.min_purchase_amount
+        checkDiscount?.min_purchase_amount
       )
     ) {
-      discountPrice = checkDiscount.discount_amount;
+      discountPrice = checkDiscount?.discount_amount;
+      discountPrice = 0;
     } else if (checkDiscountUser(checkDiscount?.used_by_users)) {
-      errorMessage = "Mã giảm giá đã hết lần sử dụng!";
+      cart.discount_id = null;
+      discountPrice = 0;
     } else if (
-      !checkDiscountMinPurchaseAmount(
+        !checkDiscountMinPurchaseAmount(
         subtotal,
-        checkDiscount.min_purchase_amount
+        checkDiscount?.min_purchase_amount
       )
     ) {
-      errorMessage = "Số tiền không đủ điều kiện để sử dụng mã giảm giá";
       cart.discount_id = null;
-    } else if (isExpired(checkDiscount.expiration_date)) {
-      cart.discount_id = null;
-      errorMessage = "Mã giảm giá đã hết thời gian!";
+      discountPrice = 0;
+    } else if (isExpired(checkDiscount?.expiration_date)) {
+       cart.discount_id = null;
+       discountPrice = 0;
     } else {
       discountPrice = 0;
       cart.discount_id = null;
@@ -510,7 +526,7 @@ export const updateCartItem = async (req, res) => {
     await cart.save();
 
     return res.status(200).json({
-      message: errorMessage || "Số lượng sản phẩm đã được cập nhật",
+      message: "Số lượng sản phẩm đã được cập nhật",
       cart,
       success: true,
     });
@@ -543,19 +559,30 @@ export const removeCartItem = async (req, res) => {
     let discountPrice;
     const subtotal = calculateSubtotal(cart.products);
     const checkDiscount = await findDiscountById(cart?.discount_id);
-    if (cart?.discount_id && cart?.products?.length > 0 && isCheckedProduct) {
+    if ((cart?.discount_id && cart?.products?.length > 0) || isCheckedProduct) {
       if (
-        !isExpired(checkDiscount.expiration_date) &&
+        !isExpired(checkDiscount?.expiration_date) &&
         !checkDiscountUser(checkDiscount?.used_by_users) &&
         checkDiscountMinPurchaseAmount(
           subtotal,
-          checkDiscount.min_purchase_amount
+          checkDiscount?.min_purchase_amount
         )
       ) {
-        discountPrice = checkDiscount.discount_amount;
+        discountPrice = checkDiscount?.discount_amount;
+      } else if (checkDiscountUser(checkDiscount?.used_by_users)) {
+        cart.discount_id = null;
+      } else if (
+        !checkDiscountMinPurchaseAmount(
+          subtotal,
+          checkDiscount?.min_purchase_amount
+        )
+      ) {
+        cart.discount_id = null;
+      } else if (isExpired(checkDiscount?.expiration_date)) {
+        cart.discount_id = null;
       } else {
         discountPrice = 0;
-        cart.discount_id=null;
+        cart.discount_id = null;
       }
     }
     // Tính lại grand_total và subtotal

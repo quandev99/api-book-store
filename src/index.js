@@ -9,9 +9,17 @@ import connectMongoose from "./config/db";
 import rootRouter from "./routes";
 import session from "express-session";
 import passport from "passport";
+import { createServer } from "node:http";
+import { Server  } from "socket.io";
+import { SocketIo } from './config/socketIo';
 dotenv.config();
 
 const app = express();
+// Tạo máy chủ HTTP từ ứng dụng Express
+const httpServer = createServer(app);
+
+// Tạo máy chủ WebSocket từ máy chủ HTTP
+const io = new Server(httpServer, { cors: { origin: "*" } });
 
 // middleware
 // Sử dụng middleware body-parser để xử lý dữ liệu POST
@@ -39,7 +47,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
+// Cấu hình Socket.IO
+SocketIo(io);
+
 // Router
 app.use("/api", rootRouter);
 connectMongoose();
+httpServer.listen(process.env.PORT, () => {
+  console.log(`Server is running on port: ${process.env.PORT}`);
+});
 export const viteNodeApp = app;

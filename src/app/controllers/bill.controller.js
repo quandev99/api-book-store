@@ -5,6 +5,9 @@ import billDetailModel from "../models/billDetail.model";
 import billModel from "../models/bill.model";
 import { generateRandomCode } from "../../until/cryptoUtil";
 import sendMail from "../../until/sendMail";
+import notificationModel from "../models/notification.model";
+import { newNotificationService } from "../../services/notification.service";
+import moment from "moment";
 
 const dataBillStatus =[
         "Pending",
@@ -86,6 +89,19 @@ export const addBill = async (req, res) => {
      const html = `<p style="font-size: 16px; color: #002140; font-weight: 600;">Mong khách hàng chú ý đơn hàng để có thể giao đúng hẹn</p>`;
      const subject = "Cảm ơn bạn đã mua hàng bên Book Store";
      sendMail({ email: user?.email, subject, html });
+    const dataUser = {
+      _id: user_id,
+      name: user?.name,
+    };
+     await newNotificationService({
+       title: "Chúc mừng bạn đã đã đặt hàng thành công",
+       type: "order",
+       user: dataUser,
+       content: `Bạn đã đặt sản phẩm thành công vào lúc: ${moment(
+         updatedBill?.createdAt
+       ).format("HH:mm DD/MM/yyyy")}`,
+       url: `/customer/order/${updatedBill?._id}/update`,
+     });
     return res
       .status(200)
       .json({ message: "Hóa đơn đã được tạo thành công!", bill: updatedBill,success:true });

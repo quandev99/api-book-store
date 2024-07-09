@@ -53,6 +53,7 @@ const userSchema = mongoose.Schema(
     },
     phone: {
       type: String,
+      default: "",
     },
     role: {
       type: Number,

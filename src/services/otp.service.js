@@ -1,11 +1,11 @@
 'use strict';
 
-import otpModel from "../app/models/otp.model"
-const crypto = await import("node:crypto");
+import crypto  from "crypto";
+import otpModel from "../app/models/otp.model";
 const generatorTokenRandom = () =>{
-  const token = crypto.randomInt(0,Math.pow(2,32))
-  return token
-}
+  const token = crypto.randomInt(0,Math.pow(2,32));
+  return token;
+};
 const newOtpService = async ( {email})=>{
   const token = generatorTokenRandom();
   const newToken = await otpModel.create({

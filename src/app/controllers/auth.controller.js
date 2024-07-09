@@ -1,6 +1,5 @@
 import UserModel from "../models/user.model";
 import bcrypt from "bcryptjs";
-const crypto = await import('node:crypto');
 import { createTokenPair } from "../../until/jwtService";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
@@ -172,7 +171,7 @@ export const login = async (req,res)=>{
        message: "Đăng nhập thành công",
        metaData: {
          user: getInfoData({
-           fileds: ["_id", "name", "email", "image"],
+           fileds: ["_id", "name", "email", "image", "phone"],
            object: userExist,
          }),
          tokens,

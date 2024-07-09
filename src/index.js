@@ -9,7 +9,7 @@ import connectMongoose from "./config/db";
 import rootRouter from "./routes";
 import session from "express-session";
 import passport from "passport";
-import { createServer } from "node:http";
+import { createServer } from "http";
 import { Server  } from "socket.io";
 import { SocketIo } from './config/socketIo';
 dotenv.config();

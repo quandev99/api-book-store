@@ -19,7 +19,13 @@ const app = express();
 const httpServer = createServer(app);
 
 // Tạo máy chủ WebSocket từ máy chủ HTTP
-const io = new Server(httpServer, { cors: { origin: "*" } });
+const io = new Server(httpServer, {
+  cors: {
+    origin: process.env.CORS_ORIGIN || "*", // Cấu hình origin tùy theo môi trường
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+});
 
 // middleware
 // Sử dụng middleware body-parser để xử lý dữ liệu POST
@@ -55,7 +61,9 @@ SocketIo(io);
 // Router
 app.use("/api", rootRouter);
 connectMongoose();
-httpServer.listen(process.env.PORT, () => {
-  console.log(`Server is running on port: ${process.env.PORT}`);
+const PORT = process.env.PORT || 3000;
+httpServer.listen(PORT, () => {
+  console.log(`Server is running on port: ${PORT}`);
 });
+
 export const viteNodeApp = app;

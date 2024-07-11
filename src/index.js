@@ -35,14 +35,16 @@ app.use(bodyParser.json()); // Xử lý dữ liệu JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "*",
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Các phương thức HTTP cho phép
+    origin:
+      ["http://localhost:3001", "http://127.0.0.1:3001"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: [
       "Content-Type",
       "Authorization",
       "x-client-id",
       "x-api-key",
     ],
+    credentials: true,
   })
 );
 app.use(morgan("tiny"));
